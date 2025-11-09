@@ -1,1 +1,5 @@
-NodeFilterer used by: Selector
+NodeFilterer used by: 
+	- Selector
+	- ContentSwitcher
+Selector used by: 
+	- ContentSwitcher
