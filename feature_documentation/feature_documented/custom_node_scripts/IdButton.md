@@ -6,4 +6,4 @@
 - button_id:String
 
 # Signal
-- pressed(id:String)
+- pressed_id(id:String) - emitted when button is pressed, and it sends button id
