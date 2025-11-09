@@ -4,3 +4,11 @@
 
 # Don't
 - do anything but that.
+
+# Signals
+- selected(button_id:String)
+
+# Functions
+- set_all_button_toggle_mode()
+- unselect_all()
+- select(id)
