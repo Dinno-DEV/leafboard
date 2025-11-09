@@ -3,7 +3,7 @@
 - signals when button is pressed with the button's id.
 
 # Exported Variables
-- button_id
+- button_id:String
 
 # Signal
-- 
+- pressed(id:String)
