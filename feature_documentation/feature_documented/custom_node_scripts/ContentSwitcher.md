@@ -8,4 +8,5 @@
 
 # Functions
 - hide_all_content() - makes all Control type nodes invisible.
+- show_first_content() - shows the first Control node under the ContentSwitcher.
 - show_content(id:String) - Control node with 'id' as the name becomes visible, while the rest is turned invisible.
