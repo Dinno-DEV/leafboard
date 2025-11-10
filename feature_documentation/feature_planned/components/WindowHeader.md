@@ -1,6 +1,6 @@
 # Do
 - contains soundboard & settings switcher
-- contains window resizing settings
+- contains window mode settings
 - contains app name and version
 - can be used to drag window around
 - handle the minimize
