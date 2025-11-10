@@ -9,3 +9,7 @@
 
 # Don't
 - handle the switching of soundboard & setting switcher
+
+# Variables
+- main_scene_background - putting a panel container node here will change the texture type
+- window_mode_button - putting an IdButton node  here will change the icon depending on the window mode
