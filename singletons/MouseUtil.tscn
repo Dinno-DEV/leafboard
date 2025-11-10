@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://scnra2gku44k"]
+
+[ext_resource type="Script" uid="uid://bwkqlpowc1jf" path="res://singletons/MouseUtil.gd" id="1_065yn"]
+
+[node name="MouseUtil" type="Node"]
+script = ExtResource("1_065yn")
