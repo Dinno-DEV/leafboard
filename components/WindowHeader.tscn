@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://p0yc0ygnhemt" path="res://assets/icons/Maximize.png" id="6_u6jl0"]
 [ext_resource type="Texture2D" uid="uid://dpydd7qfy1c40" path="res://assets/icons/Cross.png" id="7_1pa1v"]
 
-[node name="WindowHeader" type="Control"]
+[node name="WindowHeader" type="Control" node_paths=PackedStringArray("window_mode_button")]
 custom_minimum_size = Vector2(0, 31)
 layout_mode = 3
 anchors_preset = 15
@@ -19,6 +19,7 @@ offset_bottom = -689.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1pa1v")
+window_mode_button = NodePath("HBoxContainer/HBoxContainer/WindowMode")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -76,6 +77,7 @@ icon = ExtResource("5_woma4")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("2_b1gva")
+button_id = "Minimize"
 metadata/_custom_type_script = "uid://coi3puogpj6af"
 
 [node name="WindowMode" type="Button" parent="HBoxContainer/HBoxContainer"]
@@ -85,6 +87,7 @@ icon = ExtResource("6_u6jl0")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("2_b1gva")
+button_id = "WindowMode"
 metadata/_custom_type_script = "uid://coi3puogpj6af"
 
 [node name="Close" type="Button" parent="HBoxContainer/HBoxContainer"]
@@ -94,7 +97,11 @@ icon = ExtResource("7_1pa1v")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("2_b1gva")
+button_id = "Close"
 metadata/_custom_type_script = "uid://coi3puogpj6af"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed_id" from="HBoxContainer/HBoxContainer/Minimize" to="." method="_on_minimize_pressed_id"]
+[connection signal="pressed_id" from="HBoxContainer/HBoxContainer/WindowMode" to="." method="_on_window_mode_pressed_id"]
+[connection signal="pressed_id" from="HBoxContainer/HBoxContainer/Close" to="." method="_on_close_pressed_id"]

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=31 format=3 uid="uid://re1e3s8kew18"]
+[gd_resource type="Theme" load_steps=32 format=3 uid="uid://re1e3s8kew18"]
 
 [ext_resource type="FontFile" uid="uid://bfltwa0oq87mt" path="res://assets/fonts/Inter_18pt-Black.ttf" id="1_0nn2o"]
 [ext_resource type="Texture2D" uid="uid://3lw7j4e26erv" path="res://assets/panels/PanelMainRad8.png" id="1_v7g3f"]
@@ -109,6 +109,9 @@ texture_margin_left = 24.0
 texture_margin_top = 24.0
 texture_margin_right = 24.0
 texture_margin_bottom = 24.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xumdu"]
+bg_color = Color(0.09803922, 0.09803922, 0.09803922, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0nn2o"]
 content_margin_left = 4.0
@@ -249,6 +252,8 @@ Panel/styles/panel = SubResource("StyleBoxTexture_onmqg")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_op0om")
 PanelContainerMain2Rad24/base_type = &"PanelContainer"
 PanelContainerMain2Rad24/styles/panel = SubResource("StyleBoxTexture_v7g3f")
+PanelContainerMainRad0/base_type = &"PanelContainer"
+PanelContainerMainRad0/styles/panel = SubResource("StyleBoxFlat_xumdu")
 PanelContainerMainRad10/base_type = &"PanelContainer"
 PanelContainerMainRad10/styles/panel = SubResource("StyleBoxTexture_op0om")
 PanelContainerMainRad24/base_type = &"PanelContainer"
