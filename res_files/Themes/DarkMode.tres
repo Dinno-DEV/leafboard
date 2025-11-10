@@ -1,8 +1,9 @@
-[gd_resource type="Theme" load_steps=17 format=3 uid="uid://re1e3s8kew18"]
+[gd_resource type="Theme" load_steps=19 format=3 uid="uid://re1e3s8kew18"]
 
 [ext_resource type="Texture2D" uid="uid://3lw7j4e26erv" path="res://assets/PanelMainRad8.png" id="1_onmqg"]
 [ext_resource type="Texture2D" uid="uid://dnw4ucouf0cdy" path="res://assets/PanelSubRad24.png" id="2_0iuoy"]
 [ext_resource type="Texture2D" uid="uid://gyecyychvriq" path="res://assets/PanelSubRad36.png" id="3_p3tso"]
+[ext_resource type="Texture2D" uid="uid://d2ow4t6judq5a" path="res://assets/PanelMainRad10.png" id="3_v7g3f"]
 [ext_resource type="Texture2D" uid="uid://bqemfvm3s1yn7" path="res://assets/PanelMain2Rad24.png" id="4_i37bs"]
 [ext_resource type="Texture2D" uid="uid://dtwgm6bi5d62e" path="res://assets/PanelMainRad24.png" id="5_t0vp7"]
 [ext_resource type="Texture2D" uid="uid://cnm1dd4l4uub6" path="res://assets/PanelSubRad12.png" id="6_twyof"]
@@ -17,6 +18,17 @@ texture_margin_left = 8.0
 texture_margin_top = 8.0
 texture_margin_right = 8.0
 texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_op0om"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+texture = ExtResource("3_v7g3f")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v7g3f"]
 content_margin_left = 4.0
@@ -119,9 +131,11 @@ texture_margin_bottom = 12.0
 
 [resource]
 Panel/styles/panel = SubResource("StyleBoxTexture_onmqg")
-PanelContainer/styles/panel = SubResource("StyleBoxTexture_onmqg")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_op0om")
 PanelContainerMain2Rad24/base_type = &"PanelContainer"
 PanelContainerMain2Rad24/styles/panel = SubResource("StyleBoxTexture_v7g3f")
+PanelContainerMainRad10/base_type = &"PanelContainer"
+PanelContainerMainRad10/styles/panel = SubResource("StyleBoxTexture_op0om")
 PanelContainerMainRad24/base_type = &"PanelContainer"
 PanelContainerMainRad24/styles/panel = SubResource("StyleBoxTexture_0nn2o")
 PanelContainerMainRad8/base_type = &"PanelContainer"
