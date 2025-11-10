@@ -1,15 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqvivuv0bpux6"]
+[gd_scene load_steps=8 format=3 uid="uid://dqvivuv0bpux6"]
 
 [ext_resource type="Script" uid="uid://dqdm5g0baxqp8" path="res://custom_node_scripts/Selector.gd" id="1_exi6l"]
 [ext_resource type="Script" uid="uid://coi3puogpj6af" path="res://custom_node_scripts/IdButton.gd" id="2_b1gva"]
+[ext_resource type="Texture2D" uid="uid://kw3bpgkpta6p" path="res://assets/icons/Settings.png" id="2_ym4c7"]
+[ext_resource type="Texture2D" uid="uid://dmpnn7nylqe2g" path="res://assets/icons/Audio.png" id="4_h4syd"]
+[ext_resource type="Texture2D" uid="uid://d1jsfonx3fery" path="res://assets/icons/Minimize.png" id="5_woma4"]
+[ext_resource type="Texture2D" uid="uid://p0yc0ygnhemt" path="res://assets/icons/Maximize.png" id="6_u6jl0"]
+[ext_resource type="Texture2D" uid="uid://dpydd7qfy1c40" path="res://assets/icons/Cross.png" id="7_1pa1v"]
 
 [node name="WindowHeader" type="Control"]
-custom_minimum_size = Vector2(0, 29)
+custom_minimum_size = Vector2(0, 31)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -691.0
+offset_bottom = -689.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -27,15 +32,62 @@ grow_vertical = 2
 
 [node name="Selector" type="BoxContainer" parent="HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 3
 script = ExtResource("1_exi6l")
 metadata/_custom_type_script = "uid://dqdm5g0baxqp8"
 
-[node name="IdButton" type="Button" parent="HBoxContainer/Selector"]
+[node name="Settings" type="Button" parent="HBoxContainer/Selector"]
+custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
+icon = ExtResource("2_ym4c7")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_b1gva")
+button_id = "Settings"
+metadata/_custom_type_script = "uid://coi3puogpj6af"
+
+[node name="Soundboard" type="Button" parent="HBoxContainer/Selector"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+icon = ExtResource("4_h4syd")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_b1gva")
+button_id = "Soundboard"
+metadata/_custom_type_script = "uid://coi3puogpj6af"
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Minimize" type="Button" parent="HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+icon = ExtResource("5_woma4")
+icon_alignment = 1
+expand_icon = true
 script = ExtResource("2_b1gva")
 metadata/_custom_type_script = "uid://coi3puogpj6af"
 
-[node name="IdButton2" type="Button" parent="HBoxContainer/Selector"]
+[node name="WindowMode" type="Button" parent="HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
+icon = ExtResource("6_u6jl0")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_b1gva")
+metadata/_custom_type_script = "uid://coi3puogpj6af"
+
+[node name="Close" type="Button" parent="HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+icon = ExtResource("7_1pa1v")
+icon_alignment = 1
+expand_icon = true
 script = ExtResource("2_b1gva")
 metadata/_custom_type_script = "uid://coi3puogpj6af"
