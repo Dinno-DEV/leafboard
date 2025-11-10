@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqvivuv0bpux6"]
+[gd_scene load_steps=9 format=3 uid="uid://dqvivuv0bpux6"]
 
+[ext_resource type="Script" uid="uid://xxa5y2jd2vhs" path="res://components/WindowHeader.gd" id="1_1pa1v"]
 [ext_resource type="Script" uid="uid://dqdm5g0baxqp8" path="res://custom_node_scripts/Selector.gd" id="1_exi6l"]
 [ext_resource type="Script" uid="uid://coi3puogpj6af" path="res://custom_node_scripts/IdButton.gd" id="2_b1gva"]
 [ext_resource type="Texture2D" uid="uid://kw3bpgkpta6p" path="res://assets/icons/Settings.png" id="2_ym4c7"]
@@ -17,6 +18,7 @@ anchor_bottom = 1.0
 offset_bottom = -689.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_1pa1v")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -60,6 +62,7 @@ metadata/_custom_type_script = "uid://coi3puogpj6af"
 [node name="Label" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
+mouse_filter = 1
 text = "Leafboard 25.11.10"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
@@ -92,3 +95,6 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("2_b1gva")
 metadata/_custom_type_script = "uid://coi3puogpj6af"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
