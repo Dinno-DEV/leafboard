@@ -1,5 +1,6 @@
-[gd_resource type="Theme" load_steps=27 format=3 uid="uid://re1e3s8kew18"]
+[gd_resource type="Theme" load_steps=31 format=3 uid="uid://re1e3s8kew18"]
 
+[ext_resource type="FontFile" uid="uid://bfltwa0oq87mt" path="res://assets/fonts/Inter_18pt-Black.ttf" id="1_0nn2o"]
 [ext_resource type="Texture2D" uid="uid://3lw7j4e26erv" path="res://assets/panels/PanelMainRad8.png" id="1_v7g3f"]
 [ext_resource type="Texture2D" uid="uid://d2ow4t6judq5a" path="res://assets/panels/PanelMainRad10.png" id="2_0nn2o"]
 [ext_resource type="Texture2D" uid="uid://bqemfvm3s1yn7" path="res://assets/panels/PanelMain2Rad24.png" id="3_unj3k"]
@@ -69,6 +70,12 @@ corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h4vqd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_op0om"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xumdu"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_onmqg"]
 content_margin_left = 4.0
@@ -227,6 +234,17 @@ ButtonRad4V2/styles/hover = SubResource("StyleBoxFlat_op0om")
 ButtonRad4V2/styles/hover_pressed = SubResource("StyleBoxFlat_op0om")
 ButtonRad4V2/styles/normal = SubResource("StyleBoxEmpty_0nn2o")
 ButtonRad4V2/styles/pressed = SubResource("StyleBoxFlat_op0om")
+Label/colors/font_color = Color(0.6901961, 0.6901961, 0.6901961, 1)
+Label/font_sizes/font_size = 12
+Label/fonts/font = ExtResource("1_0nn2o")
+Label/styles/focus = SubResource("StyleBoxEmpty_h4vqd")
+Label/styles/normal = SubResource("StyleBoxEmpty_h4vqd")
+LabelTitle/base_type = &"Label"
+LabelTitle/colors/font_color = Color(0.6901961, 0.6901961, 0.6901961, 1)
+LabelTitle/font_sizes/font_size = 12
+LabelTitle/fonts/font = ExtResource("1_0nn2o")
+LabelTitle/styles/focus = SubResource("StyleBoxEmpty_op0om")
+LabelTitle/styles/normal = SubResource("StyleBoxEmpty_xumdu")
 Panel/styles/panel = SubResource("StyleBoxTexture_onmqg")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_op0om")
 PanelContainerMain2Rad24/base_type = &"PanelContainer"

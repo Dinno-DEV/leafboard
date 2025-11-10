@@ -36,6 +36,9 @@ theme_type_variation = &"ButtonRad4"
 [node name="Soundboard" parent="PanelContainer/VBoxContainer/PanelContainer/WindowHeader/HBoxContainer/Selector" index="1"]
 theme_type_variation = &"ButtonRad4"
 
+[node name="Label" parent="PanelContainer/VBoxContainer/PanelContainer/WindowHeader/HBoxContainer" index="1"]
+theme_type_variation = &"LabelTitle"
+
 [node name="Minimize" parent="PanelContainer/VBoxContainer/PanelContainer/WindowHeader/HBoxContainer/HBoxContainer" index="0"]
 theme_type_variation = &"ButtonRad4V2"
 

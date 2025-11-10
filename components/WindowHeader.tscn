@@ -60,6 +60,7 @@ metadata/_custom_type_script = "uid://coi3puogpj6af"
 [node name="Label" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
+text = "Leafboard 25.11.10"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
