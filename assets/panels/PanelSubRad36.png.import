@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://gyecyychvriq"
-path="res://.godot/imported/PanelSubRad36.png-e51fc0462e47eb8f691953514010d296.ctex"
+path="res://.godot/imported/PanelSubRad36.png-a9783347ca859a9a8a8168455dec64af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/PanelSubRad36.png"
-dest_files=["res://.godot/imported/PanelSubRad36.png-e51fc0462e47eb8f691953514010d296.ctex"]
+source_file="res://assets/panels/PanelSubRad36.png"
+dest_files=["res://.godot/imported/PanelSubRad36.png-a9783347ca859a9a8a8168455dec64af.ctex"]
 
 [params]
 

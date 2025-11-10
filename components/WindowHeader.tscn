@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqvivuv0bpux6"]
+
+[ext_resource type="Script" uid="uid://dqdm5g0baxqp8" path="res://custom_node_scripts/Selector.gd" id="1_exi6l"]
+[ext_resource type="Script" uid="uid://coi3puogpj6af" path="res://custom_node_scripts/IdButton.gd" id="2_b1gva"]
+
+[node name="WindowHeader" type="Control"]
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -691.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Selector" type="BoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+script = ExtResource("1_exi6l")
+metadata/_custom_type_script = "uid://dqdm5g0baxqp8"
+
+[node name="IdButton" type="Button" parent="HBoxContainer/Selector"]
+layout_mode = 2
+script = ExtResource("2_b1gva")
+metadata/_custom_type_script = "uid://coi3puogpj6af"
+
+[node name="IdButton2" type="Button" parent="HBoxContainer/Selector"]
+layout_mode = 2
+script = ExtResource("2_b1gva")
+metadata/_custom_type_script = "uid://coi3puogpj6af"

@@ -1,12 +1,12 @@
-[gd_resource type="Theme" load_steps=19 format=3 uid="uid://re1e3s8kew18"]
+[gd_resource type="Theme" load_steps=20 format=3 uid="uid://re1e3s8kew18"]
 
-[ext_resource type="Texture2D" uid="uid://3lw7j4e26erv" path="res://assets/PanelMainRad8.png" id="1_onmqg"]
-[ext_resource type="Texture2D" uid="uid://dnw4ucouf0cdy" path="res://assets/PanelSubRad24.png" id="2_0iuoy"]
-[ext_resource type="Texture2D" uid="uid://gyecyychvriq" path="res://assets/PanelSubRad36.png" id="3_p3tso"]
-[ext_resource type="Texture2D" uid="uid://d2ow4t6judq5a" path="res://assets/PanelMainRad10.png" id="3_v7g3f"]
-[ext_resource type="Texture2D" uid="uid://bqemfvm3s1yn7" path="res://assets/PanelMain2Rad24.png" id="4_i37bs"]
-[ext_resource type="Texture2D" uid="uid://dtwgm6bi5d62e" path="res://assets/PanelMainRad24.png" id="5_t0vp7"]
-[ext_resource type="Texture2D" uid="uid://cnm1dd4l4uub6" path="res://assets/PanelSubRad12.png" id="6_twyof"]
+[ext_resource type="Texture2D" uid="uid://3lw7j4e26erv" path="res://assets/panels/PanelMainRad8.png" id="1_onmqg"]
+[ext_resource type="Texture2D" uid="uid://dnw4ucouf0cdy" path="res://assets/panels/PanelSubRad24.png" id="2_0iuoy"]
+[ext_resource type="Texture2D" uid="uid://gyecyychvriq" path="res://assets/panels/PanelSubRad36.png" id="3_p3tso"]
+[ext_resource type="Texture2D" uid="uid://d2ow4t6judq5a" path="res://assets/panels/PanelMainRad10.png" id="3_v7g3f"]
+[ext_resource type="Texture2D" uid="uid://bqemfvm3s1yn7" path="res://assets/panels/PanelMain2Rad24.png" id="4_i37bs"]
+[ext_resource type="Texture2D" uid="uid://dtwgm6bi5d62e" path="res://assets/panels/PanelMainRad24.png" id="5_t0vp7"]
+[ext_resource type="Texture2D" uid="uid://cnm1dd4l4uub6" path="res://assets/panels/PanelSubRad12.png" id="6_twyof"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_onmqg"]
 content_margin_left = 4.0
@@ -129,6 +129,14 @@ texture_margin_top = 12.0
 texture_margin_right = 12.0
 texture_margin_bottom = 12.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v7g3f"]
+content_margin_bottom = 2.0
+bg_color = Color(0.14509805, 0.14509805, 0.14509805, 1)
+border_width_bottom = 2
+border_color = Color(0.23921569, 0.23921569, 0.23921569, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+
 [resource]
 Panel/styles/panel = SubResource("StyleBoxTexture_onmqg")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_op0om")
@@ -158,3 +166,5 @@ PanelSubRad24/base_type = &"Panel"
 PanelSubRad24/styles/panel = SubResource("StyleBoxTexture_p3tso")
 PanelSubRad36/base_type = &"Panel"
 PanelSubRad36/styles/panel = SubResource("StyleBoxTexture_i37bs")
+WindowHeader/base_type = &"PanelContainer"
+WindowHeader/styles/panel = SubResource("StyleBoxFlat_v7g3f")

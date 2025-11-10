@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnm1dd4l4uub6"
-path="res://.godot/imported/PanelSubRad12.png-8550fb03de42d3d47c19a4ffd9847c77.ctex"
+uid="uid://dtwgm6bi5d62e"
+path="res://.godot/imported/PanelMainRad24.png-db3f02276977cb2004dca9adf1c5d97c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/PanelSubRad12.png"
-dest_files=["res://.godot/imported/PanelSubRad12.png-8550fb03de42d3d47c19a4ffd9847c77.ctex"]
+source_file="res://assets/panels/PanelMainRad24.png"
+dest_files=["res://.godot/imported/PanelMainRad24.png-db3f02276977cb2004dca9adf1c5d97c.ctex"]
 
 [params]
 
