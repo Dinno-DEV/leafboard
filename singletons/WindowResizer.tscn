@@ -1,0 +1,184 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwstka32224xg"]
+
+[ext_resource type="Script" uid="uid://8na1vqh8uu0" path="res://singletons/WindowResizer.gd" id="1_t1ipy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t1ipy"]
+
+[node name="WindowResizer" type="CanvasLayer"]
+script = ExtResource("1_t1ipy")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="LeftSide" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="TopLeftSide" type="Button" parent="HBoxContainer/LeftSide"]
+custom_minimum_size = Vector2(6, 6)
+layout_mode = 2
+mouse_default_cursor_shape = 12
+theme_type_variation = &"FlatButton"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t1ipy")
+
+[node name="LeftSide" type="Button" parent="HBoxContainer/LeftSide"]
+custom_minimum_size = Vector2(6, 6)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 10
+theme_type_variation = &"FlatButton"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t1ipy")
+
+[node name="BottomLeftSide" type="Button" parent="HBoxContainer/LeftSide"]
+custom_minimum_size = Vector2(6, 6)
+layout_mode = 2
+size_flags_vertical = 8
+mouse_default_cursor_shape = 11
+theme_type_variation = &"FlatButton"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t1ipy")
+
+[node name="MiddleSide" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Top" type="Button" parent="HBoxContainer/MiddleSide"]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+mouse_default_cursor_shape = 9
+theme_type_variation = &"FlatButton"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t1ipy")
+
+[node name="Bottom" type="Button" parent="HBoxContainer/MiddleSide"]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+size_flags_vertical = 10
+mouse_default_cursor_shape = 9
+theme_type_variation = &"FlatButton"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t1ipy")
+
+[node name="RightSide" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="TopRight" type="Button" parent="HBoxContainer/RightSide"]
+custom_minimum_size = Vector2(6, 6)
+layout_mode = 2
+mouse_default_cursor_shape = 11
+theme_type_variation = &"FlatButton"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t1ipy")
+
+[node name="RightSide" type="Button" parent="HBoxContainer/RightSide"]
+custom_minimum_size = Vector2(6, 6)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 10
+theme_type_variation = &"FlatButton"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t1ipy")
+
+[node name="BottomRight" type="Button" parent="HBoxContainer/RightSide"]
+custom_minimum_size = Vector2(6, 6)
+layout_mode = 2
+size_flags_vertical = 8
+mouse_default_cursor_shape = 12
+theme_type_variation = &"FlatButton"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_t1ipy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t1ipy")
+
+[connection signal="button_down" from="HBoxContainer/LeftSide/TopLeftSide" to="." method="_on_top_left_side_button_down"]
+[connection signal="button_down" from="HBoxContainer/LeftSide/LeftSide" to="." method="_on_left_side_button_down"]
+[connection signal="button_down" from="HBoxContainer/LeftSide/BottomLeftSide" to="." method="_on_bottom_left_side_button_down"]
+[connection signal="button_down" from="HBoxContainer/MiddleSide/Top" to="." method="_on_top_button_down"]
+[connection signal="button_down" from="HBoxContainer/MiddleSide/Bottom" to="." method="_on_bottom_button_down"]
+[connection signal="button_down" from="HBoxContainer/RightSide/TopRight" to="." method="_on_top_right_button_down"]
+[connection signal="button_down" from="HBoxContainer/RightSide/RightSide" to="." method="_on_right_side_button_down"]
+[connection signal="button_down" from="HBoxContainer/RightSide/BottomRight" to="." method="_on_bottom_right_button_down"]
