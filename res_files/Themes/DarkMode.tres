@@ -2,3 +2,6 @@
 
 [resource]
 Panel/styles/panel = null
+PanelMainRad8/base_type = &"Panel"
+PanelSubRad24/base_type = &"Panel"
+PanelSubRad36/base_type = &"Panel"
