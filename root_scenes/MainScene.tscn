@@ -3,14 +3,13 @@
 [ext_resource type="Theme" uid="uid://re1e3s8kew18" path="res://res_files/Themes/DarkMode.tres" id="1_w3jt3"]
 [ext_resource type="PackedScene" uid="uid://dqvivuv0bpux6" path="res://components/WindowHeader.tscn" id="2_qeh2v"]
 [ext_resource type="Script" uid="uid://bh0ou3krx7hj4" path="res://custom_node_scripts/ContentSwitcher.gd" id="3_eegsb"]
+[ext_resource type="PackedScene" uid="uid://bi3qobwcow5mx" path="res://components/ContentSoundboard.tscn" id="4_jc1id"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eegsb"]
 content_margin_left = 30.0
 content_margin_top = 30.0
 content_margin_right = 30.0
 content_margin_bottom = 30.0
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jc1id"]
 
 [node name="MainScene" type="Control"]
 layout_mode = 3
@@ -72,13 +71,8 @@ script = ExtResource("3_eegsb")
 selector = NodePath("../../HeaderContainer/WindowHeader/HBoxContainer/Selector")
 metadata/_custom_type_script = "uid://bh0ou3krx7hj4"
 
-[node name="ContentSoundboard" type="PanelContainer" parent="PanelContainer/VBoxContainer/BodyContainer/ContentSwitcher"]
+[node name="ContentSoundboard" parent="PanelContainer/VBoxContainer/BodyContainer/ContentSwitcher" instance=ExtResource("4_jc1id")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_jc1id")
 
 [editable path="PanelContainer/VBoxContainer/HeaderContainer/WindowHeader"]
+[editable path="PanelContainer/VBoxContainer/BodyContainer/ContentSwitcher/ContentSoundboard"]

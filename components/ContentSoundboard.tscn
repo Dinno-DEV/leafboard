@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=3 uid="uid://bi3qobwcow5mx"]
+
+[ext_resource type="Script" uid="uid://dqdm5g0baxqp8" path="res://custom_node_scripts/Selector.gd" id="1_jeqqm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jc1id"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gcnpg"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jeqqm"]
+content_margin_left = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fhn4t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8igh2"]
+content_margin_left = 18.0
+content_margin_top = 18.0
+content_margin_right = 18.0
+content_margin_bottom = 18.0
+
+[node name="ContentSoundboard" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jc1id")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 12
+drag_area_highlight_in_editor = true
+
+[node name="CategoryContainer" type="HBoxContainer" parent="HSplitContainer"]
+custom_minimum_size = Vector2(319, 0)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="CategoryBackground" type="PanelContainer" parent="HSplitContainer/CategoryContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"PanelContainerSubRad24"
+
+[node name="Padding16px" type="PanelContainer" parent="HSplitContainer/CategoryContainer/CategoryBackground"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gcnpg")
+
+[node name="Selector" type="BoxContainer" parent="HSplitContainer/CategoryContainer/CategoryBackground/Padding16px"]
+layout_mode = 2
+script = ExtResource("1_jeqqm")
+metadata/_custom_type_script = "uid://dqdm5g0baxqp8"
+
+[node name="VScrollBar" type="VScrollBar" parent="HSplitContainer/CategoryContainer"]
+layout_mode = 2
+page = 8.0
+
+[node name="Padding3px" type="Control" parent="HSplitContainer/CategoryContainer"]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 2
+
+[node name="PaddingLeft10px" type="PanelContainer" parent="HSplitContainer"]
+custom_minimum_size = Vector2(427, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jeqqm")
+
+[node name="CategoryContentBackground" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_fhn4t")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground"]
+layout_mode = 2
+
+[node name="Padding18px" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8igh2")
+
+[node name="Label" type="Label" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/Padding18px"]
+layout_mode = 2
+theme_type_variation = &"LabelCategoryTitle"
+text = "Category Name But Too Long"
+clip_text = true
+text_overrun_behavior = 3
+ellipsis_char = "‥"
