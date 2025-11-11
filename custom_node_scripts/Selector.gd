@@ -1,6 +1,8 @@
 class_name Selector
 extends BoxContainer
 
+@export var select_on_ready:int = -1
+
 signal selected(id:String)
 
 func _ready() -> void:
@@ -9,6 +11,9 @@ func _ready() -> void:
 	var id_buttons:Array[Node] = NodeFilterer.by_type(get_children(), "IdButton")
 	for id_button in id_buttons:
 		id_button.pressed_id.connect(_on_id_button_pressed_id)
+	if select_on_ready != -1:
+		if get_child(select_on_ready) is IdButton: 
+			select(get_child(select_on_ready).button_id)
 
 func set_all_button_toggle_mode() -> void:
 	for node in get_children():
