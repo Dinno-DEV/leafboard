@@ -48,7 +48,7 @@ icon = ExtResource("2_ym4c7")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("2_b1gva")
-button_id = "Settings"
+button_id = "ContentSettings"
 metadata/_custom_type_script = "uid://coi3puogpj6af"
 
 [node name="Soundboard" type="Button" parent="HBoxContainer/Selector"]
@@ -58,7 +58,7 @@ icon = ExtResource("4_h4syd")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("2_b1gva")
-button_id = "Soundboard"
+button_id = "ContentSoundboard"
 metadata/_custom_type_script = "uid://coi3puogpj6af"
 
 [node name="Label" type="Label" parent="HBoxContainer"]
