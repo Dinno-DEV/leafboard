@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bi3qobwcow5mx"]
+[gd_scene load_steps=13 format=3 uid="uid://bi3qobwcow5mx"]
 
+[ext_resource type="Theme" uid="uid://re1e3s8kew18" path="res://res_files/Themes/DarkMode.tres" id="1_8igh2"]
 [ext_resource type="Script" uid="uid://dqdm5g0baxqp8" path="res://custom_node_scripts/Selector.gd" id="1_jeqqm"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jc1id"]
@@ -19,7 +20,29 @@ content_margin_left = 10.0
 content_margin_left = 18.0
 content_margin_top = 18.0
 content_margin_right = 18.0
-content_margin_bottom = 18.0
+content_margin_bottom = 14.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c0wpk"]
+content_margin_left = 2.0
+content_margin_top = 1.0
+content_margin_right = 2.0
+content_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_puhdd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x73fy"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xc53x"]
+content_margin_left = 7.0
+content_margin_right = 7.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3alc6"]
+content_margin_left = 12.0
+content_margin_right = 12.0
 
 [node name="ContentSoundboard" type="PanelContainer"]
 anchors_preset = 15
@@ -29,6 +52,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("1_8igh2")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_jc1id")
 
 [node name="HSplitContainer" type="HSplitContainer" parent="."]
@@ -75,14 +99,220 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_fhn4t")
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground"]
 layout_mode = 2
 
-[node name="Padding18px" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer"]
+[node name="Padding18pxBottom14px" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8igh2")
 
-[node name="Label" type="Label" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/Padding18px"]
+[node name="CategoryTitle" type="Label" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/Padding18pxBottom14px"]
 layout_mode = 2
 theme_type_variation = &"LabelCategoryTitle"
-text = "Category Name But Too Long"
+text = "The Doorman"
 clip_text = true
 text_overrun_behavior = 3
 ellipsis_char = "‥"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer"]
+layout_mode = 2
+
+[node name="SoundboardSearchBar" type="LineEdit" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Search Sounds"
+max_length = 80
+context_menu_enabled = false
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="SoundboardZoomBackground" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_type_variation = &"PanelContainerSubRad20"
+
+[node name="TagSearchBackground" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+theme_type_variation = &"PanelContainerSubRad20"
+
+[node name="Clipper" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/TagSearchBackground"]
+clip_children = 2
+layout_mode = 2
+theme_type_variation = &"PanelContainerSubFlatRad32"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/TagSearchBackground/Clipper"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_c0wpk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_puhdd")
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="Padding16px" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/TagSearchBackground/Clipper/ScrollContainer"]
+clip_children = 2
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_x73fy")
+
+[node name="TagContainer" type="HBoxContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/TagSearchBackground/Clipper/ScrollContainer/Padding16px"]
+layout_mode = 2
+
+[node name="TagBackground" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/TagSearchBackground/Clipper/ScrollContainer/Padding16px/TagContainer"]
+layout_mode = 2
+theme_type_variation = &"PanelContainerTagRad16"
+
+[node name="Padding7px0px" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/TagSearchBackground/Clipper/ScrollContainer/Padding16px/TagContainer/TagBackground"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_xc53x")
+
+[node name="TagText" type="Label" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/TagSearchBackground/Clipper/ScrollContainer/Padding16px/TagContainer/TagBackground/Padding7px0px"]
+layout_mode = 2
+theme_type_variation = &"LabelTag"
+text = "#Hashtag123"
+
+[node name="TagBackground2" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/TagSearchBackground/Clipper/ScrollContainer/Padding16px/TagContainer"]
+layout_mode = 2
+theme_type_variation = &"PanelContainerTagRad16"
+
+[node name="Padding7px0px" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/TagSearchBackground/Clipper/ScrollContainer/Padding16px/TagContainer/TagBackground2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_xc53x")
+
+[node name="TagText" type="Label" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/TagSearchBackground/Clipper/ScrollContainer/Padding16px/TagContainer/TagBackground2/Padding7px0px"]
+layout_mode = 2
+theme_type_variation = &"LabelTag"
+text = "#Hashtag123"
+
+[node name="TagBackground3" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/TagSearchBackground/Clipper/ScrollContainer/Padding16px/TagContainer"]
+layout_mode = 2
+theme_type_variation = &"PanelContainerTagRad16"
+
+[node name="Padding7px0px" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/TagSearchBackground/Clipper/ScrollContainer/Padding16px/TagContainer/TagBackground3"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_xc53x")
+
+[node name="TagText" type="Label" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/TagSearchBackground/Clipper/ScrollContainer/Padding16px/TagContainer/TagBackground3/Padding7px0px"]
+layout_mode = 2
+theme_type_variation = &"LabelTag"
+text = "#Hashtag123"
+
+[node name="TagBackground4" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/TagSearchBackground/Clipper/ScrollContainer/Padding16px/TagContainer"]
+layout_mode = 2
+theme_type_variation = &"PanelContainerTagRad16"
+
+[node name="Padding7px0px" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/TagSearchBackground/Clipper/ScrollContainer/Padding16px/TagContainer/TagBackground4"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_xc53x")
+
+[node name="TagText" type="Label" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/TagSearchBackground/Clipper/ScrollContainer/Padding16px/TagContainer/TagBackground4/Padding7px0px"]
+layout_mode = 2
+theme_type_variation = &"LabelTag"
+text = "#Hashtag123"
+
+[node name="TagBackground5" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/TagSearchBackground/Clipper/ScrollContainer/Padding16px/TagContainer"]
+layout_mode = 2
+theme_type_variation = &"PanelContainerTagRad16"
+
+[node name="Padding7px0px" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/TagSearchBackground/Clipper/ScrollContainer/Padding16px/TagContainer/TagBackground5"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_xc53x")
+
+[node name="TagText" type="Label" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/TagSearchBackground/Clipper/ScrollContainer/Padding16px/TagContainer/TagBackground5/Padding7px0px"]
+layout_mode = 2
+theme_type_variation = &"LabelTag"
+text = "#Hashtag123"
+
+[node name="TagBackground6" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/TagSearchBackground/Clipper/ScrollContainer/Padding16px/TagContainer"]
+layout_mode = 2
+theme_type_variation = &"PanelContainerTagRad16"
+
+[node name="Padding7px0px" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/TagSearchBackground/Clipper/ScrollContainer/Padding16px/TagContainer/TagBackground6"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_xc53x")
+
+[node name="TagText" type="Label" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/TagSearchBackground/Clipper/ScrollContainer/Padding16px/TagContainer/TagBackground6/Padding7px0px"]
+layout_mode = 2
+theme_type_variation = &"LabelTag"
+text = "#Hashtag123"
+
+[node name="TagBackground7" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/TagSearchBackground/Clipper/ScrollContainer/Padding16px/TagContainer"]
+layout_mode = 2
+theme_type_variation = &"PanelContainerTagRad16"
+
+[node name="Padding7px0px" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/TagSearchBackground/Clipper/ScrollContainer/Padding16px/TagContainer/TagBackground7"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_xc53x")
+
+[node name="TagText" type="Label" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/TagSearchBackground/Clipper/ScrollContainer/Padding16px/TagContainer/TagBackground7/Padding7px0px"]
+layout_mode = 2
+theme_type_variation = &"LabelTag"
+text = "#Hashtag123"
+
+[node name="TagBackground8" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/TagSearchBackground/Clipper/ScrollContainer/Padding16px/TagContainer"]
+layout_mode = 2
+theme_type_variation = &"PanelContainerTagRad16"
+
+[node name="Padding7px0px" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/TagSearchBackground/Clipper/ScrollContainer/Padding16px/TagContainer/TagBackground8"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_xc53x")
+
+[node name="TagText" type="Label" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/TagSearchBackground/Clipper/ScrollContainer/Padding16px/TagContainer/TagBackground8/Padding7px0px"]
+layout_mode = 2
+theme_type_variation = &"LabelTag"
+text = "#Hashtag123"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SoundboardBackground" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"PanelContainerSubRad36"
+
+[node name="Clipper" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground"]
+clip_children = 2
+layout_mode = 2
+theme_type_variation = &"PanelContainerSubFlatRad32"
+
+[node name="PanelContainer" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3alc6")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/PanelContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/PanelContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Padding12px1" type="Control" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/PanelContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+
+[node name="FlowContainer" type="FlowContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/PanelContainer/ScrollContainer/VBoxContainer/FlowContainer"]
+custom_minimum_size = Vector2(169, 169)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+theme_type_variation = &"PanelContainerMainRad24"
+
+[node name="Padding12px2" type="Control" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/PanelContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+
+[node name="Spacer1" type="Control" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="VScrollBar" type="VScrollBar" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+page = 20.0
+
+[node name="Spacer2" type="Control" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2"]
+layout_mode = 2

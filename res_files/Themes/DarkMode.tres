@@ -1,8 +1,10 @@
-[gd_resource type="Theme" load_steps=38 format=3 uid="uid://re1e3s8kew18"]
+[gd_resource type="Theme" load_steps=48 format=3 uid="uid://re1e3s8kew18"]
 
 [ext_resource type="FontFile" uid="uid://bfltwa0oq87mt" path="res://assets/fonts/Inter_18pt-Black.ttf" id="1_0nn2o"]
 [ext_resource type="Texture2D" uid="uid://3lw7j4e26erv" path="res://assets/panels/PanelMainRad8.png" id="1_v7g3f"]
 [ext_resource type="Texture2D" uid="uid://d2ow4t6judq5a" path="res://assets/panels/PanelMainRad10.png" id="2_0nn2o"]
+[ext_resource type="FontFile" uid="uid://cvjlnofmlvpis" path="res://assets/fonts/Inter_18pt-BlackItalic.ttf" id="2_h4vqd"]
+[ext_resource type="Texture2D" uid="uid://c366yrwh2gilc" path="res://assets/panels/PanelSubRad20.png" id="2_unj3k"]
 [ext_resource type="Texture2D" uid="uid://bqemfvm3s1yn7" path="res://assets/panels/PanelMain2Rad24.png" id="3_unj3k"]
 [ext_resource type="Texture2D" uid="uid://dtwgm6bi5d62e" path="res://assets/panels/PanelMainRad24.png" id="4_h4vqd"]
 [ext_resource type="Texture2D" uid="uid://cnm1dd4l4uub6" path="res://assets/panels/PanelSubRad12.png" id="5_op0om"]
@@ -77,9 +79,38 @@ corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_imhvv"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_img5c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m1j2o"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_op0om"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xumdu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_85w05"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xumdu"]
+content_margin_left = 16.0
+content_margin_top = 0.0
+content_margin_right = 16.0
+content_margin_bottom = 0.0
+texture = ExtResource("2_unj3k")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6f5br"]
+content_margin_left = 16.0
+content_margin_top = 12.0
+content_margin_right = 16.0
+content_margin_bottom = 12.0
+texture = ExtResource("2_unj3k")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+modulate_color = Color(1, 1, 1, 0.36862746)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_onmqg"]
 content_margin_left = 4.0
@@ -128,6 +159,13 @@ texture_margin_top = 24.0
 texture_margin_right = 24.0
 texture_margin_bottom = 24.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8igh2"]
+bg_color = Color(0.14509805, 0.14509805, 0.14509805, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h4vqd"]
 content_margin_left = 4.0
 content_margin_top = 4.0
@@ -138,6 +176,17 @@ texture_margin_left = 12.0
 texture_margin_top = 12.0
 texture_margin_right = 12.0
 texture_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_imhvv"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+texture = ExtResource("2_unj3k")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p3tso"]
 content_margin_left = 4.0
@@ -160,6 +209,13 @@ texture_margin_left = 36.0
 texture_margin_top = 36.0
 texture_margin_right = 36.0
 texture_margin_bottom = 36.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_biv8n"]
+bg_color = Color(0.29803923, 0.34509805, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t0vp7"]
 content_margin_left = 4.0
@@ -292,16 +348,29 @@ Label/fonts/font = ExtResource("1_0nn2o")
 Label/styles/focus = SubResource("StyleBoxEmpty_h4vqd")
 Label/styles/normal = SubResource("StyleBoxEmpty_h4vqd")
 LabelCategoryTitle/base_type = &"Label"
+LabelCategoryTitle/colors/font_color = Color(1, 1, 1, 1)
 LabelCategoryTitle/font_sizes/font_size = 48
 LabelCategoryTitle/fonts/font = ExtResource("1_0nn2o")
 LabelCategoryTitle/styles/focus = SubResource("StyleBoxEmpty_6f5br")
 LabelCategoryTitle/styles/normal = SubResource("StyleBoxEmpty_imhvv")
+LabelTag/base_type = &"Label"
+LabelTag/colors/font_color = Color(1, 1, 1, 1)
+LabelTag/font_sizes/font_size = 12
+LabelTag/fonts/font = ExtResource("1_0nn2o")
+LabelTag/styles/focus = SubResource("StyleBoxEmpty_img5c")
+LabelTag/styles/normal = SubResource("StyleBoxEmpty_m1j2o")
 LabelTitle/base_type = &"Label"
 LabelTitle/colors/font_color = Color(0.6901961, 0.6901961, 0.6901961, 1)
 LabelTitle/font_sizes/font_size = 12
 LabelTitle/fonts/font = ExtResource("1_0nn2o")
 LabelTitle/styles/focus = SubResource("StyleBoxEmpty_op0om")
 LabelTitle/styles/normal = SubResource("StyleBoxEmpty_xumdu")
+LineEdit/colors/font_placeholder_color = Color(0.3180199, 0.31801975, 0.31801972, 1)
+LineEdit/font_sizes/font_size = 14
+LineEdit/fonts/font = ExtResource("2_h4vqd")
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_85w05")
+LineEdit/styles/normal = SubResource("StyleBoxTexture_xumdu")
+LineEdit/styles/read_only = SubResource("StyleBoxTexture_6f5br")
 Panel/styles/panel = SubResource("StyleBoxTexture_onmqg")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_op0om")
 PanelContainerMain2Rad24/base_type = &"PanelContainer"
@@ -314,12 +383,18 @@ PanelContainerMainRad24/base_type = &"PanelContainer"
 PanelContainerMainRad24/styles/panel = SubResource("StyleBoxTexture_0nn2o")
 PanelContainerMainRad8/base_type = &"PanelContainer"
 PanelContainerMainRad8/styles/panel = SubResource("StyleBoxTexture_onmqg")
+PanelContainerSubFlatRad32/base_type = &"PanelContainer"
+PanelContainerSubFlatRad32/styles/panel = SubResource("StyleBoxFlat_8igh2")
 PanelContainerSubRad12/base_type = &"PanelContainer"
 PanelContainerSubRad12/styles/panel = SubResource("StyleBoxTexture_h4vqd")
+PanelContainerSubRad20/base_type = &"PanelContainer"
+PanelContainerSubRad20/styles/panel = SubResource("StyleBoxTexture_imhvv")
 PanelContainerSubRad24/base_type = &"PanelContainer"
 PanelContainerSubRad24/styles/panel = SubResource("StyleBoxTexture_p3tso")
 PanelContainerSubRad36/base_type = &"PanelContainer"
 PanelContainerSubRad36/styles/panel = SubResource("StyleBoxTexture_i37bs")
+PanelContainerTagRad16/base_type = &"PanelContainer"
+PanelContainerTagRad16/styles/panel = SubResource("StyleBoxFlat_biv8n")
 PanelMain2Rad24/base_type = &"Panel"
 PanelMain2Rad24/styles/panel = SubResource("StyleBoxTexture_t0vp7")
 PanelMainRad24/base_type = &"Panel"
