@@ -38,6 +38,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 3
 script = ExtResource("1_exi6l")
+select_on_ready = 1
 metadata/_custom_type_script = "uid://dqdm5g0baxqp8"
 
 [node name="Settings" type="Button" parent="HBoxContainer/Selector"]
