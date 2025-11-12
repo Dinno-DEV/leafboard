@@ -330,13 +330,13 @@ script = ExtResource("4_xc53x")
 selector = NodePath("../../../../../../../../../../CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer/VBoxContainer/Selector")
 metadata/_custom_type_script = "uid://cpw8m3xj0lad0"
 
-[node name="Category1" type="HFlowContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer"]
+[node name="Soundboard" type="HFlowContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/h_separation = 9
 theme_override_constants/v_separation = 9
 
-[node name="SquarePanelContainer" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Category1"]
+[node name="SquarePanelContainer" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Soundboard"]
 custom_minimum_size = Vector2(169, 170)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -346,7 +346,7 @@ theme_type_variation = &"PanelContainerMainRad24"
 script = ExtResource("3_fhn4t")
 metadata/_custom_type_script = "uid://g15gds2amb2n"
 
-[node name="SquarePanelContainer2" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Category1"]
+[node name="SquarePanelContainer2" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Soundboard"]
 custom_minimum_size = Vector2(169, 170)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -356,7 +356,7 @@ theme_type_variation = &"PanelContainerMainRad24"
 script = ExtResource("3_fhn4t")
 metadata/_custom_type_script = "uid://g15gds2amb2n"
 
-[node name="SquarePanelContainer3" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Category1"]
+[node name="SquarePanelContainer3" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Soundboard"]
 custom_minimum_size = Vector2(169, 170)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -366,7 +366,7 @@ theme_type_variation = &"PanelContainerMainRad24"
 script = ExtResource("3_fhn4t")
 metadata/_custom_type_script = "uid://g15gds2amb2n"
 
-[node name="SquarePanelContainer4" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Category1"]
+[node name="SquarePanelContainer4" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Soundboard"]
 custom_minimum_size = Vector2(169, 170)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -376,7 +376,7 @@ theme_type_variation = &"PanelContainerMainRad24"
 script = ExtResource("3_fhn4t")
 metadata/_custom_type_script = "uid://g15gds2amb2n"
 
-[node name="SquarePanelContainer5" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Category1"]
+[node name="SquarePanelContainer5" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Soundboard"]
 custom_minimum_size = Vector2(169, 170)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -386,7 +386,7 @@ theme_type_variation = &"PanelContainerMainRad24"
 script = ExtResource("3_fhn4t")
 metadata/_custom_type_script = "uid://g15gds2amb2n"
 
-[node name="SquarePanelContainer6" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Category1"]
+[node name="SquarePanelContainer6" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Soundboard"]
 custom_minimum_size = Vector2(169, 170)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -396,7 +396,7 @@ theme_type_variation = &"PanelContainerMainRad24"
 script = ExtResource("3_fhn4t")
 metadata/_custom_type_script = "uid://g15gds2amb2n"
 
-[node name="SquarePanelContainer7" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Category1"]
+[node name="SquarePanelContainer7" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Soundboard"]
 custom_minimum_size = Vector2(169, 170)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -406,7 +406,7 @@ theme_type_variation = &"PanelContainerMainRad24"
 script = ExtResource("3_fhn4t")
 metadata/_custom_type_script = "uid://g15gds2amb2n"
 
-[node name="SquarePanelContainer8" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Category1"]
+[node name="SquarePanelContainer8" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Soundboard"]
 custom_minimum_size = Vector2(169, 170)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -416,7 +416,7 @@ theme_type_variation = &"PanelContainerMainRad24"
 script = ExtResource("3_fhn4t")
 metadata/_custom_type_script = "uid://g15gds2amb2n"
 
-[node name="SquarePanelContainer9" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Category1"]
+[node name="SquarePanelContainer9" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Soundboard"]
 custom_minimum_size = Vector2(169, 170)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -426,7 +426,7 @@ theme_type_variation = &"PanelContainerMainRad24"
 script = ExtResource("3_fhn4t")
 metadata/_custom_type_script = "uid://g15gds2amb2n"
 
-[node name="SquarePanelContainer10" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Category1"]
+[node name="SquarePanelContainer10" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Soundboard"]
 custom_minimum_size = Vector2(169, 170)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -436,7 +436,7 @@ theme_type_variation = &"PanelContainerMainRad24"
 script = ExtResource("3_fhn4t")
 metadata/_custom_type_script = "uid://g15gds2amb2n"
 
-[node name="SquarePanelContainer11" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Category1"]
+[node name="SquarePanelContainer11" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Soundboard"]
 custom_minimum_size = Vector2(170, 170)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -446,7 +446,7 @@ theme_type_variation = &"PanelContainerMainRad24"
 script = ExtResource("3_fhn4t")
 metadata/_custom_type_script = "uid://g15gds2amb2n"
 
-[node name="SquarePanelContainer12" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Category1"]
+[node name="SquarePanelContainer12" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Soundboard"]
 custom_minimum_size = Vector2(170, 170)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -456,7 +456,7 @@ theme_type_variation = &"PanelContainerMainRad24"
 script = ExtResource("3_fhn4t")
 metadata/_custom_type_script = "uid://g15gds2amb2n"
 
-[node name="SquarePanelContainer13" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Category1"]
+[node name="SquarePanelContainer13" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Soundboard"]
 custom_minimum_size = Vector2(170, 170)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -466,55 +466,8 @@ theme_type_variation = &"PanelContainerMainRad24"
 script = ExtResource("3_fhn4t")
 metadata/_custom_type_script = "uid://g15gds2amb2n"
 
-[node name="SquarePanelContainer14" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Category1"]
+[node name="SquarePanelContainer14" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Soundboard"]
 custom_minimum_size = Vector2(170, 170)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-mouse_filter = 1
-theme_type_variation = &"PanelContainerMainRad24"
-script = ExtResource("3_fhn4t")
-metadata/_custom_type_script = "uid://g15gds2amb2n"
-
-[node name="Category2" type="HFlowContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer"]
-visible = false
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/h_separation = 9
-theme_override_constants/v_separation = 9
-
-[node name="SquarePanelContainer" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Category2"]
-custom_minimum_size = Vector2(169, 169)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-mouse_filter = 1
-theme_type_variation = &"PanelContainerMainRad24"
-script = ExtResource("3_fhn4t")
-metadata/_custom_type_script = "uid://g15gds2amb2n"
-
-[node name="SquarePanelContainer2" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Category2"]
-custom_minimum_size = Vector2(169, 169)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-mouse_filter = 1
-theme_type_variation = &"PanelContainerMainRad24"
-script = ExtResource("3_fhn4t")
-metadata/_custom_type_script = "uid://g15gds2amb2n"
-
-[node name="SquarePanelContainer3" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Category2"]
-custom_minimum_size = Vector2(169, 169)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-mouse_filter = 1
-theme_type_variation = &"PanelContainerMainRad24"
-script = ExtResource("3_fhn4t")
-metadata/_custom_type_script = "uid://g15gds2amb2n"
-
-[node name="SquarePanelContainer4" type="PanelContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer/Category2"]
-custom_minimum_size = Vector2(169, 169)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
