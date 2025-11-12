@@ -7,6 +7,7 @@
 - use to add new soundboard button
 - able to delete soundboard button
 - use to get list of soundboard buttons in the soundboard.
+- listen to category changes broadcaster to change its soundboard name.
 
 # Don't
 - use as category switcher. Category switcher is another thing.
