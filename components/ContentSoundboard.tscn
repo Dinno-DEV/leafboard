@@ -477,6 +477,7 @@ script = ExtResource("3_fhn4t")
 metadata/_custom_type_script = "uid://g15gds2amb2n"
 
 [node name="Category2" type="HFlowContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/h_separation = 9
