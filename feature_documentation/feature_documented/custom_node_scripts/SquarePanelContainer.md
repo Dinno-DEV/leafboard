@@ -4,6 +4,9 @@
 # Variables
 - is_following_width - if true, the height follows width. Opposite if false.
 - flow_container_uniform - if true, it will attempt to make all sizes uniform in flow container. It only works inside flow container that has SquarePanelContainer as all its children.
+- initial_h_flag - the horizontal expand mode
+- initial_y_flag - the vertical expand mode
+- initial_custom_minimum_size - the size of the panel, use this for resizing
 
 # Functions
 - get_parent_flow_row() -> int - returns the division of the FlowContainer's children. This is the opposite line of get_line_count() in FlowContainer.

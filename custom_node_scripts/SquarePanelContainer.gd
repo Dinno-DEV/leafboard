@@ -7,7 +7,7 @@ extends PanelContainer
 @export var initial_v_flag:SizeFlags = SIZE_SHRINK_BEGIN
 @export var initial_custom_minimum_size:Vector2 = Vector2(169,169)
 @export var flow_container_uniform:bool = true
-@onready var container_size_threshold:Vector2 = initial_custom_minimum_size
+var container_size_threshold:Vector2
 
 func get_parent_flow_row() -> int:
 	var result:int = 0
