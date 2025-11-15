@@ -17,10 +17,6 @@ root_scenes are scenes that is meant to be the result of
 components are filled with scenes that serves as component to another scene.
 components scripts included.
 
-# gui_components Folder
-gui_components are filled with components but for gui. 
-gui_components scripts included.
-
 # singletons Folder
 singletons are filled with global classes. 
 singletons scripts included.
