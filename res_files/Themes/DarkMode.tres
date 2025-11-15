@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=48 format=3 uid="uid://re1e3s8kew18"]
+[gd_resource type="Theme" load_steps=53 format=3 uid="uid://re1e3s8kew18"]
 
 [ext_resource type="FontFile" uid="uid://bfltwa0oq87mt" path="res://assets/fonts/Inter_18pt-Black.ttf" id="1_0nn2o"]
 [ext_resource type="Texture2D" uid="uid://3lw7j4e26erv" path="res://assets/panels/PanelMainRad8.png" id="1_v7g3f"]
@@ -27,6 +27,43 @@ corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x5om4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ipjmj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q728p"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.24705882, 0.24705882, 0.24705882, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_img5c"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.29803923, 0.34509805, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1j2o"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1254902, 0.1254902, 0.1254902, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_unj3k"]
 content_margin_left = 4.0
@@ -324,6 +361,21 @@ ButtonCrossRad4/styles/hover = SubResource("StyleBoxFlat_h4vqd")
 ButtonCrossRad4/styles/hover_pressed = SubResource("StyleBoxFlat_h4vqd")
 ButtonCrossRad4/styles/normal = SubResource("StyleBoxEmpty_v7g3f")
 ButtonCrossRad4/styles/pressed = SubResource("StyleBoxFlat_h4vqd")
+ButtonRad12/base_type = &"Button"
+ButtonRad12/colors/font_color = Color(0.4392157, 0.4392157, 0.4392157, 1)
+ButtonRad12/colors/font_disabled_color = Color(0.27387288, 0.2738727, 0.2738728, 1)
+ButtonRad12/colors/font_focus_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+ButtonRad12/colors/font_hover_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+ButtonRad12/colors/font_hover_pressed_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+ButtonRad12/colors/font_pressed_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+ButtonRad12/font_sizes/font_size = 12
+ButtonRad12/fonts/font = ExtResource("2_h4vqd")
+ButtonRad12/styles/disabled = SubResource("StyleBoxEmpty_x5om4")
+ButtonRad12/styles/focus = SubResource("StyleBoxEmpty_ipjmj")
+ButtonRad12/styles/hover = SubResource("StyleBoxFlat_q728p")
+ButtonRad12/styles/hover_pressed = SubResource("StyleBoxFlat_img5c")
+ButtonRad12/styles/normal = SubResource("StyleBoxFlat_m1j2o")
+ButtonRad12/styles/pressed = SubResource("StyleBoxFlat_img5c")
 ButtonRad4/base_type = &"Button"
 ButtonRad4/colors/icon_normal_color = Color(0.6901961, 0.6901961, 0.6901961, 1)
 ButtonRad4/colors/icon_pressed_color = Color(1, 1, 1, 1)
