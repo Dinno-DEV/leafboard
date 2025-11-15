@@ -9,6 +9,7 @@ func _ready() -> void:
 	set_all_button_toggle_mode()
 	disable_all_non_id_button()
 	var id_buttons:Array[Node] = NodeFilterer.by_type(get_children(), "IdButton")
+	id_buttons.append_array(NodeFilterer.by_type(get_children(), "CategoryButton"))
 	for id_button in id_buttons:
 		id_button.pressed_id.connect(_on_id_button_pressed_id)
 	if select_on_ready != -1:
