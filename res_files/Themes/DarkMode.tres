@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=53 format=3 uid="uid://re1e3s8kew18"]
+[gd_resource type="Theme" load_steps=57 format=3 uid="uid://re1e3s8kew18"]
 
 [ext_resource type="FontFile" uid="uid://bfltwa0oq87mt" path="res://assets/fonts/Inter_18pt-Black.ttf" id="1_0nn2o"]
 [ext_resource type="Texture2D" uid="uid://3lw7j4e26erv" path="res://assets/panels/PanelMainRad8.png" id="1_v7g3f"]
@@ -109,6 +109,27 @@ corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q728p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w2m1m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmpch"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.29803923, 0.34509805, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mr8gn"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h4vqd"]
 
@@ -394,6 +415,13 @@ ButtonRad4V2/styles/hover = SubResource("StyleBoxFlat_op0om")
 ButtonRad4V2/styles/hover_pressed = SubResource("StyleBoxFlat_op0om")
 ButtonRad4V2/styles/normal = SubResource("StyleBoxEmpty_0nn2o")
 ButtonRad4V2/styles/pressed = SubResource("StyleBoxFlat_op0om")
+ButtonRad4V3/base_type = &"Button"
+ButtonRad4V3/styles/disabled = SubResource("StyleBoxEmpty_q728p")
+ButtonRad4V3/styles/focus = SubResource("StyleBoxEmpty_w2m1m")
+ButtonRad4V3/styles/hover = SubResource("StyleBoxFlat_pmpch")
+ButtonRad4V3/styles/hover_pressed = SubResource("StyleBoxFlat_pmpch")
+ButtonRad4V3/styles/normal = SubResource("StyleBoxEmpty_mr8gn")
+ButtonRad4V3/styles/pressed = SubResource("StyleBoxFlat_pmpch")
 Label/colors/font_color = Color(0.6901961, 0.6901961, 0.6901961, 1)
 Label/font_sizes/font_size = 12
 Label/fonts/font = ExtResource("1_0nn2o")
