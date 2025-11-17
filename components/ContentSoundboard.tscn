@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://bi3qobwcow5mx"]
+[gd_scene load_steps=18 format=3 uid="uid://bi3qobwcow5mx"]
 
 [ext_resource type="Theme" uid="uid://re1e3s8kew18" path="res://res_files/Themes/DarkMode.tres" id="1_8igh2"]
 [ext_resource type="Script" uid="uid://dqdm5g0baxqp8" path="res://custom_node_scripts/Selector.gd" id="1_jeqqm"]
+[ext_resource type="PackedScene" uid="uid://b0duy3nsmt53n" path="res://components/CategoryButton.tscn" id="3_c0wpk"]
 [ext_resource type="Script" uid="uid://g15gds2amb2n" path="res://custom_node_scripts/SquarePanelContainer.gd" id="3_fhn4t"]
 [ext_resource type="Script" uid="uid://uwoe30shhkqp" path="res://custom_node_scripts/ScrollContainerVScroller.gd" id="4_x73fy"]
 [ext_resource type="Script" uid="uid://cpw8m3xj0lad0" path="res://custom_node_scripts/ContentSwitcherContainer.gd" id="4_xc53x"]
@@ -86,6 +87,7 @@ vertical_scroll_mode = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/separation = 0
 
 [node name="Padding16px1" type="Control" parent="HSplitContainer/CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 16)
@@ -93,9 +95,19 @@ layout_mode = 2
 
 [node name="Selector" type="BoxContainer" parent="HSplitContainer/CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 8
 vertical = true
 script = ExtResource("1_jeqqm")
 metadata/_custom_type_script = "uid://dqdm5g0baxqp8"
+
+[node name="CategoryButton" parent="HSplitContainer/CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer/VBoxContainer/Selector" instance=ExtResource("3_c0wpk")]
+layout_mode = 2
+text = "Soundboard"
+button_id = "Soundboard"
+
+[node name="CategoryButton2" parent="HSplitContainer/CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer/VBoxContainer/Selector" instance=ExtResource("3_c0wpk")]
+layout_mode = 2
+button_id = "ab"
 
 [node name="Padding16px2" type="Control" parent="HSplitContainer/CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 16)
