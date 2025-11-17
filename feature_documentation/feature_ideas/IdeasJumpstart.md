@@ -26,6 +26,7 @@ Settings:
 	general settings:
 	- accent color
 	- dark mode / light mode toggle
+	- audio output
 	- master volume
 	- about area
 	- link to github
