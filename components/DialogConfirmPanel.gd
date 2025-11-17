@@ -14,9 +14,9 @@ func _ready() -> void:
 	cancel_button.pressed.connect(_on_cancel_button_pressed)
 	# auto start panel if dialog message is not empty
 	if dialog_message != "":
-		setup_button(dialog_message)
+		setup_dialog(dialog_message)
 
-func setup_button(message:String) -> void:
+func setup_dialog(message:String) -> void:
 	set_dialog_message(message)
 	confirm_button.disabled = false
 	cancel_button.disabled = false
