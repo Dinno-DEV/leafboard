@@ -29,12 +29,14 @@ func focus_first_dialog() -> void:
 			child.visible = true
 
 func reveal_dialogs() -> void:
+	visible = true
 	animation_player.play("fade_in")
 	await animation_player.animation_finished
 
 func hide_dialogs() -> void:
 	animation_player.play("fade_out")
 	await animation_player.animation_finished
+	visible = false
 
 func _on_response_received(_response:bool) -> void:
 	focus_first_dialog()
