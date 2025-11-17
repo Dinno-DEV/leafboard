@@ -21,7 +21,7 @@ func setup_button(message:String) -> void:
 	confirm_button.disabled = false
 	cancel_button.disabled = false
 
-func set_dialog_message(message) -> void:
+func set_dialog_message(message:String) -> void:
 	text_label.text = message
 
 func _on_confirm_button_pressed():
