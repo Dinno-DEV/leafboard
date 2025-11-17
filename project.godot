@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 MouseUtil="*res://singletons/MouseUtil.tscn"
 WindowResizer="*res://singletons/WindowResizer.tscn"
+DialogConfirmation="*res://singletons/DialogConfirmation.tscn"
 
 [display]
 
