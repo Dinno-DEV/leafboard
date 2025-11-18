@@ -10,3 +10,9 @@
 - function called, creates dialogue text input panel
 - await a yes or no answer from text input panel
 - return the yes or no answer from confirm panel as a function result
+
+# Functions
+- request_response(message:String) - returns player response from the text input receiver. Need to use await.
+- focus_first_dialog() - makes only the first DialogTextInputPanel child visible.
+- reveal_dialogs() - makes DialogTextInput visible and fades in the dialog background
+- hide_dialogs() - fades out the dialog background and makes DialogTextInput invisible
