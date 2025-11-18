@@ -7,6 +7,8 @@
 - initial_h_flag - the horizontal expand mode
 - initial_y_flag - the vertical expand mode
 - initial_custom_minimum_size - the size of the panel, use this for resizing
+- allow_reordering - allow or disallow reordering of this node
+- is_reordering - if it's currently reordering or not. Both allow_reordering and is_reordering are the two switches needed to allow self reordering. 
 
 # Functions
 - get_parent_flow_row() -> int - returns the division of the FlowContainer's children. This is the opposite line of get_line_count() in FlowContainer.
