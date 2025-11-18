@@ -18,6 +18,10 @@ func set_category_name(new_name:String) -> void:
 	text = new_name
 	button_id = new_name
 
+func set_category_name_silent(new_name:String) -> void:
+	text = new_name
+	button_id = new_name
+
 func _on_delete_button_pressed() -> void:
 	DialogConfirmation.reveal_dialogs()
 	if await DialogConfirmation.request_response("Are you sure?"):
