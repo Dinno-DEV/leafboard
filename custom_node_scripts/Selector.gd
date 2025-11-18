@@ -8,10 +8,13 @@ signal selected(id:String)
 func _ready() -> void:
 	set_all_button_toggle_mode()
 	disable_all_non_id_button()
+	# get all the idbuttons and its descendants
 	var id_buttons:Array[Node] = NodeFilterer.by_type(get_children(), "IdButton")
 	id_buttons.append_array(NodeFilterer.by_type(get_children(), "CategoryButton"))
+	# connecting idbuttons' signal to this node
 	for id_button in id_buttons:
 		id_button.pressed_id.connect(_on_id_button_pressed_id)
+	# the thing to select on ready
 	if select_on_ready != -1:
 		if get_child(select_on_ready) is IdButton: 
 			select(get_child(select_on_ready).button_id)
