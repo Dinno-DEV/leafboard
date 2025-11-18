@@ -20,6 +20,8 @@ func setup_dialog(message:String) -> void:
 	set_dialog_message(message)
 	confirm_button.disabled = false
 	cancel_button.disabled = false
+	await get_tree().create_timer(0.1).timeout
+	cancel_button.grab_focus()
 
 func set_dialog_message(message:String) -> void:
 	text_label.text = message
