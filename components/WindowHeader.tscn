@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqvivuv0bpux6"]
+[gd_scene load_steps=10 format=3 uid="uid://dqvivuv0bpux6"]
 
 [ext_resource type="Script" uid="uid://xxa5y2jd2vhs" path="res://components/WindowHeader.gd" id="1_1pa1v"]
 [ext_resource type="Script" uid="uid://dqdm5g0baxqp8" path="res://custom_node_scripts/Selector.gd" id="1_exi6l"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://kw3bpgkpta6p" path="res://assets/icons/Settings.png" id="2_ym4c7"]
 [ext_resource type="Texture2D" uid="uid://dmpnn7nylqe2g" path="res://assets/icons/Audio.png" id="4_h4syd"]
 [ext_resource type="Texture2D" uid="uid://d1jsfonx3fery" path="res://assets/icons/Minimize.png" id="5_woma4"]
+[ext_resource type="Script" uid="uid://dg4en6imq2d6f" path="res://custom_node_scripts/SelectorTitleDisplayer.gd" id="6_qsy51"]
 [ext_resource type="Texture2D" uid="uid://p0yc0ygnhemt" path="res://assets/icons/Maximize.png" id="6_u6jl0"]
 [ext_resource type="Texture2D" uid="uid://dpydd7qfy1c40" path="res://assets/icons/Cross.png" id="7_1pa1v"]
 
@@ -32,6 +33,7 @@ offset_right = -3.0
 offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 0
 
 [node name="Selector" type="BoxContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -48,7 +50,7 @@ icon = ExtResource("2_ym4c7")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("2_b1gva")
-button_id = "ContentSettings"
+button_id = "Settings"
 metadata/_custom_type_script = "uid://coi3puogpj6af"
 
 [node name="Soundboard" type="Button" parent="HBoxContainer/Selector"]
@@ -58,14 +60,21 @@ icon = ExtResource("4_h4syd")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("2_b1gva")
-button_id = "ContentSoundboard"
+button_id = "Soundboard"
 metadata/_custom_type_script = "uid://coi3puogpj6af"
 
-[node name="Label" type="Label" parent="HBoxContainer"]
+[node name="Padding28px" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(28, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer" node_paths=PackedStringArray("selector")]
 layout_mode = 2
 size_flags_horizontal = 6
 mouse_filter = 1
-text = "Leafboard 25.11.10"
+script = ExtResource("6_qsy51")
+suffix = " - Leafboard 25.11.10"
+selector = NodePath("../Selector")
+metadata/_custom_type_script = "uid://dg4en6imq2d6f"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
