@@ -1,0 +1,96 @@
+[gd_scene load_steps=4 format=3 uid="uid://hbmka3hixhji"]
+
+[ext_resource type="Texture2D" uid="uid://dpydd7qfy1c40" path="res://assets/icons/Cross.png" id="1_04nhh"]
+[ext_resource type="Script" uid="uid://bkrfamw32x27g" path="res://components/DialogTextInputPanel.gd" id="1_5lrcr"]
+[ext_resource type="Texture2D" uid="uid://blimdm1cgitk6" path="res://assets/icons/Check.png" id="2_5lrcr"]
+
+[node name="DialogTextInputPanel" type="PanelContainer" node_paths=PackedStringArray("confirm_button", "cancel_button", "line_edit")]
+custom_minimum_size = Vector2(404, 58)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"PanelContainerMain2Rad24"
+script = ExtResource("1_5lrcr")
+confirm_button = NodePath("HBoxContainer/ConfirmWrapper/ConfirmButton")
+cancel_button = NodePath("HBoxContainer/CancelWrapper/CancelButton")
+line_edit = NodePath("HBoxContainer/TextWrapper/LineEdit")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="CancelWrapper" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="CancelButton" type="Button" parent="HBoxContainer/CancelWrapper"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_type_variation = &"ButtonRad24"
+disabled = true
+icon = ExtResource("1_04nhh")
+icon_alignment = 1
+expand_icon = true
+
+[node name="TextWrapper" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer/TextWrapper"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"LineEditInvis"
+alignment = 1
+
+[node name="ConfirmWrapper" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ConfirmButton" type="Button" parent="HBoxContainer/ConfirmWrapper"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"ButtonRad24"
+disabled = true
+icon = ExtResource("2_5lrcr")
+icon_alignment = 1
+expand_icon = true
