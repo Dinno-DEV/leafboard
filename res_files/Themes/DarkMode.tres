@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=62 format=3 uid="uid://re1e3s8kew18"]
+[gd_resource type="Theme" load_steps=63 format=3 uid="uid://re1e3s8kew18"]
 
 [ext_resource type="FontFile" uid="uid://bfltwa0oq87mt" path="res://assets/fonts/Inter_18pt-Black.ttf" id="1_0nn2o"]
 [ext_resource type="Texture2D" uid="uid://3lw7j4e26erv" path="res://assets/panels/PanelMainRad8.png" id="1_v7g3f"]
@@ -71,6 +71,10 @@ content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(0.1882353, 0.1882353, 0.1882353, 0.5019608)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pmpch"]
 
@@ -200,6 +204,8 @@ texture_margin_top = 20.0
 texture_margin_right = 20.0
 texture_margin_bottom = 20.0
 modulate_color = Color(1, 1, 1, 0.36862746)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i51mr"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_onmqg"]
 content_margin_left = 4.0
@@ -496,6 +502,11 @@ LineEdit/fonts/font = ExtResource("2_h4vqd")
 LineEdit/styles/focus = SubResource("StyleBoxEmpty_85w05")
 LineEdit/styles/normal = SubResource("StyleBoxTexture_xumdu")
 LineEdit/styles/read_only = SubResource("StyleBoxTexture_6f5br")
+LineEditInvis/base_type = &"LineEdit"
+LineEditInvis/fonts/font = null
+LineEditInvis/styles/focus = SubResource("StyleBoxEmpty_i51mr")
+LineEditInvis/styles/normal = SubResource("StyleBoxEmpty_i51mr")
+LineEditInvis/styles/read_only = SubResource("StyleBoxEmpty_i51mr")
 Panel/styles/panel = SubResource("StyleBoxTexture_onmqg")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_op0om")
 PanelContainerMain2Rad24/base_type = &"PanelContainer"
