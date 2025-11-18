@@ -12,6 +12,7 @@ signal response_received(response:String, is_confirmed:bool)
 func _ready() -> void:
 	confirm_button.pressed.connect(_on_confirm_button_pressed)
 	cancel_button.pressed.connect(_on_cancel_button_pressed)
+	line_edit.text_submitted.connect(_on_text_submitted)
 	if place_holder_text != "": setup_dialog(place_holder_text)
 
 func setup_dialog(message:String):
@@ -30,3 +31,7 @@ func _on_confirm_button_pressed():
 
 func _on_cancel_button_pressed():
 	response_received.emit(line_edit.text, false)
+
+func _on_text_submitted(_text:String):
+	confirm_button.grab_focus()
+	confirm_button.grab_click_focus()
