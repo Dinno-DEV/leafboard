@@ -6,6 +6,7 @@ extends BoxContainer
 signal selected(id:String)
 
 func _ready() -> void:
+	child_entered_tree.connect(_on_child_entered_tree)
 	set_all_button_toggle_mode()
 	disable_all_non_id_button()
 	# get all the idbuttons and its descendants
@@ -49,3 +50,7 @@ func get_button_id(index:int) -> String:
 func _on_id_button_pressed_id(id:String):
 	selected.emit(id)
 	select(id)
+
+func _on_child_entered_tree(child:Node) -> void:
+	if child is IdButton:
+		child.pressed_id.connect(_on_id_button_pressed_id)
