@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4dhu76o0moa5"]
+
+[ext_resource type="Script" uid="uid://bnlvmcsyklyfh" path="res://singletons/CategoryChangesBroadcaster.gd" id="1_m872k"]
+
+[node name="CategoryChangesBroadcaster" type="Node"]
+script = ExtResource("1_m872k")
