@@ -1,6 +1,5 @@
 # Do
 - use to contain "SoundboardButtons" scenes.
-- use to keep track if soundboard button is being reordered or not.
 - use as an interface to change sound board button size
 - use as an overall soundboard button info getter, such as name, now playing(s), volume, tag information
 - use as soundboard button manager (making it visible or invisible)
