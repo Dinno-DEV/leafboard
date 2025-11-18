@@ -18,6 +18,9 @@ func setup_dialog(message:String):
 	set_message(message)
 	confirm_button.disabled = false
 	cancel_button.disabled = false
+	await get_tree().create_timer(0.1).timeout
+	line_edit.grab_focus()
+	line_edit.grab_click_focus()
 
 func set_message(message:String):
 	line_edit.placeholder_text = message
