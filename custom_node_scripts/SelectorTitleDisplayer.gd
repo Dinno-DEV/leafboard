@@ -7,6 +7,8 @@ extends Label
 @export var selector:Selector
 
 func _ready() -> void:
+	if selector.select_on_ready != -1:
+		_on_selector_selected(selector.get_button_id(selector.select_on_ready))
 	if selector:
 		selector.selected.connect(_on_selector_selected)
 
