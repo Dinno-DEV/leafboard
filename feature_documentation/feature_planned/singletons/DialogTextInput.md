@@ -6,11 +6,7 @@
 - disappear from screen when called
 
 # How to use
-- connect signal to it to get answers
-- connect signal to it to get cancels
-- call it
-- it opens, user put text to it
-- user click "yes" and it sends signal to answer
-- user click "no" and it sends signal to cancel
-- caller receive answer, can handle dialogue to close or to continue
-- caller receive cancel, can handle dialogue to close or to continue
+- call a function with await
+- function called, creates dialogue text input panel
+- await a yes or no answer from text input panel
+- return the yes or no answer from confirm panel as a function result
