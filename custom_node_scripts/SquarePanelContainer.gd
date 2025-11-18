@@ -3,6 +3,8 @@ class_name SquarePanelContainer
 extends PanelContainer
 
 @export var is_following_width:bool = true
+@export var allow_reordering:bool = false
+@export var is_reordering:bool = false
 @export var initial_h_flag:SizeFlags = SIZE_EXPAND_FILL
 @export var initial_v_flag:SizeFlags = SIZE_SHRINK_BEGIN
 @export var initial_custom_minimum_size:Vector2 = Vector2(169,169)
@@ -81,3 +83,21 @@ func _process(_delta: float) -> void:
 	else:
 		size.x = size.y
 		custom_minimum_size.x = size.y
+	# for reordering stuff. This is black magic. I haven't
+	# figured out how to tidy it up without sacrificing modularity.
+	if flow_container_uniform and is_all_sibling_square_panel():
+		var parent = get_parent()
+		if parent is FlowContainer:
+			if allow_reordering and is_reordering:
+				await get_tree().physics_frame
+				var local_mouse_pos = get_local_mouse_position()
+				if local_mouse_pos.x < 0 - parent.get_theme_constant("h_separation") and get_index() - 1 >= 0:
+					if get_index() % get_parent_flow_row() != 0:
+						get_parent().move_child(self, get_index()-1)
+				elif local_mouse_pos.x > size.x + parent.get_theme_constant("h_separation") and get_index() < get_parent().get_child_count():
+					if (get_index() + 1) % get_parent_flow_row() != 0:
+						get_parent().move_child(self, get_index()+1)
+				elif local_mouse_pos.y < 0 - parent.get_theme_constant("v_separation") and get_index() - get_parent_flow_row() >= 0:
+					get_parent().move_child(self, get_index() - get_parent_flow_row())
+				elif local_mouse_pos.y > size.y + parent.get_theme_constant("v_separation")  and get_index() + get_parent_flow_row() < get_parent().get_child_count():
+					get_parent().move_child(self, get_index() + get_parent_flow_row())
