@@ -76,7 +76,16 @@ corner_radius_top_right = 24
 corner_radius_bottom_right = 24
 corner_radius_bottom_left = 24
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pmpch"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i51mr"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.29803923, 0.34509805, 1, 0.49803922)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w2m1m"]
 content_margin_left = 4.0
@@ -443,7 +452,7 @@ ButtonRad12/styles/normal = SubResource("StyleBoxFlat_m1j2o")
 ButtonRad12/styles/pressed = SubResource("StyleBoxFlat_img5c")
 ButtonRad24/base_type = &"Button"
 ButtonRad24/styles/disabled = SubResource("StyleBoxFlat_ipjmj")
-ButtonRad24/styles/focus = SubResource("StyleBoxEmpty_pmpch")
+ButtonRad24/styles/focus = SubResource("StyleBoxFlat_i51mr")
 ButtonRad24/styles/hover = SubResource("StyleBoxFlat_w2m1m")
 ButtonRad24/styles/hover_pressed = SubResource("StyleBoxFlat_w2m1m")
 ButtonRad24/styles/normal = SubResource("StyleBoxFlat_mr8gn")
