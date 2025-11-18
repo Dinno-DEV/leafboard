@@ -6,3 +6,7 @@
 # Do not
 - change the category title
 - change the category node name on the soundboard content switcher.
+
+# Functions
+- get_category_name
+- set_category_name
