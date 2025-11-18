@@ -16,7 +16,8 @@ func _ready() -> void:
 		id_button.pressed_id.connect(_on_id_button_pressed_id)
 	# the thing to select on ready
 	if select_on_ready != -1:
-		if get_child(select_on_ready) is IdButton: 
+		if get_child(select_on_ready) is IdButton:
+			selected.emit(get_child(select_on_ready).button_id)
 			select(get_child(select_on_ready).button_id)
 
 func set_all_button_toggle_mode() -> void:
@@ -40,6 +41,10 @@ func select(id:String) -> void:
 		if node is IdButton:
 			if node.button_id == id:
 				node.button_pressed = true
+
+func get_button_id(index:int) -> String:
+	if get_child(index) is not IdButton: return ""
+	return get_child(index).button_id
 
 func _on_id_button_pressed_id(id:String):
 	selected.emit(id)
