@@ -4,7 +4,7 @@ extends CanvasLayer
 @export var dialog_container:Panel
 @export var animation_player:AnimationPlayer
 
-signal response_received(response:String)
+signal response_received(response:String, is_confirmed:bool)
 
 func _ready() -> void:
 	response_received.connect(_on_response_received)
@@ -15,6 +15,7 @@ func request_response(message:String) -> Array:
 	dialog_container.add_child(text_input_panel)
 	var response = await text_input_panel.response_received
 	text_input_panel.queue_free()
+	response_received.emit(response[0], response[1])
 	return response
 
 func focus_first_dialog() -> void:
@@ -35,5 +36,5 @@ func hide_dialogs() -> void:
 	await animation_player.animation_finished
 	visible = false
 
-func _on_response_received(_response:String) -> void:
+func _on_response_received(_response:String, _is_confirmed:bool) -> void:
 	focus_first_dialog()
