@@ -11,3 +11,4 @@
 # Don't
 - use as category switcher. Category switcher is another thing.
 - use as a saver or modifier for app memory
+- use it as a searcher
