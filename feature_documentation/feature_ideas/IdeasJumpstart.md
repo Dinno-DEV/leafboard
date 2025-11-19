@@ -28,6 +28,7 @@ Settings:
 	- dark mode / light mode toggle
 	- audio output
 	- master volume
+	- default new button volume
 	- about area
 	- link to github
 	- contributor
