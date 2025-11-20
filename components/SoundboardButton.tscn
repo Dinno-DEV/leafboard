@@ -1,0 +1,212 @@
+[gd_scene load_steps=17 format=3 uid="uid://djxht25bxlcw0"]
+
+[ext_resource type="Theme" uid="uid://re1e3s8kew18" path="res://res_files/Themes/DarkMode.tres" id="1_ah3n5"]
+[ext_resource type="Script" uid="uid://b31k6xhdyvat5" path="res://components/SoundboardButton.gd" id="1_aihcw"]
+[ext_resource type="Texture2D" uid="uid://c6snyv5ugw8ne" path="res://assets/icons/Edit.png" id="4_36113"]
+[ext_resource type="Texture2D" uid="uid://bg6rgpkffgir8" path="res://assets/icons/Audio2.png" id="4_jdoqc"]
+[ext_resource type="Texture2D" uid="uid://bluuxm4n1yqgq" path="res://assets/icons/PlayArrow.png" id="5_au4vq"]
+[ext_resource type="Texture2D" uid="uid://clhihds37ln1d" path="res://assets/icons/DragIndicator.png" id="5_jdoqc"]
+[ext_resource type="Texture2D" uid="uid://dflhpquampmi1" path="res://assets/icons/Stop.png" id="5_p1l3n"]
+[ext_resource type="Texture2D" uid="uid://dpydd7qfy1c40" path="res://assets/icons/Cross.png" id="8_au4vq"]
+[ext_resource type="Texture2D" uid="uid://3cljfnn10a3e" path="res://assets/icons/Delete.png" id="8_dia7c"]
+[ext_resource type="Texture2D" uid="uid://blimdm1cgitk6" path="res://assets/icons/Check.png" id="9_r6exp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ah3n5"]
+content_margin_left = 7.0
+content_margin_top = 7.0
+content_margin_right = 7.0
+content_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7e4fi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p1l3n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_au4vq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r6exp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dia7c"]
+content_margin_left = 7.0
+content_margin_top = 7.0
+content_margin_right = 7.0
+content_margin_bottom = 7.0
+
+[node name="SoundboardButton" type="PanelContainer"]
+custom_minimum_size = Vector2(169, 169)
+theme = ExtResource("1_ah3n5")
+theme_type_variation = &"PanelContainerMainRad24"
+script = ExtResource("1_aihcw")
+metadata/_custom_type_script = "uid://g15gds2amb2n"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 2
+flat = true
+
+[node name="Padding7px" type="PanelContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ah3n5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Padding7px"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Volume&TitleContainer" type="PanelContainer" parent="Padding7px/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_7e4fi")
+
+[node name="VolumeSlider" type="HSlider" parent="Padding7px/VBoxContainer/Volume&TitleContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_vertical = 1
+
+[node name="SoundTitle" type="Label" parent="Padding7px/VBoxContainer/Volume&TitleContainer"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"LabelSoundboard"
+text = "som"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
+ellipsis_char = "‥"
+
+[node name="IconContainer" type="PanelContainer" parent="Padding7px/VBoxContainer"]
+modulate = Color(0.23921569, 0.23921569, 0.23921569, 1)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_p1l3n")
+
+[node name="Music" type="TextureRect" parent="Padding7px/VBoxContainer/IconContainer"]
+custom_minimum_size = Vector2(58, 58)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("4_jdoqc")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="PlayArrow" type="TextureRect" parent="Padding7px/VBoxContainer/IconContainer"]
+visible = false
+custom_minimum_size = Vector2(58, 58)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("5_au4vq")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="Stop" type="TextureRect" parent="Padding7px/VBoxContainer/IconContainer"]
+visible = false
+custom_minimum_size = Vector2(58, 58)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("5_p1l3n")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="ButtonsContainer" type="PanelContainer" parent="Padding7px/VBoxContainer"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_au4vq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Padding7px/VBoxContainer/ButtonsContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="EditButton" type="Button" parent="Padding7px/VBoxContainer/ButtonsContainer/HBoxContainer"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+theme_type_variation = &"ButtonPlainRad14"
+icon = ExtResource("4_36113")
+icon_alignment = 1
+expand_icon = true
+
+[node name="MoveButton" type="Button" parent="Padding7px/VBoxContainer/ButtonsContainer/HBoxContainer"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_type_variation = &"ButtonPlainRad14"
+icon = ExtResource("5_jdoqc")
+icon_alignment = 1
+expand_icon = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(1, 1, 1, 0.24705882)
+layout_mode = 2
+size_flags_vertical = 1
+mouse_filter = 2
+theme_type_variation = &"ProgressBarRad12"
+theme_override_styles/background = SubResource("StyleBoxEmpty_r6exp")
+value = 25.0
+show_percentage = false
+
+[node name="ButtonEdit" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 2
+theme_type_variation = &"PanelContainerPlain20"
+
+[node name="Padding7px" type="PanelContainer" parent="ButtonEdit"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dia7c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ButtonEdit/Padding7px"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="LineEdit" type="LineEdit" parent="ButtonEdit/Padding7px/VBoxContainer"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+theme_type_variation = &"LineEditSoundboardButton"
+alignment = 1
+
+[node name="HFlowContainer" type="HFlowContainer" parent="ButtonEdit/Padding7px/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ButtonsContainer" type="PanelContainer" parent="ButtonEdit/Padding7px/VBoxContainer"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_au4vq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ButtonEdit/Padding7px/VBoxContainer/ButtonsContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="DeleteButton" type="Button" parent="ButtonEdit/Padding7px/VBoxContainer/ButtonsContainer/HBoxContainer"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_type_variation = &"ButtonPlainRedRad14"
+icon = ExtResource("8_dia7c")
+icon_alignment = 1
+expand_icon = true
+
+[node name="CancelButton" type="Button" parent="ButtonEdit/Padding7px/VBoxContainer/ButtonsContainer/HBoxContainer"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ButtonPlainRedRad14"
+icon = ExtResource("8_au4vq")
+icon_alignment = 1
+expand_icon = true
+
+[node name="ConfirmButton" type="Button" parent="ButtonEdit/Padding7px/VBoxContainer/ButtonsContainer/HBoxContainer"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ButtonPlainRad14"
+icon = ExtResource("9_r6exp")
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
