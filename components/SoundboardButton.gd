@@ -35,7 +35,6 @@ const DEFAULT_BUTTON_DATA:Dictionary = {
 var button_data:Dictionary = DEFAULT_BUTTON_DATA.duplicate()
 
 func _ready() -> void:
-	set_button_data("wow","res://assets/audio/wow_.mp3",50,0,[])
 	volume_slider.value_changed.connect(_on_volume_slider_value_changed)
 	audio_player.finished.connect(_on_audio_player_finished)
 	play_button.mouse_entered.connect(_on_mouse_entered)
@@ -185,6 +184,7 @@ func _on_confirm_button_pressed() -> void:
 	confirm_editing()
 
 func _on_move_button_down() -> void:
+	if get_parent() is not Soundboard: return
 	is_reordering = true
 	highlighter.visible = true
 
