@@ -12,3 +12,19 @@
 - use as category switcher. Category switcher is another thing.
 - use as a saver or modifier for app memory
 - use it as a searcher
+
+# Functions
+- add_new_button()
+- delete_button()
+- get_soundboard_name()
+- get_all_button_id()
+- get_button_volume()
+- get_button_tags()
+- get_now_playing()
+- get_button_by_id()
+- set_soudboard_name()
+- set_button_visible()
+- set_button_invisible()
+- set_all_buttons_visible()
+- set_all_buttons_invisible()
+- set_all_buttons_size
