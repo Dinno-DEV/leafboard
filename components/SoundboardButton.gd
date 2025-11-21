@@ -6,7 +6,6 @@ const DEFAULT_BUTTON_DATA:Dictionary = {
 	"button_name": "Default",
 	"audio_path": "",
 	"volume": 50,
-	"index": 0,
 	"tags": []
 }
 
@@ -51,17 +50,30 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if audio_player.is_playing(): sound_progress_bar.value = audio_player.get_playback_position()
 
+func get_button_data() -> Dictionary:
+	return button_data.duplicate()
+
+func get_button_name() -> Dictionary:
+	return get_button_data()["button_name"]
+
+func get_button_volume() -> float:
+	return get_button_data()["volume"]
+
+func get_button_tags() -> Array[String]:
+	return get_button_data()["tags"]
+
+func is_playing() -> bool:
+	return audio_player.is_playing()
+
 func set_button_data(
 	new_name:String, 
 	new_audio_path:String,
 	new_audio_volume:float,
-	new_index:int,
 	new_tags:Array[String]
 ):
 	set_button_name(new_name)
 	set_audio(new_audio_path)
 	set_volume(new_audio_volume)
-	set_index(new_index)
 	set_tags(new_tags)
 
 func set_button_name(new_name:String) -> void:
@@ -85,9 +97,6 @@ func set_volume(new_volume:float) -> void:
 	button_data["volume"] = new_volume
 	audio_player.volume_db = linear_to_db(new_volume/100)
 	volume_slider.set_value_no_signal(new_volume)
-
-func set_index(new_index:int) -> void:
-	button_data["index"] = new_index
 
 func set_tags(new_tags:Array[String]) -> void:
 	button_data["tags"] = new_tags
