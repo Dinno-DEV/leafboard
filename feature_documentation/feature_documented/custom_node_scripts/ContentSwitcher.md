@@ -6,6 +6,9 @@
 # Reference Node Variables
 - selector:Selector
 
+# Signals
+- content_switched(new_selected_node:Node)
+
 # Functions
 - hide_all_content() - makes all Control type nodes invisible.
 - show_first_content() - shows the first Control node under the ContentSwitcher.
