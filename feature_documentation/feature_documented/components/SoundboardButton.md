@@ -14,6 +14,11 @@
 - moving mode is using "move_child()" function
 
 # Functions
+- get_button_data() - search by looping and matching ID
+- get_button_name() - search by looping and matching ID
+- get_button_volume() - search by looping and matching ID
+- get_button_tags() - search by looping and matching ID
+- is_playing() - search by looping and matching ID
 - set_button_data()
 - set_button_name()
 - set_audio()
