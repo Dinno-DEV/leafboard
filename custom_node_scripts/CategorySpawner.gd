@@ -24,6 +24,11 @@ func _on_add_category_button_pressed():
 	CategoryChangesBroadcaster.announce_new_category(new_category_name)
 
 func add_new_category_button(new_category_name:String) -> void:
+	# add the categ button
 	var new_category_button:CategoryButton = preload("res://components/CategoryButton.tscn").instantiate()
 	category_buttons_container.add_child(new_category_button)
 	new_category_button.set_category_name_silent(new_category_name)
+	# add the new soundboard
+	var new_soundboard:Soundboard = Soundboard.new()
+	soundboards_container.add_child(new_soundboard)
+	new_soundboard.set_soundboard_name(new_category_name)
