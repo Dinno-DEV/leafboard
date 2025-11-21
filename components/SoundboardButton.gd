@@ -53,7 +53,7 @@ func _physics_process(_delta: float) -> void:
 func get_button_data() -> Dictionary:
 	return button_data.duplicate()
 
-func get_button_name() -> Dictionary:
+func get_button_name() -> String:
 	return get_button_data()["button_name"]
 
 func get_button_volume() -> float:
