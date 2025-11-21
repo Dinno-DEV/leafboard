@@ -13,4 +13,17 @@
 - allows moving mode if parent is "Soundboard" class.
 - moving mode is using "move_child()" function
 
-# Don't s
+# Functions
+- set_button_data()
+- set_button_name()
+- set_audio()
+- set_volume
+- set_index()
+- set_tags()
+- set_all_icon_invisible() -> void - the icons in the icon panel
+- switch_icon_visible() -> void - it only takes texture rect argument
+- start_editing()
+- cancel_editing()
+- confirm_editing()
+- close_editor()
+- delete_sound_button()
