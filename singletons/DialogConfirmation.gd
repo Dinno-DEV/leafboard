@@ -18,7 +18,11 @@ func request_response(message:String) -> bool:
 	# wait and return response
 	var response:bool = await confirm_panel.received_response
 	confirm_panel.queue_free()
+	await confirm_panel.tree_exited
 	return response
+
+func is_empty() -> bool:
+	return message_container.get_child_count() == 0
 
 func focus_first_dialog() -> void:
 	# unsee all child and see first DialogConfirmPanel child
