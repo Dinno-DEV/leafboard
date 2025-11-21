@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=94 format=3 uid="uid://re1e3s8kew18"]
+[gd_resource type="Theme" load_steps=100 format=3 uid="uid://re1e3s8kew18"]
 
 [ext_resource type="FontFile" uid="uid://bfltwa0oq87mt" path="res://assets/fonts/Inter_18pt-Black.ttf" id="1_0nn2o"]
 [ext_resource type="Texture2D" uid="uid://3lw7j4e26erv" path="res://assets/panels/PanelMainRad8.png" id="1_v7g3f"]
@@ -311,6 +311,49 @@ texture_margin_top = 12.0
 texture_margin_right = 12.0
 texture_margin_bottom = 12.0
 modulate_color = Color(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tvocy"]
+bg_color = Color(0.3, 0.34666663, 1, 0.49803922)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ufuj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okhwp"]
+bg_color = Color(0.3, 0.34666663, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxga8"]
+content_margin_left = 6.0
+content_margin_right = 6.0
+bg_color = Color(0.3, 0.34666663, 1, 0.49803922)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7in3"]
+content_margin_left = 6.0
+content_margin_right = 6.0
+bg_color = Color(0.7529412, 0.16078432, 0.16078432, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a0ilb"]
+content_margin_left = 6.0
+content_margin_right = 6.0
+bg_color = Color(0.29803923, 0.34509805, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_85w05"]
 size = Vector2(0, 0)
@@ -739,6 +782,20 @@ ButtonSpecialRad12/styles/focus = SubResource("StyleBoxEmpty_pmpch")
 ButtonSpecialRad12/styles/hover = SubResource("StyleBoxTexture_img5c")
 ButtonSpecialRad12/styles/normal = SubResource("StyleBoxTexture_85w05")
 ButtonSpecialRad12/styles/pressed = SubResource("StyleBoxTexture_biv8n")
+ButtonTagAddRad8/base_type = &"Button"
+ButtonTagAddRad8/styles/disabled = SubResource("StyleBoxFlat_tvocy")
+ButtonTagAddRad8/styles/focus = SubResource("StyleBoxEmpty_7ufuj")
+ButtonTagAddRad8/styles/hover = SubResource("StyleBoxFlat_okhwp")
+ButtonTagAddRad8/styles/normal = SubResource("StyleBoxFlat_okhwp")
+ButtonTagAddRad8/styles/pressed = SubResource("StyleBoxFlat_okhwp")
+ButtonTagRad8/base_type = &"Button"
+ButtonTagRad8/font_sizes/font_size = 13
+ButtonTagRad8/fonts/font = ExtResource("2_h4vqd")
+ButtonTagRad8/styles/disabled = SubResource("StyleBoxFlat_xxga8")
+ButtonTagRad8/styles/focus = SubResource("StyleBoxEmpty_7ufuj")
+ButtonTagRad8/styles/hover = SubResource("StyleBoxFlat_h7in3")
+ButtonTagRad8/styles/normal = SubResource("StyleBoxFlat_a0ilb")
+ButtonTagRad8/styles/pressed = SubResource("StyleBoxFlat_h7in3")
 HSlider/icons/grabber = SubResource("PlaceholderTexture2D_85w05")
 HSlider/icons/grabber_disabled = SubResource("PlaceholderTexture2D_85w05")
 HSlider/icons/grabber_highlight = SubResource("PlaceholderTexture2D_85w05")
