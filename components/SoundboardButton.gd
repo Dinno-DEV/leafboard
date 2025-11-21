@@ -193,7 +193,9 @@ func _on_confirm_button_pressed() -> void:
 	confirm_editing()
 
 func _on_move_button_down() -> void:
-	if get_parent() is not Soundboard: return
+	var soundboard:Node = get_parent()
+	if soundboard is not Soundboard: return
+	if soundboard.is_some_button_invisible(): return
 	is_reordering = true
 	highlighter.visible = true
 
