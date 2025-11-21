@@ -4,6 +4,8 @@ extends Control
 @export_group("Referenced Nodes")
 @export var selector:Selector
 
+signal content_switched(new_selected_node:Node)
+
 func _ready() -> void:
 	hide_all_content()
 	show_first_content()
@@ -32,3 +34,4 @@ func get_selected_node() -> Node:
 func _on_selector_selected(id:String) -> void:
 	hide_all_content()
 	show_content(id)
+	content_switched.emit(NodeFilterer.by_name(get_children(), id))
