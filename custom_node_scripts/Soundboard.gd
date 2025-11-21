@@ -1,8 +1,10 @@
 class_name Soundboard
 extends HFlowContainer
 
+func _ready() -> void: tester()
+
 func tester():
-	var names:Array[String] = ["aaa", "bbb", "ccc", "ddd"]
+	var names:Array[String] = ["aaa", "bbb", "ccc", "ddd", "samson", "doorman", "vindicta", "drifter", "viscous"]
 	var path:String = "res://assets/audio/wow_2.mp3"
 	for the_name in names:
 		add_new_button(the_name, path)
@@ -17,6 +19,12 @@ func delete_button(id:String):
 		if child is SoundboardButton:
 			if child.get_button_name() == id:
 				child.queue_free()
+
+func is_some_button_invisible() -> bool:
+	for button in get_children():
+		if button is SoundboardButton:
+			if !button.visible: return true
+	return false 
 
 func get_soundboard_name() -> String:
 	return name
