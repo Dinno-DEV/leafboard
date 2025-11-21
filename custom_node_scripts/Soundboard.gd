@@ -1,6 +1,12 @@
 class_name Soundboard
 extends HFlowContainer
 
+func tester():
+	var names:Array[String] = ["aaa", "bbb", "ccc", "ddd"]
+	var path:String = "res://assets/audio/wow_2.mp3"
+	for the_name in names:
+		add_new_button(the_name, path)
+
 func add_new_button(id:String, sound_path:String) -> void:
 	var sound_button:SoundboardButton = preload("res://components/SoundboardButton.tscn").instantiate()
 	sound_button.set_button_data(id, sound_path, 50, [])
