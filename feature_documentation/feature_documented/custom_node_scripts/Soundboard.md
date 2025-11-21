@@ -14,6 +14,7 @@
 - use it as a searcher
 
 # Functions
+- tester() - contains code i use to test the soundboard
 - add_new_button()
 - delete_button()
 - get_soundboard_name()
