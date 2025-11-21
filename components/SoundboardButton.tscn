@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://djxht25bxlcw0"]
+[gd_scene load_steps=20 format=3 uid="uid://djxht25bxlcw0"]
 
 [ext_resource type="Theme" uid="uid://re1e3s8kew18" path="res://res_files/Themes/DarkMode.tres" id="1_ah3n5"]
 [ext_resource type="Script" uid="uid://b31k6xhdyvat5" path="res://components/SoundboardButton.gd" id="1_aihcw"]
@@ -9,7 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://dflhpquampmi1" path="res://assets/icons/Stop.png" id="5_p1l3n"]
 [ext_resource type="Texture2D" uid="uid://dpydd7qfy1c40" path="res://assets/icons/Cross.png" id="8_au4vq"]
 [ext_resource type="Texture2D" uid="uid://3cljfnn10a3e" path="res://assets/icons/Delete.png" id="8_dia7c"]
+[ext_resource type="Script" uid="uid://cxcvg58r4ctxu" path="res://custom_node_scripts/TagContainer.gd" id="8_ltoht"]
+[ext_resource type="Script" uid="uid://c1u05j2sp03tj" path="res://custom_node_scripts/TagAddButton.gd" id="9_ltoht"]
 [ext_resource type="Texture2D" uid="uid://blimdm1cgitk6" path="res://assets/icons/Check.png" id="9_r6exp"]
+[ext_resource type="Script" uid="uid://uwoe30shhkqp" path="res://custom_node_scripts/ScrollContainerVScroller.gd" id="10_ka4h0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ah3n5"]
 content_margin_left = 7.0
@@ -31,14 +34,33 @@ content_margin_top = 7.0
 content_margin_right = 7.0
 content_margin_bottom = 7.0
 
-[node name="SoundboardButton" type="PanelContainer"]
+[node name="SoundboardButton" type="PanelContainer" node_paths=PackedStringArray("audio_player", "volume_slider", "play_button", "sound_title", "music_icon", "play_icon", "stop_icon", "edit_button", "move_button", "highlighter", "editor_container", "name_edit", "tag_container", "delete_button", "cancel_button", "confirm_button", "sound_progress_bar")]
 custom_minimum_size = Vector2(169, 169)
 theme = ExtResource("1_ah3n5")
 theme_type_variation = &"PanelContainerMainRad24"
 script = ExtResource("1_aihcw")
+audio_player = NodePath("AudioStreamPlayer")
+volume_slider = NodePath("Padding7px/VBoxContainer/Volume&TitleContainer/VolumeSlider")
+play_button = NodePath("PlayButton")
+sound_title = NodePath("Padding7px/VBoxContainer/Volume&TitleContainer/SoundTitle")
+music_icon = NodePath("Padding7px/VBoxContainer/IconContainer/Music")
+play_icon = NodePath("Padding7px/VBoxContainer/IconContainer/PlayArrow")
+stop_icon = NodePath("Padding7px/VBoxContainer/IconContainer/Stop")
+edit_button = NodePath("Padding7px/VBoxContainer/ButtonsContainer/HBoxContainer/EditButton")
+move_button = NodePath("Padding7px/VBoxContainer/ButtonsContainer/HBoxContainer/MoveButton")
+highlighter = NodePath("Highlighter")
+editor_container = NodePath("EditorContainer")
+name_edit = NodePath("EditorContainer/Padding7px/VBoxContainer/LineEdit")
+tag_container = NodePath("EditorContainer/Padding7px/VBoxContainer/HBoxContainer/ScrollContainer/TagContainer")
+delete_button = NodePath("EditorContainer/Padding7px/VBoxContainer/ButtonsContainer/HBoxContainer/DeleteButton")
+cancel_button = NodePath("EditorContainer/Padding7px/VBoxContainer/ButtonsContainer/HBoxContainer/CancelButton")
+confirm_button = NodePath("EditorContainer/Padding7px/VBoxContainer/ButtonsContainer/HBoxContainer/ConfirmButton")
+sound_progress_bar = NodePath("ProgressBar")
+allow_reordering = true
 metadata/_custom_type_script = "uid://g15gds2amb2n"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -6.0206
 
 [node name="PlayButton" type="Button" parent="."]
 layout_mode = 2
@@ -61,13 +83,14 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_7e4fi")
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 size_flags_vertical = 1
+value = 50.0
 
 [node name="SoundTitle" type="Label" parent="Padding7px/VBoxContainer/Volume&TitleContainer"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"LabelSoundboard"
-text = "som"
+text = "wow"
 horizontal_alignment = 1
 vertical_alignment = 1
 text_overrun_behavior = 3
@@ -146,43 +169,68 @@ size_flags_vertical = 1
 mouse_filter = 2
 theme_type_variation = &"ProgressBarRad12"
 theme_override_styles/background = SubResource("StyleBoxEmpty_r6exp")
-value = 25.0
+max_value = 3.3772788
 show_percentage = false
 
-[node name="ButtonEdit" type="PanelContainer" parent="."]
+[node name="EditorContainer" type="PanelContainer" parent="."]
 visible = false
 layout_mode = 2
 theme_type_variation = &"PanelContainerPlain20"
 
-[node name="Padding7px" type="PanelContainer" parent="ButtonEdit"]
+[node name="Padding7px" type="PanelContainer" parent="EditorContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_dia7c")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ButtonEdit/Padding7px"]
+[node name="VBoxContainer" type="VBoxContainer" parent="EditorContainer/Padding7px"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="LineEdit" type="LineEdit" parent="ButtonEdit/Padding7px/VBoxContainer"]
+[node name="LineEdit" type="LineEdit" parent="EditorContainer/Padding7px/VBoxContainer"]
 custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
 theme_type_variation = &"LineEditSoundboardButton"
 alignment = 1
 
-[node name="HFlowContainer" type="HFlowContainer" parent="ButtonEdit/Padding7px/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="EditorContainer/Padding7px/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 8
 
-[node name="ButtonsContainer" type="PanelContainer" parent="ButtonEdit/Padding7px/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="EditorContainer/Padding7px/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="TagContainer" type="HFlowContainer" parent="EditorContainer/Padding7px/VBoxContainer/HBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("8_ltoht")
+metadata/_custom_type_script = "uid://cxcvg58r4ctxu"
+
+[node name="TagAddButton" type="Button" parent="EditorContainer/Padding7px/VBoxContainer/HBoxContainer/ScrollContainer/TagContainer"]
+layout_mode = 2
+script = ExtResource("9_ltoht")
+metadata/_custom_type_script = "uid://c1u05j2sp03tj"
+
+[node name="ScrollContainerVScroller" type="VScrollBar" parent="EditorContainer/Padding7px/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("scroll_container")]
+layout_mode = 2
+script = ExtResource("10_ka4h0")
+scroll_container = NodePath("../ScrollContainer")
+metadata/_custom_type_script = "uid://uwoe30shhkqp"
+
+[node name="ButtonsContainer" type="PanelContainer" parent="EditorContainer/Padding7px/VBoxContainer"]
 custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_au4vq")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ButtonEdit/Padding7px/VBoxContainer/ButtonsContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="EditorContainer/Padding7px/VBoxContainer/ButtonsContainer"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="DeleteButton" type="Button" parent="ButtonEdit/Padding7px/VBoxContainer/ButtonsContainer/HBoxContainer"]
+[node name="DeleteButton" type="Button" parent="EditorContainer/Padding7px/VBoxContainer/ButtonsContainer/HBoxContainer"]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -191,7 +239,7 @@ icon = ExtResource("8_dia7c")
 icon_alignment = 1
 expand_icon = true
 
-[node name="CancelButton" type="Button" parent="ButtonEdit/Padding7px/VBoxContainer/ButtonsContainer/HBoxContainer"]
+[node name="CancelButton" type="Button" parent="EditorContainer/Padding7px/VBoxContainer/ButtonsContainer/HBoxContainer"]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -200,7 +248,7 @@ icon = ExtResource("8_au4vq")
 icon_alignment = 1
 expand_icon = true
 
-[node name="ConfirmButton" type="Button" parent="ButtonEdit/Padding7px/VBoxContainer/ButtonsContainer/HBoxContainer"]
+[node name="ConfirmButton" type="Button" parent="EditorContainer/Padding7px/VBoxContainer/ButtonsContainer/HBoxContainer"]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -208,5 +256,14 @@ theme_type_variation = &"ButtonPlainRad14"
 icon = ExtResource("9_r6exp")
 icon_alignment = 1
 expand_icon = true
+
+[node name="Highlighter" type="ProgressBar" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.24705882)
+layout_mode = 2
+size_flags_vertical = 1
+theme_type_variation = &"ProgressBarRad12"
+value = 100.0
+show_percentage = false
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
