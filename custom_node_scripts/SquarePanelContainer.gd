@@ -7,7 +7,7 @@ extends PanelContainer
 @export var is_reordering:bool = false
 @export var initial_h_flag:SizeFlags = SIZE_EXPAND_FILL
 @export var initial_v_flag:SizeFlags = SIZE_SHRINK_BEGIN
-@export var initial_custom_minimum_size:Vector2 = Vector2(169,169)
+@export var initial_custom_minimum_size:Vector2 = Vector2(150,150)
 @export var flow_container_uniform:bool = true
 var container_size_threshold:Vector2
 
@@ -27,7 +27,7 @@ func get_parent_flow_row() -> int:
 					highest_division = current_division
 				current_division = 0
 			else:
-				current_division += 1
+				if child.visible: current_division += 1
 			current_line_coord = int(child.position.y)
 			if parent.vertical: current_line_coord = int(child.position.x)
 	if current_division > highest_division:
