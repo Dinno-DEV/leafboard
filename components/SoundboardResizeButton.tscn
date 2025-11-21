@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://cacba4m2t7jxx"]
+
+[ext_resource type="Texture2D" uid="uid://bddp6x5jearsv" path="res://assets/icons/ZoomIn.png" id="1_0y35p"]
+[ext_resource type="Script" uid="uid://b8turtity4syb" path="res://components/SoundboardResizeButton.gd" id="1_01dga"]
+[ext_resource type="Texture2D" uid="uid://tggq35pceeik" path="res://assets/icons/ZoomOut.png" id="4_tynht"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_01dga"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+
+[node name="SoundboardResizeButton" type="PanelContainer" node_paths=PackedStringArray("size_indicator")]
+custom_minimum_size = Vector2(120, 0)
+theme_type_variation = &"PanelContainerSubRad20"
+script = ExtResource("1_01dga")
+size_indicator = NodePath("PanelContainer/HBoxContainer/SizeIndicator")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_01dga")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ZoomInButton" type="Button" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_type_variation = &"ButtonRad24"
+icon = ExtResource("1_0y35p")
+icon_alignment = 1
+expand_icon = true
+
+[node name="padding" type="Control" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="SizeIndicator" type="Label" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"LabelTitle"
+text = "125"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="padding2" type="Control" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="ZoomOutButton" type="Button" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+theme_type_variation = &"ButtonRad24"
+icon = ExtResource("4_tynht")
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="PanelContainer/HBoxContainer/ZoomInButton" to="." method="_on_zoom_in_button_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/ZoomOutButton" to="." method="_on_zoom_out_button_pressed"]
