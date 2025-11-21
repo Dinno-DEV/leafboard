@@ -24,6 +24,11 @@ func show_content(id:String) -> void:
 	var filter_result:Node = NodeFilterer.by_name(get_children(), id)
 	if filter_result is Control: filter_result.visible = true
 
+func get_selected_node() -> Node:
+	for child in get_children():
+		if child.visible: return child
+	return null
+
 func _on_selector_selected(id:String) -> void:
 	hide_all_content()
 	show_content(id)
