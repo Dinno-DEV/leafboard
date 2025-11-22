@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=100 format=3 uid="uid://re1e3s8kew18"]
+[gd_resource type="Theme" load_steps=102 format=3 uid="uid://re1e3s8kew18"]
 
 [ext_resource type="FontFile" uid="uid://bfltwa0oq87mt" path="res://assets/fonts/Inter_18pt-Black.ttf" id="1_0nn2o"]
 [ext_resource type="Texture2D" uid="uid://3lw7j4e26erv" path="res://assets/panels/PanelMainRad8.png" id="1_v7g3f"]
@@ -427,6 +427,15 @@ modulate_color = Color(1, 1, 1, 0.36862746)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i51mr"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pcnac"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8qnp0"]
+texture = ExtResource("2_op0om")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_apvvv"]
 content_margin_left = 8.0
 content_margin_right = 8.0
@@ -841,6 +850,10 @@ LineEditInvis/fonts/font = null
 LineEditInvis/styles/focus = SubResource("StyleBoxEmpty_i51mr")
 LineEditInvis/styles/normal = SubResource("StyleBoxEmpty_i51mr")
 LineEditInvis/styles/read_only = SubResource("StyleBoxEmpty_i51mr")
+LineEditRad12/base_type = &"LineEdit"
+LineEditRad12/styles/focus = SubResource("StyleBoxEmpty_pcnac")
+LineEditRad12/styles/normal = SubResource("StyleBoxTexture_8qnp0")
+LineEditRad12/styles/read_only = SubResource("StyleBoxTexture_8qnp0")
 LineEditSoundboardButton/base_type = &"LineEdit"
 LineEditSoundboardButton/styles/focus = SubResource("StyleBoxFlat_apvvv")
 LineEditSoundboardButton/styles/normal = SubResource("StyleBoxFlat_apvvv")
