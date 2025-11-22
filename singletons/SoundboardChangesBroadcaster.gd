@@ -17,10 +17,11 @@ func _on_dropped_file_catcher_files_dropped(file_paths:Array[String]):
 	DialogTextInput.reveal_dialogs()
 	for file_path in file_paths:
 		start_playing_preview(file_path)
-		var audio_name = await DialogTextInput.request_response("Sound name")
+		var response = await DialogTextInput.request_response("Sound name")
 		stop_playing_preview()
-		if audio_name.is_empty(): audio_name = "Audio"
-		audio_button_data_broadcasted.emit(audio_name, file_path)
+		var audio_name = response[0]
+		if audio_name.is_empty(): audio_name = FileUtil.remove_extension(FileUtil.get_file_name_from_path(file_path))
+		if response[1]: audio_button_data_broadcasted.emit(audio_name, file_path)
 	DialogTextInput.hide_dialogs()
 
 func start_playing_preview(audio_path:String):
