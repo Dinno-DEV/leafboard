@@ -9,3 +9,6 @@
 - Filter file based on extensions
 - Filter file based on names
 - Spawn audio buttons into soundboard
+
+# Signals
+- files_dropped(file_paths:Array[String]) - emitted when file(s) are dropped. It only emits if the files are .mp3 or .wav.
