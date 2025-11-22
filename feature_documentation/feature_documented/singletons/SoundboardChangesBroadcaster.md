@@ -6,3 +6,7 @@
 
 # Do not
 - spawn button to the soundboard.
+
+# Functions
+- start_playing_preview(file_path) - plays a preview with an interval of 1 second by default
+- stop_playing_preview()
