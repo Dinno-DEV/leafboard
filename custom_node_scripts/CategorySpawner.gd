@@ -6,6 +6,8 @@ extends Node
 @export var category_buttons_container:Control
 @export var soundboards_container:Control
 
+signal category_created(category_name:String)
+
 func _ready() -> void:
 	if !add_category_button: return
 	add_category_button.pressed.connect(_on_add_category_button_pressed)
@@ -24,6 +26,7 @@ func _on_add_category_button_pressed():
 	CategoryChangesBroadcaster.announce_new_category(new_category_name)
 	add_category_button.grab_focus()
 	add_category_button.grab_click_focus()
+	category_created.emit(new_category_name)
 
 func is_category_exists(categ_name:String) -> bool:
 	for button in category_buttons_container.get_children():
