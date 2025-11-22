@@ -37,7 +37,7 @@ static func get_filtered_file_extension(extension:String, file_paths:Array[Strin
 
 static func get_file_name_from_path(path:String) -> String:
 	if !path.is_absolute_path(): return ""
-	var split_path:PackedStringArray = path.split("\\")
+	var split_path:PackedStringArray = path.split("\\") + path.split("/")
 	return split_path[split_path.size()-1]
 
 static func get_last_audio_index() -> int:
