@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://bi3qobwcow5mx"]
+[gd_scene load_steps=24 format=3 uid="uid://bi3qobwcow5mx"]
 
+[ext_resource type="Theme" uid="uid://re1e3s8kew18" path="res://res_files/Themes/DarkMode.tres" id="1_hskom"]
 [ext_resource type="Script" uid="uid://dqdm5g0baxqp8" path="res://custom_node_scripts/Selector.gd" id="1_jeqqm"]
-[ext_resource type="PackedScene" uid="uid://b0duy3nsmt53n" path="res://components/CategoryButton.tscn" id="3_c0wpk"]
+[ext_resource type="Script" uid="uid://cytfjlmvqxbrh" path="res://custom_node_scripts/SelectorSearcher.gd" id="2_12dae"]
 [ext_resource type="Texture2D" uid="uid://bcucx0uheshbw" path="res://assets/icons/Add.png" id="4_3alc6"]
 [ext_resource type="Script" uid="uid://uwoe30shhkqp" path="res://custom_node_scripts/ScrollContainerVScroller.gd" id="4_x73fy"]
 [ext_resource type="Script" uid="uid://cpw8m3xj0lad0" path="res://custom_node_scripts/ContentSwitcherContainer.gd" id="4_xc53x"]
@@ -10,8 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://cacba4m2t7jxx" path="res://components/SoundboardResizeButton.tscn" id="6_qje7e"]
 [ext_resource type="Script" uid="uid://cxcvg58r4ctxu" path="res://custom_node_scripts/TagContainer.gd" id="7_iibe3"]
 [ext_resource type="Script" uid="uid://c1u05j2sp03tj" path="res://custom_node_scripts/TagAddButton.gd" id="8_hskom"]
-[ext_resource type="Script" uid="uid://cq7hy23wtgmfl" path="res://custom_node_scripts/Soundboard.gd" id="8_v1srw"]
 [ext_resource type="Script" uid="uid://cuspbdnndf6ul" path="res://custom_node_scripts/CategorySpawner.gd" id="9_v1srw"]
+[ext_resource type="Script" uid="uid://4sn1awjfsfuw" path="res://custom_node_scripts/SoundboardButtonSpawner.gd" id="13_hskom"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jc1id"]
 
@@ -58,6 +59,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("1_hskom")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_jc1id")
 
 [node name="HSplitContainer" type="HSplitContainer" parent="."]
@@ -88,28 +90,32 @@ vertical_scroll_mode = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/separation = 0
+theme_override_constants/separation = 8
 
 [node name="Padding16px1" type="Control" parent="HSplitContainer/CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 16)
+custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 
+[node name="LineEdit" type="LineEdit" parent="HSplitContainer/CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("selector")]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_type_variation = &"LineEditRad12"
+placeholder_text = "Search category"
+alignment = 1
+caret_blink = true
+caret_blink_interval = 0.5
+script = ExtResource("2_12dae")
+selector = NodePath("../Selector")
+metadata/_custom_type_script = "uid://cytfjlmvqxbrh"
+
 [node name="Selector" type="BoxContainer" parent="HSplitContainer/CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 8
 vertical = true
 script = ExtResource("1_jeqqm")
 select_on_ready = 0
 metadata/_custom_type_script = "uid://dqdm5g0baxqp8"
-
-[node name="CategoryButton" parent="HSplitContainer/CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer/VBoxContainer/Selector" instance=ExtResource("3_c0wpk")]
-layout_mode = 2
-text = "Soundboard"
-button_id = "Soundboard"
-
-[node name="Padding8px" type="Control" parent="HSplitContainer/CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 8)
-layout_mode = 2
 
 [node name="AddCategoryButton" type="Button" parent="HSplitContainer/CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 44)
@@ -120,7 +126,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Padding16px2" type="Control" parent="HSplitContainer/CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 16)
+custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 
 [node name="VScrollBar" type="VScrollBar" parent="HSplitContainer/CategoryContainer" node_paths=PackedStringArray("scroll_container")]
@@ -165,7 +171,7 @@ layout_mode = 2
 [node name="SoundboardSearchBar" type="LineEdit" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("content_switcher", "tag_container")]
 layout_mode = 2
 size_flags_horizontal = 3
-placeholder_text = "Search sounds"
+placeholder_text = "Search soundboard"
 max_length = 80
 context_menu_enabled = false
 caret_blink = true
@@ -252,11 +258,6 @@ script = ExtResource("4_xc53x")
 selector = NodePath("../../../../../../../../../../CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer/VBoxContainer/Selector")
 metadata/_custom_type_script = "uid://cpw8m3xj0lad0"
 
-[node name="Soundboard" type="HFlowContainer" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer"]
-layout_mode = 2
-script = ExtResource("8_v1srw")
-metadata/_custom_type_script = "uid://cq7hy23wtgmfl"
-
 [node name="Padding12px2" type="Control" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
@@ -279,3 +280,8 @@ add_category_button = NodePath("../HSplitContainer/CategoryContainer/CategoryBac
 category_buttons_container = NodePath("../HSplitContainer/CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer/VBoxContainer/Selector")
 soundboards_container = NodePath("../HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer")
 metadata/_custom_type_script = "uid://cuspbdnndf6ul"
+
+[node name="SoundboardButtonSpawner" type="Node" parent="." node_paths=PackedStringArray("content_switcher_container")]
+script = ExtResource("13_hskom")
+content_switcher_container = NodePath("../HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer")
+metadata/_custom_type_script = "uid://4sn1awjfsfuw"
