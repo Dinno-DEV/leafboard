@@ -42,14 +42,15 @@ static func get_file_name_from_path(path:String) -> String:
 
 static func get_last_audio_index() -> int:
 	var file_names:PackedStringArray = DirAccess.open(get_directory_path(AUDIO)).get_files()
-	var cursor:int = file_names.size() - 1
-	if cursor == -1: return 0
-	var file_name:String = file_names[cursor]
-	while !is_file_name_audio_index(file_name):
-		if cursor == 0: return 0
-		cursor -= 1
-		file_name = file_names[cursor]
-	return int(remove_extension(file_names[cursor]))
+	if file_names.is_empty(): return 0
+	var removed_extension_file_names:Array[String] = []
+	for file_name in file_names:
+		removed_extension_file_names.append(remove_extension(file_name))
+	var valid_int_file_names:Array[int] = []
+	for file_name in removed_extension_file_names:
+		if file_name.is_valid_int(): valid_int_file_names.append(int(file_name))
+	if valid_int_file_names.is_empty(): return 0
+	return valid_int_file_names.max()
 
 static func clean_file_path(file_path:String) -> String:
 	return "/".join(file_path.split("\\\\"))
