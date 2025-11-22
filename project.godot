@@ -23,6 +23,7 @@ DialogConfirmation="*res://singletons/DialogConfirmation.tscn"
 DialogTextInput="*res://singletons/DialogTextInput.tscn"
 CategoryChangesBroadcaster="*res://singletons/CategoryChangesBroadcaster.tscn"
 DroppedFileCatcher="*res://singletons/DroppedFileCatcher.tscn"
+SoundboardChangesBroadcaster="*res://singletons/SoundboardChangesBroadcaster.tscn"
 
 [display]
 

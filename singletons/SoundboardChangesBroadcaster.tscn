@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://pw3iqyiimh5w"]
+
+[ext_resource type="Script" uid="uid://dupsgq1jh3gha" path="res://singletons/SoundboardChangesBroadcaster.gd" id="1_eyfky"]
+
+[node name="SoundboardChangesBroadcaster" type="Node" node_paths=PackedStringArray("audio_preview_player", "timer")]
+script = ExtResource("1_eyfky")
+audio_preview_player = NodePath("AudioPreviewPlayer")
+timer = NodePath("Timer")
+
+[node name="AudioPreviewPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
