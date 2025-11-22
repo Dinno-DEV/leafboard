@@ -89,7 +89,8 @@ func set_audio(new_path:String) -> void:
 		self.queue_free()
 		return
 	button_data["audio_path"] = new_path
-	audio_player.stream = load(new_path)
+	if FileUtil.is_file_extension(".mp3", new_path): audio_player.stream = FileUtil.load_file_as_mp3(new_path)
+	elif FileUtil.is_file_extension(".wav", new_path): audio_player.stream = FileUtil.load_file_as_wav(new_path)
 	sound_progress_bar.max_value = audio_player.stream.get_length()
 	sound_progress_bar.value = 0
 
