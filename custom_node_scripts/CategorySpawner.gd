@@ -15,20 +15,40 @@ func _on_add_category_button_pressed():
 	if !soundboards_container: return
 	# get the new categ name
 	DialogTextInput.reveal_dialogs()
-	var response = await DialogTextInput.request_response("New category name")
+	var response = await DialogTextInput.request_response("New category name", 24)
 	DialogTextInput.hide_dialogs()
 	if !response[1]: return
 	# adding new button and new soundboard to tree
 	var new_category_name:String = response[0]
 	add_new_category_button(new_category_name)
 	CategoryChangesBroadcaster.announce_new_category(new_category_name)
+	add_category_button.grab_focus()
+	add_category_button.grab_click_focus()
+
+func is_category_exists(categ_name:String) -> bool:
+	for button in category_buttons_container.get_children():
+		if button is IdButton:
+			if button.button_id == categ_name: return true
+	return false
 
 func add_new_category_button(new_category_name:String) -> void:
+	# checks and warnings
+	var check_is_passed:bool = true
+	if is_category_exists(new_category_name): check_is_passed = false
+	if !check_is_passed:
+		DialogConfirmation.reveal_dialogs()
+		await DialogConfirmation.request_response("Category \"" + new_category_name + "\" exists.")
+		DialogConfirmation.hide_dialogs()
+		add_category_button.grab_focus()
+		add_category_button.grab_click_focus()
+		return
 	# add the categ button
 	var new_category_button:CategoryButton = preload("res://components/CategoryButton.tscn").instantiate()
 	category_buttons_container.add_child(new_category_button)
 	new_category_button.set_category_name_silent(new_category_name)
+	category_buttons_container.visible = true
 	# add the new soundboard
 	var new_soundboard:Soundboard = Soundboard.new()
 	soundboards_container.add_child(new_soundboard)
 	new_soundboard.set_soundboard_name(new_category_name)
+	new_soundboard.visible = false
