@@ -7,6 +7,7 @@ extends Node
 var is_preview_playing:bool = false
 
 signal audio_button_data_broadcasted(audio_name:String, audio_path:String)
+signal audio_button_added(soundboard_name:String,audio_button:SoundboardButton)
 
 func _ready() -> void:
 	DroppedFileCatcher.files_dropped.connect(_on_dropped_file_catcher_files_dropped)
@@ -33,6 +34,9 @@ func stop_playing_preview():
 	audio_preview_player.stop()
 	timer.stop()
 	is_preview_playing = false
+
+func announce_button_added(soundboard_name:String, button:SoundboardButton) -> void:
+	audio_button_added.emit(soundboard_name, button)
 
 func _on_timer_timeout():
 	if is_preview_playing: audio_preview_player.play()
