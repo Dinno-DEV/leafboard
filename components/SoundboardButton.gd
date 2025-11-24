@@ -10,8 +10,6 @@ const DEFAULT_BUTTON_DATA:Dictionary = {
 }
 
 @export_group("Referenced Nodes")
-@export var audio_player:AudioStreamPlayer
-
 @export var volume_slider:HSlider
 @export var play_button:Button
 @export var sound_title:Label
@@ -32,6 +30,7 @@ const DEFAULT_BUTTON_DATA:Dictionary = {
 @export var sound_progress_bar:ProgressBar
 
 var button_data:Dictionary = DEFAULT_BUTTON_DATA.duplicate()
+var current_audio:AudioStreamPlayer
 
 signal button_moved(new_index:int)
 signal button_edited(button_data:Dictionary)
@@ -39,7 +38,6 @@ signal button_deleted()
 
 func _ready() -> void:
 	volume_slider.value_changed.connect(_on_volume_slider_value_changed)
-	audio_player.finished.connect(_on_audio_player_finished)
 	play_button.mouse_entered.connect(_on_mouse_entered)
 	play_button.focus_entered.connect(_on_mouse_entered)
 	play_button.mouse_exited.connect(_on_mouse_exited)
@@ -52,7 +50,7 @@ func _ready() -> void:
 	move_button.button_down.connect(_on_move_button_down)
 
 func _physics_process(_delta: float) -> void:
-	if audio_player.is_playing(): sound_progress_bar.value = audio_player.get_playback_position()
+	if current_audio != null: sound_progress_bar.value = current_audio.get_playback_position()
 
 func get_button_data() -> Dictionary:
 	return button_data.duplicate()
@@ -67,7 +65,8 @@ func get_button_tags() -> Array:
 	return get_button_data()["tags"]
 
 func is_playing() -> bool:
-	return audio_player.is_playing()
+	if current_audio != null: return current_audio.is_playing()
+	return false
 
 func set_button_data(
 	new_name:String, 
@@ -93,14 +92,10 @@ func set_audio(new_path:String) -> void:
 		self.queue_free()
 		return
 	button_data["audio_path"] = new_path
-	if FileUtil.is_file_extension(".mp3", new_path): audio_player.stream = FileUtil.load_file_as_mp3(new_path)
-	elif FileUtil.is_file_extension(".wav", new_path): audio_player.stream = FileUtil.load_file_as_wav(new_path)
-	sound_progress_bar.max_value = audio_player.stream.get_length()
-	sound_progress_bar.value = 0
 
 func set_volume(new_volume:float) -> void:
 	button_data["volume"] = new_volume
-	audio_player.volume_db = linear_to_db(new_volume/100)
+	if current_audio != null: current_audio.volume_db = linear_to_db(new_volume/100)
 	volume_slider.set_value_no_signal(new_volume)
 	button_edited.emit(get_button_data())
 
@@ -168,22 +163,24 @@ func _on_volume_slider_value_changed(new_value:float) -> void:
 	set_volume(new_value)
 
 func _on_play_button_pressed() -> void:
-	if audio_player.is_playing():
-		audio_player.stop()
+	if current_audio != null:
+		current_audio.finished.emit()
 		switch_icon_visible(play_icon)
 		sound_progress_bar.value = 0
-	else: 
-		audio_player.play()
+	else:
+		current_audio = AudioPlayerServer.play_audio(button_data.audio_path)
+		current_audio.volume_db = linear_to_db(get_button_volume()/100)
+		sound_progress_bar.max_value = current_audio.stream.get_length()
 		switch_icon_visible(stop_icon)
 
 func _on_mouse_entered() -> void:
-	if audio_player.is_playing():
+	if current_audio != null:
 		switch_icon_visible(stop_icon)
 	else:
 		switch_icon_visible(play_icon)
 
 func _on_mouse_exited() -> void:
-	if audio_player.is_playing():
+	if current_audio != null:
 		switch_icon_visible(stop_icon)
 	else:
 		switch_icon_visible(music_icon)

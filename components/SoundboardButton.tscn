@@ -35,12 +35,11 @@ content_margin_top = 7.0
 content_margin_right = 7.0
 content_margin_bottom = 7.0
 
-[node name="SoundboardButton" type="PanelContainer" node_paths=PackedStringArray("audio_player", "volume_slider", "play_button", "sound_title", "music_icon", "play_icon", "stop_icon", "edit_button", "move_button", "highlighter", "editor_container", "name_edit", "tag_container", "delete_button", "cancel_button", "confirm_button", "sound_progress_bar")]
+[node name="SoundboardButton" type="PanelContainer" node_paths=PackedStringArray("volume_slider", "play_button", "sound_title", "music_icon", "play_icon", "stop_icon", "edit_button", "move_button", "highlighter", "editor_container", "name_edit", "tag_container", "delete_button", "cancel_button", "confirm_button", "sound_progress_bar")]
 custom_minimum_size = Vector2(169, 169)
 theme = ExtResource("1_ah3n5")
 theme_type_variation = &"PanelContainerMainRad24"
 script = ExtResource("1_aihcw")
-audio_player = NodePath("AudioStreamPlayer")
 volume_slider = NodePath("Padding7px/VBoxContainer/Volume&TitleContainer/VolumeSlider")
 play_button = NodePath("PlayButton")
 sound_title = NodePath("Padding7px/VBoxContainer/Volume&TitleContainer/SoundTitle")
@@ -59,9 +58,6 @@ confirm_button = NodePath("EditorContainer/Padding7px/VBoxContainer/ButtonsConta
 sound_progress_bar = NodePath("ProgressBar")
 allow_reordering = true
 metadata/_custom_type_script = "uid://g15gds2amb2n"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -6.0206
 
 [node name="PlayButton" type="Button" parent="."]
 layout_mode = 2
