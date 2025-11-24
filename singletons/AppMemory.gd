@@ -137,3 +137,7 @@ func delete_audio_button(soundboard_name:String, index:int) -> void:
 func move_audio_button(soundboard_name:String, previous_index:int, target_index:int) -> void:
 	var moving_audio_button:Dictionary = app_data["soundboards"][soundboard_name].pop_at(previous_index)
 	app_data["soundboards"][soundboard_name].insert(target_index, moving_audio_button)
+
+func move_soundboard_button(previous_position:int, new_position:int) -> void:
+	var soundboard_name:String = app_data["soundboards_order"].pop_at(previous_position)
+	app_data["soundboards_order"].insert(new_position, soundboard_name)
