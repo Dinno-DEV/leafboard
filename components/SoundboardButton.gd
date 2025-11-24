@@ -33,6 +33,10 @@ const DEFAULT_BUTTON_DATA:Dictionary = {
 
 var button_data:Dictionary = DEFAULT_BUTTON_DATA.duplicate()
 
+signal button_moved(new_index:int)
+signal button_edited(button_data:Dictionary)
+signal button_deleted()
+
 func _ready() -> void:
 	volume_slider.value_changed.connect(_on_volume_slider_value_changed)
 	audio_player.finished.connect(_on_audio_player_finished)
@@ -98,6 +102,7 @@ func set_volume(new_volume:float) -> void:
 	button_data["volume"] = new_volume
 	audio_player.volume_db = linear_to_db(new_volume/100)
 	volume_slider.set_value_no_signal(new_volume)
+	button_edited.emit(get_button_data())
 
 func set_tags(new_tags:Array[String]) -> void:
 	button_data["tags"] = new_tags
@@ -138,6 +143,7 @@ func confirm_editing() -> void:
 	set_button_name(name_edit.text)
 	set_tags(tag_container.get_all_tags())
 	close_editor()
+	button_edited.emit(get_button_data())
 
 func close_editor() -> void:
 	editor_container.visible = false
@@ -151,6 +157,7 @@ func delete_sound_button() -> void:
 	var response:bool = await DialogConfirmation.request_response("Are you sure?")
 	DialogConfirmation.hide_dialogs()
 	if !response: return
+	button_deleted.emit()
 	self.queue_free()
 
 func _on_audio_player_finished() -> void:
@@ -193,13 +200,17 @@ func _on_cancel_button_pressed() -> void:
 func _on_confirm_button_pressed() -> void:
 	confirm_editing()
 
+var previous_index:int = 0
+
 func _on_move_button_down() -> void:
 	var soundboard:Node = get_parent()
 	if soundboard is not Soundboard: return
 	if soundboard.is_some_button_invisible(): return
 	is_reordering = true
 	highlighter.visible = true
+	previous_index = get_index()
 
 func _on_move_button_up() -> void:
 	is_reordering = false
 	highlighter.visible = false
+	button_moved.emit(get_index(), previous_index)
