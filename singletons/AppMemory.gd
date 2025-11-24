@@ -62,7 +62,7 @@ func get_audio_button_settings() -> Dictionary: return get_settings()["audio_but
 func get_shortcuts_settings() -> Dictionary: return get_settings()["shortcuts"]
 
 func get_client() -> Dictionary: return app_data.duplicate(true)["client"]
-func get_previous_selected_categ() -> int: return get_client()["previous_selected_category"]
+func get_previous_selected_categ() -> String: return get_client()["previous_selected_category"]
 
 func get_general_theme() -> String: return get_general_settings().theme
 func get_general_audio_output() -> String: return get_general_settings().audio_output 
