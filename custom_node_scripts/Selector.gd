@@ -35,6 +35,8 @@ func unselect_all() -> void:
 	for node in get_children():
 		if node is Button:
 			node.button_pressed = false
+			if node.theme_type_variation == "ButtonRad12Selected":
+				node.theme_type_variation = "ButtonRad12"
 
 func select(id:String) -> void:
 	unselect_all()
@@ -42,6 +44,8 @@ func select(id:String) -> void:
 		if node is IdButton:
 			if node.button_id == id:
 				node.button_pressed = true
+				if node.theme_type_variation == "ButtonRad12":
+					node.theme_type_variation = "ButtonRad12Selected"
 
 func get_button_id(index:int) -> String:
 	if get_child(index) is not IdButton: return ""
