@@ -3,3 +3,12 @@
 
 # Don't
 - Load
+
+# Checklists
+- [x] save data after making a category
+- [x] save data after editing a category
+- [x] save data after deleting a category
+- [x] save data after making a button
+- [x] save data after editing a button
+- [x] save data after moving a button
+- [x] save data after deleting a button
