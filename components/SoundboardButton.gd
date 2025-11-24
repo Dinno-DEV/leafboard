@@ -73,7 +73,7 @@ func set_button_data(
 	new_name:String, 
 	new_audio_path:String,
 	new_audio_volume:float,
-	new_tags:Array[String]
+	new_tags:Array
 ):
 	set_button_name(new_name)
 	set_audio(new_audio_path)
@@ -104,7 +104,7 @@ func set_volume(new_volume:float) -> void:
 	volume_slider.set_value_no_signal(new_volume)
 	button_edited.emit(get_button_data())
 
-func set_tags(new_tags:Array[String]) -> void:
+func set_tags(new_tags:Array) -> void:
 	button_data["tags"] = new_tags
 
 func set_all_icon_invisible() -> void:
