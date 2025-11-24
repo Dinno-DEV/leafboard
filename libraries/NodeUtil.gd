@@ -12,3 +12,8 @@ static func get_type_as_string(object: Object) -> String:
 	if type_as_string == "":
 		type_as_string = script.get_instance_base_type()
 	return type_as_string
+
+static func get_soundboard_from_csc(content_switcher:ContentSwitcherContainer) -> Soundboard:
+	var node = content_switcher.get_selected_node()
+	if node is Soundboard: return node
+	return null
