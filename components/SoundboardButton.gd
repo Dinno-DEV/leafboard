@@ -51,6 +51,7 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	if current_audio != null: sound_progress_bar.value = current_audio.get_playback_position()
+	else: sound_progress_bar.value = 0
 
 func get_button_data() -> Dictionary:
 	return button_data.duplicate()
