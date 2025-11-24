@@ -63,7 +63,7 @@ func get_button_name() -> String:
 func get_button_volume() -> float:
 	return get_button_data()["volume"]
 
-func get_button_tags() -> Array[String]:
+func get_button_tags() -> Array:
 	return get_button_data()["tags"]
 
 func is_playing() -> bool:
