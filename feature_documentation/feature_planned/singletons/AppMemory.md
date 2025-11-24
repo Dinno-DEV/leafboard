@@ -14,3 +14,13 @@
 - automatically save memory to files.
 - automatically put audio files to user directory.
 - edit, move, or manage any kind of files.
+
+# Checklists
+- [x] button moved data
+- [x] button edited data
+- [x] button volume data
+- [x] button creation data
+- [x] soundboard/category creation data
+- [x] soundboard/category name edit data
+- [x] soundboard/category delete data
+- [x] previously selected soundboard/category
