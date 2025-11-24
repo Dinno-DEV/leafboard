@@ -1,6 +1,8 @@
 class_name Soundboard
 extends HFlowContainer
 
+signal button_added(new_button:SoundboardButton)
+
 func tester():
 	var names:Array[String] = ["aaa", "bbb", "ccc", "ddd", "samson", "doorman", "vindicta", "drifter", "viscous"]
 	var path:String = "res://assets/audio/wow_2.mp3"
@@ -11,6 +13,7 @@ func add_new_button(id:String, sound_path:String) -> void:
 	var sound_button:SoundboardButton = preload("res://components/SoundboardButton.tscn").instantiate()
 	add_child(sound_button)
 	sound_button.set_button_data(id, sound_path, 50, [])
+	button_added.emit(sound_button)
 
 func delete_button(id:String):
 	for child in get_children():
