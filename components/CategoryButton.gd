@@ -1,14 +1,31 @@
 class_name CategoryButton
 extends IdButton
 
+@export var reordering_margin:int = 9
 @export_group("Referenced Nodes")
 @export var delete_button:Button
 @export var edit_button:Button
 
+var is_reordering:bool = false
+
+signal reordered(prev_index:int, new_index:int)
+
 func _ready() -> void:
 	delete_button.pressed.connect(_on_delete_button_pressed)
 	edit_button.pressed.connect(_on_edit_button_pressed)
-	pressed.connect(_on_pressed)
+
+func _process(_delta: float) -> void:
+	if is_reordering:
+		if get_local_mouse_position().y < 0 - reordering_margin:
+			if get_index() - 1 >= 0:
+				if get_parent():
+					reordered.emit(get_index(), get_index()-1)
+					get_parent().move_child(self, get_index() - 1)
+		if get_local_mouse_position().y > size.y + reordering_margin:
+			if get_index() + 1 <= get_parent().get_child_count() - 1:
+				if get_parent():
+					reordered.emit(get_index(), get_index()+1)
+					get_parent().move_child(self, get_index() + 1)
 
 func get_category_name() -> String:
 	return text
@@ -55,8 +72,8 @@ func is_category_exists(categ_name:String) -> bool:
 			if button.button_id == categ_name: return true
 	return false
 
-func _on_pressed() -> void:
-	pressed_id.emit(button_id)
+func start_moving() -> void: is_reordering = true
+func stop_moving() -> void: is_reordering = false
 
 func _on_mouse_exited() -> void:
 	delete_button.visible = false
@@ -68,5 +85,10 @@ func _on_mouse_entered() -> void:
 	edit_button.visible = true
 
 func _on_button_down() -> void:
+	pressed_id.emit(button_id)
 	delete_button.visible = false
 	edit_button.visible = false
+	start_moving()
+
+func _on_button_up() -> void:
+	stop_moving()
