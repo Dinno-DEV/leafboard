@@ -39,6 +39,10 @@ var default_data:Dictionary = {
 
 var app_data:Dictionary = default_data.duplicate(true)
 
+func get_app_data() -> Dictionary: return app_data.duplicate(true)
+
+func get_soundboards_order() -> Array: return get_app_data().soundboards_order
+
 func get_soundboards() -> Dictionary: return app_data.duplicate(true)["soundboards"]
 
 func get_soundboard(soundboard_name:String) -> Array:
@@ -74,6 +78,22 @@ func get_shortcuts_next_category() -> String: return get_shortcuts_settings().ne
 func get_shortcuts_search() -> String: return get_shortcuts_settings().search
 func get_shortcuts_search_tag() -> String: return get_shortcuts_settings().search_tag
 
+func set_soundboards(data:Dictionary) -> void: 
+	if data == {}: return
+	app_data.soundboards = data
+
+func set_soundboards_order(data:Array) -> void: 
+	if data == []: return
+	app_data.soundboards_order = data
+
+func set_settings(data:Dictionary) -> void:
+	if data == {}: return
+	app_data.settings = data
+
+func set_client(data:Dictionary) -> void:
+	if data == {}: return
+	app_data.client = data
+
 func set_soundboard(soundboard_name:String, soundboard_content:Array[Dictionary]) -> void:
 	app_data["soundboards"][soundboard_name] = soundboard_content
 	if !app_data["soundboards_order"].has(soundboard_name):
@@ -82,13 +102,15 @@ func set_soundboard(soundboard_name:String, soundboard_content:Array[Dictionary]
 func set_soundboard_name(previous_name:String, new_name:String) -> void:
 	app_data["soundboards"][new_name] = app_data["soundboards"][previous_name]
 	app_data["soundboards"].erase(previous_name)
+	var index:int = app_data["soundboards_order"].find(previous_name)
+	app_data["soundboards_order"][index] = new_name
 
 func set_audio_button(soundboard_name:String, new_audio_data:Dictionary, index:int) -> void:
 	if app_data["soundboards"][soundboard_name].size() -1 >= index:
 		app_data["soundboards"][soundboard_name][index] = new_audio_data; return
 	app_data["soundboards"][soundboard_name].insert(index, new_audio_data)
 
-func set_previous_selected_categ(selected_name:String) -> void: 
+func set_previous_selected_categ(selected_name:String) -> void:
 	app_data["client"]["previous_selected_category"] = selected_name
 
 func set_general_theme(theme_name:String) -> void: app_data.settings.general.theme = theme_name
