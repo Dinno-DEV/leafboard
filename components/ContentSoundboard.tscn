@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bi3qobwcow5mx"]
+[gd_scene load_steps=27 format=3 uid="uid://bi3qobwcow5mx"]
 
 [ext_resource type="Theme" uid="uid://re1e3s8kew18" path="res://res_files/Themes/DarkMode.tres" id="1_hskom"]
 [ext_resource type="Script" uid="uid://dqdm5g0baxqp8" path="res://custom_node_scripts/Selector.gd" id="1_jeqqm"]
@@ -12,7 +12,10 @@
 [ext_resource type="Script" uid="uid://cxcvg58r4ctxu" path="res://custom_node_scripts/TagContainer.gd" id="7_iibe3"]
 [ext_resource type="Script" uid="uid://c1u05j2sp03tj" path="res://custom_node_scripts/TagAddButton.gd" id="8_hskom"]
 [ext_resource type="Script" uid="uid://cuspbdnndf6ul" path="res://custom_node_scripts/CategorySpawner.gd" id="9_v1srw"]
+[ext_resource type="Script" uid="uid://ckxblifxrtilq" path="res://custom_node_scripts/app_memory_scripts/SoundboardDataCollector.gd" id="12_3cgij"]
+[ext_resource type="Script" uid="uid://8cksn7sp5f3c" path="res://custom_node_scripts/app_memory_scripts/CategorySpawnerDataCollector.gd" id="13_12dae"]
 [ext_resource type="Script" uid="uid://4sn1awjfsfuw" path="res://custom_node_scripts/SoundboardButtonSpawner.gd" id="13_hskom"]
+[ext_resource type="Script" uid="uid://dxc53hp8ofmxk" path="res://custom_node_scripts/app_memory_scripts/CategoryChangesDataCollector.gd" id="16_235dj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jc1id"]
 
@@ -274,6 +277,11 @@ metadata/_custom_type_script = "uid://uwoe30shhkqp"
 [node name="Spacer2" type="Control" parent="HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 
+[node name="SoundboardDataCollector" type="Node" parent="." node_paths=PackedStringArray("content_switcher")]
+script = ExtResource("12_3cgij")
+content_switcher = NodePath("../HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer")
+metadata/_custom_type_script = "uid://ckxblifxrtilq"
+
 [node name="CategorySpawner" type="Node" parent="." node_paths=PackedStringArray("add_category_button", "category_buttons_container", "soundboards_container")]
 script = ExtResource("9_v1srw")
 add_category_button = NodePath("../HSplitContainer/CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer/VBoxContainer/AddCategoryButton")
@@ -281,7 +289,15 @@ category_buttons_container = NodePath("../HSplitContainer/CategoryContainer/Cate
 soundboards_container = NodePath("../HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer")
 metadata/_custom_type_script = "uid://cuspbdnndf6ul"
 
+[node name="CategorySpawnerDataCollector" type="Node" parent="CategorySpawner"]
+script = ExtResource("13_12dae")
+metadata/_custom_type_script = "uid://8cksn7sp5f3c"
+
 [node name="SoundboardButtonSpawner" type="Node" parent="." node_paths=PackedStringArray("content_switcher_container")]
 script = ExtResource("13_hskom")
 content_switcher_container = NodePath("../HSplitContainer/PaddingLeft10px/CategoryContentBackground/VBoxContainer/HBoxContainer2/SoundboardBackground/Clipper/Padding12px0px/ScrollContainer/VBoxContainer/ContentSwitcherContainer")
 metadata/_custom_type_script = "uid://4sn1awjfsfuw"
+
+[node name="CategoryChangesDataCollector" type="Node" parent="."]
+script = ExtResource("16_235dj")
+metadata/_custom_type_script = "uid://dxc53hp8ofmxk"
