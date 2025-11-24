@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=102 format=3 uid="uid://re1e3s8kew18"]
+[gd_resource type="Theme" load_steps=104 format=3 uid="uid://re1e3s8kew18"]
 
 [ext_resource type="FontFile" uid="uid://bfltwa0oq87mt" path="res://assets/fonts/Inter_18pt-Black.ttf" id="1_0nn2o"]
 [ext_resource type="Texture2D" uid="uid://3lw7j4e26erv" path="res://assets/panels/PanelMainRad8.png" id="1_v7g3f"]
@@ -179,6 +179,19 @@ corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hmco7"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.29803923, 0.34509805, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_okhwp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ipjmj"]
 content_margin_left = 4.0
@@ -751,6 +764,14 @@ ButtonRad12/styles/focus = SubResource("StyleBoxEmpty_ipjmj")
 ButtonRad12/styles/hover = SubResource("StyleBoxFlat_q728p")
 ButtonRad12/styles/normal = SubResource("StyleBoxFlat_m1j2o")
 ButtonRad12/styles/pressed = SubResource("StyleBoxFlat_img5c")
+ButtonRad12Selected/base_type = &"Button"
+ButtonRad12Selected/font_sizes/font_size = 12
+ButtonRad12Selected/fonts/font = ExtResource("2_h4vqd")
+ButtonRad12Selected/styles/disabled = SubResource("StyleBoxFlat_hmco7")
+ButtonRad12Selected/styles/focus = SubResource("StyleBoxEmpty_okhwp")
+ButtonRad12Selected/styles/hover = SubResource("StyleBoxFlat_hmco7")
+ButtonRad12Selected/styles/normal = SubResource("StyleBoxFlat_hmco7")
+ButtonRad12Selected/styles/pressed = SubResource("StyleBoxFlat_hmco7")
 ButtonRad24/base_type = &"Button"
 ButtonRad24/styles/disabled = SubResource("StyleBoxFlat_ipjmj")
 ButtonRad24/styles/focus = SubResource("StyleBoxFlat_i51mr")
