@@ -24,3 +24,8 @@
 - [x] soundboard/category name edit data
 - [x] soundboard/category delete data
 - [x] previously selected soundboard/category
+
+# Functions
+- sorry, but I'm too lazy to write all the getters and setters.
+- besides, they're clearly straight forward with the length 
+- of the function names.
