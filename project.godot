@@ -10,9 +10,13 @@ config_version=5
 
 [application]
 
-config/name="leafboard"
+config/name="Leafboard"
+config/version="1.0.0"
 run/main_scene="uid://cgm6biwig0ufp"
 config/features=PackedStringArray("4.5", "Mobile")
+boot_splash/show_image=false
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 config/icon="res://icon.svg"
 
 [autoload]
