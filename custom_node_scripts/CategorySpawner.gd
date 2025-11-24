@@ -18,6 +18,11 @@ func _on_add_category_button_pressed():
 	# get the new categ name
 	DialogTextInput.reveal_dialogs()
 	var response = await DialogTextInput.request_response("New category name", 24)
+	while response[0].is_empty() and response[1]:
+		DialogConfirmation.reveal_dialogs()
+		await DialogConfirmation.request_response("Minimal one letter for category name.")
+		DialogConfirmation.hide_dialogs()
+		response = await DialogTextInput.request_response("New category name", 24)
 	DialogTextInput.hide_dialogs()
 	if !response[1]: return
 	# adding new button and new soundboard to tree
@@ -45,13 +50,19 @@ func add_new_category_button(new_category_name:String) -> void:
 		add_category_button.grab_focus()
 		add_category_button.grab_click_focus()
 		return
-	# add the categ button
+	spawn_category_button(new_category_name)
+	spawn_soundboard(new_category_name)
+
+func spawn_category_button(new_category_name:String) -> CategoryButton: 
 	var new_category_button:CategoryButton = preload("res://components/CategoryButton.tscn").instantiate()
 	category_buttons_container.add_child(new_category_button)
 	new_category_button.set_category_name_silent(new_category_name)
 	category_buttons_container.visible = true
-	# add the new soundboard
+	return new_category_button
+
+func spawn_soundboard(new_category_name:String) -> Soundboard:
 	var new_soundboard:Soundboard = Soundboard.new()
 	soundboards_container.add_child(new_soundboard)
 	new_soundboard.set_soundboard_name(new_category_name)
 	new_soundboard.visible = false
+	return new_soundboard
