@@ -8,3 +8,4 @@ func _ready() -> void:
 
 func _on_category_created(new_category_name:String) -> void:
 	AppMemory.set_soundboard(new_category_name, [])
+	Saver.save_soundboards_data()
