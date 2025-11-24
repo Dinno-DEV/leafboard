@@ -28,4 +28,4 @@ func _on_pressed() -> void:
 	var tag_button:TagButton = TagButton.new()
 	tag_button.tag_name = response[0]
 	parent.add_child(tag_button)
-	parent.move_child(self, get_parent().get_child_count()-1)
+	parent.move_child(tag_button,1)
