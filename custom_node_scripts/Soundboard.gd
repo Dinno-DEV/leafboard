@@ -17,6 +17,7 @@ func add_new_button(id:String, sound_path:String, volume:float = 50, tags:Array 
 	add_child(sound_button)
 	sound_button.set_button_data(id, sound_path, volume, tags)
 	button_added.emit(sound_button)
+	SoundboardChangesBroadcaster.announce_button_added(get_soundboard_name(), sound_button)
 
 func delete_button(id:String):
 	for child in get_children():
@@ -43,7 +44,7 @@ func get_all_button_id() -> Array[String]:
 func get_button_volume(id:String) -> float:
 	return get_button_by_id(id).get_button_volume()
 
-func get_button_tags(id:String) -> Array[String]:
+func get_button_tags(id:String) -> Array:
 	return get_button_by_id(id).get_button_tags()
 
 func get_now_playing() -> Array[String]:
