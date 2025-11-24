@@ -26,6 +26,7 @@ DroppedFileCatcher="*res://singletons/DroppedFileCatcher.tscn"
 SoundboardChangesBroadcaster="*res://singletons/SoundboardChangesBroadcaster.tscn"
 AppMemory="*res://singletons/AppMemory.gd"
 Saver="*res://singletons/Saver.gd"
+Loader="*res://singletons/Loader.gd"
 
 [display]
 
