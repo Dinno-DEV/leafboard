@@ -3,13 +3,16 @@ extends Node
 
 @export_group("Referenced Nodes")
 @export var category_spawner:CategorySpawner
+@export var selector:Selector
 
 var soundboards_data:Dictionary
 var soundboards_order:Array
+var prev_selected:String
 
 func _ready() -> void:
-	soundboards_data = Loader.load_soundboards_data()
-	soundboards_order = Loader.load_soundboards_order()
+	soundboards_data = AppMemory.get_soundboards()
+	soundboards_order = AppMemory.get_soundboards_order()
+	prev_selected = AppMemory.get_previous_selected_categ()
 	load_soundboards()
 
 func load_soundboards() -> void:
@@ -23,3 +26,5 @@ func load_soundboards() -> void:
 				audio_data["volume"],
 				audio_data["tags"],
 			)
+	selector.select(prev_selected)
+	selector.selected.emit(prev_selected)
