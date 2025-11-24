@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bi3qobwcow5mx"]
+[gd_scene load_steps=28 format=3 uid="uid://bi3qobwcow5mx"]
 
 [ext_resource type="Theme" uid="uid://re1e3s8kew18" path="res://res_files/Themes/DarkMode.tres" id="1_hskom"]
 [ext_resource type="Script" uid="uid://dqdm5g0baxqp8" path="res://custom_node_scripts/Selector.gd" id="1_jeqqm"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://8cksn7sp5f3c" path="res://custom_node_scripts/app_memory_scripts/CategorySpawnerDataCollector.gd" id="13_12dae"]
 [ext_resource type="Script" uid="uid://4sn1awjfsfuw" path="res://custom_node_scripts/SoundboardButtonSpawner.gd" id="13_hskom"]
 [ext_resource type="Script" uid="uid://dxc53hp8ofmxk" path="res://custom_node_scripts/app_memory_scripts/CategoryChangesDataCollector.gd" id="16_235dj"]
+[ext_resource type="Script" uid="uid://btp51awtdjuev" path="res://custom_node_scripts/loader_scripts/SoundboardLoader.gd" id="17_7r7eh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jc1id"]
 
@@ -300,3 +301,8 @@ metadata/_custom_type_script = "uid://4sn1awjfsfuw"
 [node name="CategoryChangesDataCollector" type="Node" parent="."]
 script = ExtResource("16_235dj")
 metadata/_custom_type_script = "uid://dxc53hp8ofmxk"
+
+[node name="SoundboardLoader" type="Node" parent="." node_paths=PackedStringArray("category_spawner")]
+script = ExtResource("17_7r7eh")
+category_spawner = NodePath("../CategorySpawner")
+metadata/_custom_type_script = "uid://btp51awtdjuev"
