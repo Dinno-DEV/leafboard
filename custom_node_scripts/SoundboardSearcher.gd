@@ -39,7 +39,7 @@ func _on_text_changed(new_text:String) -> void:
 	var soundboard = get_soundboard()
 	if !soundboard: return
 	if new_text == "" and tag_container.get_all_tags().is_empty(): soundboard.set_all_buttons_visible(); return
-	var tag_filtered_id:Array[String] = tag_filter(tag_container.get_all_tags(), soundboard.get_all_button_id())
+	var tag_filtered_id:Array = tag_filter(tag_container.get_all_tags(), soundboard.get_all_button_id())
 	var search_result:Array[String] = search(new_text, tag_filtered_id)
 	soundboard.set_all_buttons_invisible()
 	for id in search_result:
