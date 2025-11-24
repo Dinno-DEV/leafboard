@@ -7,8 +7,8 @@ func _ready() -> void:
 
 func _on_category_name_changed(prev_name:String, new_name:String) -> void:
 	AppMemory.set_soundboard_name(prev_name, new_name)
-	print(prev_name, new_name)
+	Saver.save_soundboards_data()
 
 func _on_category_deleted(category_name:String) -> void:
 	AppMemory.delete_soundboard(category_name)
-	print(category_name)
+	Saver.save_soundboards_data()
