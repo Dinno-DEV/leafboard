@@ -1,6 +1,5 @@
-[gd_scene load_steps=28 format=3 uid="uid://bi3qobwcow5mx"]
+[gd_scene load_steps=27 format=3 uid="uid://bi3qobwcow5mx"]
 
-[ext_resource type="Theme" uid="uid://re1e3s8kew18" path="res://res_files/Themes/DarkMode.tres" id="1_hskom"]
 [ext_resource type="Script" uid="uid://dqdm5g0baxqp8" path="res://custom_node_scripts/Selector.gd" id="1_jeqqm"]
 [ext_resource type="Script" uid="uid://cytfjlmvqxbrh" path="res://custom_node_scripts/SelectorSearcher.gd" id="2_12dae"]
 [ext_resource type="Texture2D" uid="uid://bcucx0uheshbw" path="res://assets/icons/Add.png" id="4_3alc6"]
@@ -63,7 +62,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("1_hskom")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_jc1id")
 
 [node name="HSplitContainer" type="HSplitContainer" parent="."]
