@@ -13,6 +13,7 @@ extends PanelContainer
 
 func _ready() -> void:
 	content_switcher.content_shown.connect(_on_content_shown)
+	SoundboardChangesBroadcaster.audio_button_added.connect(_on_button_added)
 
 func get_soundboard() -> Soundboard:
 	if content_switcher.get_selected_node() is Soundboard:
@@ -45,3 +46,9 @@ func _on_content_shown(node:Node) -> void:
 	var soundboard:Soundboard = node
 	if !soundboard: return
 	soundboard.set_all_buttons_size(Vector2(current_size,current_size))
+
+func _on_button_added(_soundboard:String, node:Node) -> void:
+	var soundboard:Soundboard = get_soundboard()
+	if !soundboard: return
+	if soundboard.get_children().has(node):
+		node.initial_custom_minimum_size = Vector2(current_size,current_size)
