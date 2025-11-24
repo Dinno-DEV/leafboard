@@ -302,7 +302,8 @@ metadata/_custom_type_script = "uid://4sn1awjfsfuw"
 script = ExtResource("16_235dj")
 metadata/_custom_type_script = "uid://dxc53hp8ofmxk"
 
-[node name="SoundboardLoader" type="Node" parent="." node_paths=PackedStringArray("category_spawner")]
+[node name="SoundboardLoader" type="Node" parent="." node_paths=PackedStringArray("category_spawner", "selector")]
 script = ExtResource("17_7r7eh")
 category_spawner = NodePath("../CategorySpawner")
+selector = NodePath("../HSplitContainer/CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer/VBoxContainer/Selector")
 metadata/_custom_type_script = "uid://btp51awtdjuev"
