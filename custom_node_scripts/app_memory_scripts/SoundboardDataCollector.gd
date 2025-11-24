@@ -11,6 +11,7 @@ func _on_content_switched(selected_node:Node) -> void:
 	if selected_node is not Soundboard: return
 	selected_node.button_added.connect(_on_soundboard_button_added)
 	AppMemory.set_previous_selected_categ(selected_node.get_soundboard_name())
+	Saver.save_clients_data()
 
 func _on_soundboard_button_added(new_button:SoundboardButton) -> void:
 	AppMemory.set_audio_button(
@@ -18,3 +19,4 @@ func _on_soundboard_button_added(new_button:SoundboardButton) -> void:
 		new_button.get_button_data(),
 		new_button.get_index()
 	)
+	Saver.save_soundboards_data()
