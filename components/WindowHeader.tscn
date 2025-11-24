@@ -72,7 +72,7 @@ layout_mode = 2
 size_flags_horizontal = 6
 mouse_filter = 1
 script = ExtResource("6_qsy51")
-suffix = " - Leafboard 25.11.10"
+suffix = " - Leafboard 1.0.0"
 selector = NodePath("../Selector")
 metadata/_custom_type_script = "uid://dg4en6imq2d6f"
 
