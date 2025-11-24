@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://djxht25bxlcw0"]
+[gd_scene load_steps=21 format=3 uid="uid://djxht25bxlcw0"]
 
 [ext_resource type="Theme" uid="uid://re1e3s8kew18" path="res://res_files/Themes/DarkMode.tres" id="1_ah3n5"]
 [ext_resource type="Script" uid="uid://b31k6xhdyvat5" path="res://components/SoundboardButton.gd" id="1_aihcw"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://c1u05j2sp03tj" path="res://custom_node_scripts/TagAddButton.gd" id="9_ltoht"]
 [ext_resource type="Texture2D" uid="uid://blimdm1cgitk6" path="res://assets/icons/Check.png" id="9_r6exp"]
 [ext_resource type="Script" uid="uid://uwoe30shhkqp" path="res://custom_node_scripts/ScrollContainerVScroller.gd" id="10_ka4h0"]
+[ext_resource type="Script" uid="uid://dgrq7o6ee2bl7" path="res://custom_node_scripts/app_memory_scripts/SoundButtonDataCollector.gd" id="14_u2ldo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ah3n5"]
 content_margin_left = 7.0
@@ -265,5 +266,9 @@ size_flags_vertical = 1
 theme_type_variation = &"ProgressBarRad12"
 value = 100.0
 show_percentage = false
+
+[node name="SoundButtonDataCollector" type="Node" parent="."]
+script = ExtResource("14_u2ldo")
+metadata/_custom_type_script = "uid://dgrq7o6ee2bl7"
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
