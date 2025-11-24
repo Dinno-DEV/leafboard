@@ -31,9 +31,29 @@ func _on_delete_button_pressed() -> void:
 
 func _on_edit_button_pressed() -> void:
 	DialogTextInput.reveal_dialogs()
-	var response:Array = await DialogTextInput.request_response("New name")
+	var response:Array = await DialogTextInput.request_response("New name", 24)
+	if response[0].is_empty() and response[1]:
+		DialogConfirmation.reveal_dialogs()
+		await DialogConfirmation.request_response("Minimal one letter for category name.")
+		DialogConfirmation.hide_dialogs()
+		DialogTextInput.hide_dialogs()
+		return
+	if is_category_exists(response[0]):
+		DialogConfirmation.reveal_dialogs()
+		await DialogConfirmation.request_response("Category \"" + response[0] + "\" exists.")
+		DialogConfirmation.hide_dialogs()
+		DialogTextInput.hide_dialogs()
+		return
 	if response[1]: set_category_name(response[0])
 	DialogTextInput.hide_dialogs()
+
+func is_category_exists(categ_name:String) -> bool:
+	var category_buttons_container:Node = get_parent()
+	if category_buttons_container is not Selector: return false
+	for button in category_buttons_container.get_children():
+		if button is IdButton:
+			if button.button_id == categ_name: return true
+	return false
 
 func _on_pressed() -> void:
 	pressed_id.emit(button_id)
