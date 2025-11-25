@@ -69,6 +69,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"LineEditInvis"
 alignment = 1
+context_menu_enabled = false
 
 [node name="ConfirmWrapper" type="Control" parent="HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
