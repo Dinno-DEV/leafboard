@@ -1,7 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://cvbjwfy4vbpvw"]
 
 [ext_resource type="Script" uid="uid://dqdm5g0baxqp8" path="res://custom_node_scripts/Selector.gd" id="1_564gv"]
-[ext_resource type="Theme" uid="uid://re1e3s8kew18" path="res://res_files/Themes/DarkMode.tres" id="1_jc0qr"]
 [ext_resource type="Script" uid="uid://uwoe30shhkqp" path="res://custom_node_scripts/ScrollContainerVScroller.gd" id="2_3qlfd"]
 [ext_resource type="Script" uid="uid://coi3puogpj6af" path="res://custom_node_scripts/IdButton.gd" id="2_jc0qr"]
 [ext_resource type="Script" uid="uid://dg4en6imq2d6f" path="res://custom_node_scripts/SelectorTitleDisplayer.gd" id="5_awtxh"]
@@ -14,6 +13,7 @@
 [ext_resource type="Script" uid="uid://dujbahuvvpuhu" path="res://custom_node_scripts/loader_scripts/SettingsGeneralLoader.gd" id="9_y40sp"]
 [ext_resource type="Script" uid="uid://dwl4usv0mkf8e" path="res://components/SettingsShortcut.gd" id="11_y40sp"]
 [ext_resource type="Script" uid="uid://b75cq77op5i84" path="res://custom_node_scripts/loader_scripts/SettingsAudioButtonsLoader.gd" id="13_0gkld"]
+[ext_resource type="Script" uid="uid://ch56knob6esdu" path="res://custom_node_scripts/loader_scripts/SettingsShortcutsLoader.gd" id="14_0gkld"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mk17s"]
 
@@ -34,7 +34,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_jc0qr")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_mk17s")
 
 [node name="SplitContainer" type="HSplitContainer" parent="."]
@@ -313,11 +312,19 @@ default_name_line_edit = NodePath("../DefaultNameContainer/LineEdit")
 default_tag_container = NodePath("../DefaultButtonTagsContainer/PanelContainer/ScrollContainer/TagContainer")
 metadata/_custom_type_script = "uid://b75cq77op5i84"
 
-[node name="Shortcut" type="VBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer"]
+[node name="Shortcut" type="VBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer" node_paths=PackedStringArray("new_categ", "prev_categ", "next_categ", "search", "new_tag_search", "focus_sound", "increase_size", "decrease_size")]
 visible = false
 layout_mode = 2
 theme_override_constants/separation = 8
 script = ExtResource("11_y40sp")
+new_categ = NodePath("CreateNewCategoryContainer/Button")
+prev_categ = NodePath("PreviousCategoryContainer/Button")
+next_categ = NodePath("NextCategoryContainer/Button")
+search = NodePath("SearchContainer/Button")
+new_tag_search = NodePath("NewTagContainer/Button")
+focus_sound = NodePath("FocusSoundButtonContainer/Button")
+increase_size = NodePath("IncreaseSizeContainer/Button")
+decrease_size = NodePath("DecreaseSizeContainer/Button")
 
 [node name="CreateNewCategoryContainer" type="HBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut"]
 layout_mode = 2
@@ -335,6 +342,9 @@ custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Key"
+script = ExtResource("2_jc0qr")
+button_id = "new_categ"
+metadata/_custom_type_script = "uid://coi3puogpj6af"
 
 [node name="PreviousCategoryContainer" type="HBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut"]
 layout_mode = 2
@@ -352,6 +362,9 @@ custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Key"
+script = ExtResource("2_jc0qr")
+button_id = "prev_categ"
+metadata/_custom_type_script = "uid://coi3puogpj6af"
 
 [node name="NextCategoryContainer" type="HBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut"]
 layout_mode = 2
@@ -369,6 +382,9 @@ custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Key"
+script = ExtResource("2_jc0qr")
+button_id = "next_categ"
+metadata/_custom_type_script = "uid://coi3puogpj6af"
 
 [node name="SearchContainer" type="HBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut"]
 layout_mode = 2
@@ -386,6 +402,9 @@ custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Key"
+script = ExtResource("2_jc0qr")
+button_id = "search"
+metadata/_custom_type_script = "uid://coi3puogpj6af"
 
 [node name="NewTagContainer" type="HBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut"]
 layout_mode = 2
@@ -403,6 +422,9 @@ custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Key"
+script = ExtResource("2_jc0qr")
+button_id = "new_tag_search"
+metadata/_custom_type_script = "uid://coi3puogpj6af"
 
 [node name="FocusSoundButtonContainer" type="HBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut"]
 layout_mode = 2
@@ -420,6 +442,9 @@ custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Key"
+script = ExtResource("2_jc0qr")
+button_id = "focus_sound"
+metadata/_custom_type_script = "uid://coi3puogpj6af"
 
 [node name="IncreaseSizeContainer" type="HBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut"]
 layout_mode = 2
@@ -437,6 +462,9 @@ custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Key"
+script = ExtResource("2_jc0qr")
+button_id = "increase_size"
+metadata/_custom_type_script = "uid://coi3puogpj6af"
 
 [node name="DecreaseSizeContainer" type="HBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut"]
 layout_mode = 2
@@ -454,3 +482,18 @@ custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Key"
+script = ExtResource("2_jc0qr")
+button_id = "decrease_size"
+metadata/_custom_type_script = "uid://coi3puogpj6af"
+
+[node name="SettingsShortcutsLoader" type="Node" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut" node_paths=PackedStringArray("new_categ", "prev_categ", "next_categ", "search", "new_tag_search", "focus_sound", "increase_size", "decrease_size")]
+script = ExtResource("14_0gkld")
+new_categ = NodePath("../CreateNewCategoryContainer/Button")
+prev_categ = NodePath("../PreviousCategoryContainer/Button")
+next_categ = NodePath("../NextCategoryContainer/Button")
+search = NodePath("../SearchContainer/Button")
+new_tag_search = NodePath("../NewTagContainer/Button")
+focus_sound = NodePath("../FocusSoundButtonContainer/Button")
+increase_size = NodePath("../IncreaseSizeContainer/Button")
+decrease_size = NodePath("../DecreaseSizeContainer/Button")
+metadata/_custom_type_script = "uid://ch56knob6esdu"
