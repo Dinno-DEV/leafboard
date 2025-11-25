@@ -21,6 +21,12 @@ func _ready() -> void:
 			selected.emit(get_child(select_on_ready).button_id)
 			select(get_child(select_on_ready).button_id)
 
+func get_current_selected() -> IdButton:
+	for child in get_children():
+		if child is IdButton:
+			if child.selected: return child
+	return null
+
 func set_all_button_toggle_mode() -> void:
 	for node in get_children():
 		if node is Button:
