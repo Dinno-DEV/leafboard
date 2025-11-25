@@ -29,11 +29,14 @@ var default_data:Dictionary = {
 			"previous_category" : "key",
 			"next_category" : "key",
 			"search" : "key",
-			"search_tag" : "key"
+			"search_tag" : "key",
+			"focus_sound_button" : "key",
+			"increase_sound_button_size" : "key",
+			"decrease_sound_button_size" : "key"
 		}
 	},
 	"client" : {
-		"previous_selected_category" : 0,
+		"previous_selected_category" : "",
 	}
 }
 
