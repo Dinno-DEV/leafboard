@@ -21,7 +21,7 @@ func _on_dropped_file_catcher_files_dropped(file_paths:Array[String]):
 		var response = await DialogTextInput.request_response("Sound name")
 		stop_playing_preview()
 		var audio_name = response[0]
-		if audio_name.is_empty(): audio_name = FileUtil.remove_extension(FileUtil.get_file_name_from_path(file_path))
+		if audio_name.is_empty(): audio_name = AppMemory.get_audio_button_default_name() + FileUtil.remove_extension(FileUtil.get_file_name_from_path(file_path))
 		if response[1]: audio_button_data_broadcasted.emit(audio_name, file_path)
 	DialogTextInput.hide_dialogs()
 
