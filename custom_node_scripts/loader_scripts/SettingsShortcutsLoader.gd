@@ -13,6 +13,8 @@ extends Node
 
 func _input(_event: InputEvent) -> void:
 	if _event is not InputEventKey: return
+
+func tester() -> void:
 	if Input.is_action_just_pressed("decrease_sound_button_size"): print("decrease_sound_button_size")
 	if Input.is_action_just_pressed("focus_search"): print("focus_search")
 	if Input.is_action_just_pressed("focus_sound_button"): print("focus_sound_button")
