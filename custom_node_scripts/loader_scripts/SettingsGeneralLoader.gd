@@ -11,4 +11,6 @@ func _ready() -> void:
 	master_volume_slider.value = AppMemory.get_general_master_volume()
 	for index in range(audio_output_options.item_count):
 		if audio_output_options.get_item_text(index) == AppMemory.get_general_audio_output():
-			audio_output_options.select(index); return
+			audio_output_options.select(index)
+			AudioServer.output_device = AppMemory.get_general_audio_output()
+			return
