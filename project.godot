@@ -49,6 +49,38 @@ mouse_left={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(335, 30),"global_position":Vector2(344, 78),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
+new_category={
+"deadzone": 0.2,
+"events": []
+}
+prev_category={
+"deadzone": 0.2,
+"events": []
+}
+next_category={
+"deadzone": 0.2,
+"events": []
+}
+focus_search={
+"deadzone": 0.2,
+"events": []
+}
+new_search_tag={
+"deadzone": 0.2,
+"events": []
+}
+focus_sound_button={
+"deadzone": 0.2,
+"events": []
+}
+increase_sound_button_size={
+"deadzone": 0.2,
+"events": []
+}
+decrease_sound_button_size={
+"deadzone": 0.2,
+"events": []
+}
 
 [rendering]
 
