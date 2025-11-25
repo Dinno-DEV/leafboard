@@ -66,7 +66,6 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_jc1id")
 
 [node name="HSplitContainer" type="HSplitContainer" parent="."]
 layout_mode = 2
-theme_override_constants/separation = 12
 
 [node name="CategoryContainer" type="HBoxContainer" parent="HSplitContainer"]
 custom_minimum_size = Vector2(319, 0)
