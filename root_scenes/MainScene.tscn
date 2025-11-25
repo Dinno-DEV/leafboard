@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgm6biwig0ufp"]
+[gd_scene load_steps=7 format=3 uid="uid://cgm6biwig0ufp"]
 
 [ext_resource type="Theme" uid="uid://re1e3s8kew18" path="res://res_files/Themes/DarkMode.tres" id="1_w3jt3"]
 [ext_resource type="PackedScene" uid="uid://dqvivuv0bpux6" path="res://components/WindowHeader.tscn" id="2_qeh2v"]
 [ext_resource type="Script" uid="uid://bh0ou3krx7hj4" path="res://custom_node_scripts/ContentSwitcher.gd" id="3_eegsb"]
 [ext_resource type="PackedScene" uid="uid://bi3qobwcow5mx" path="res://components/ContentSoundboard.tscn" id="4_jc1id"]
+[ext_resource type="PackedScene" uid="uid://cvbjwfy4vbpvw" path="res://components/ContentSettings.tscn" id="5_u0tw2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eegsb"]
 content_margin_left = 30.0
@@ -41,10 +42,13 @@ theme_type_variation = &"WindowHeader"
 layout_mode = 2
 main_scene_background = NodePath("../../..")
 
-[node name="Settings" parent="PanelContainer/VBoxContainer/HeaderContainer/WindowHeader/HBoxContainer/Selector" index="0"]
+[node name="Selector" parent="PanelContainer/VBoxContainer/HeaderContainer/WindowHeader/HBoxContainer" index="0"]
+select_on_ready = 0
+
+[node name="Soundboard" parent="PanelContainer/VBoxContainer/HeaderContainer/WindowHeader/HBoxContainer/Selector" index="0"]
 theme_type_variation = &"ButtonRad4"
 
-[node name="Soundboard" parent="PanelContainer/VBoxContainer/HeaderContainer/WindowHeader/HBoxContainer/Selector" index="1"]
+[node name="Settings" parent="PanelContainer/VBoxContainer/HeaderContainer/WindowHeader/HBoxContainer/Selector" index="1"]
 theme_type_variation = &"ButtonRad4"
 
 [node name="Label" parent="PanelContainer/VBoxContainer/HeaderContainer/WindowHeader/HBoxContainer" index="2"]
@@ -73,5 +77,13 @@ metadata/_custom_type_script = "uid://bh0ou3krx7hj4"
 
 [node name="Soundboard" parent="PanelContainer/VBoxContainer/BodyContainer/ContentSwitcher" instance=ExtResource("4_jc1id")]
 layout_mode = 1
+
+[node name="Settings" parent="PanelContainer/VBoxContainer/BodyContainer/ContentSwitcher" instance=ExtResource("5_u0tw2")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [editable path="PanelContainer/VBoxContainer/HeaderContainer/WindowHeader"]
