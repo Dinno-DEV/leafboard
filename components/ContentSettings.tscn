@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cvbjwfy4vbpvw"]
+[gd_scene load_steps=11 format=3 uid="uid://cvbjwfy4vbpvw"]
 
 [ext_resource type="Script" uid="uid://dqdm5g0baxqp8" path="res://custom_node_scripts/Selector.gd" id="1_564gv"]
 [ext_resource type="Theme" uid="uid://re1e3s8kew18" path="res://res_files/Themes/DarkMode.tres" id="1_jc0qr"]
 [ext_resource type="Script" uid="uid://uwoe30shhkqp" path="res://custom_node_scripts/ScrollContainerVScroller.gd" id="2_3qlfd"]
 [ext_resource type="Script" uid="uid://coi3puogpj6af" path="res://custom_node_scripts/IdButton.gd" id="2_jc0qr"]
 [ext_resource type="Script" uid="uid://dg4en6imq2d6f" path="res://custom_node_scripts/SelectorTitleDisplayer.gd" id="5_awtxh"]
+[ext_resource type="Script" uid="uid://cpw8m3xj0lad0" path="res://custom_node_scripts/ContentSwitcherContainer.gd" id="6_ie2up"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mk17s"]
 
@@ -16,7 +17,8 @@ content_margin_right = 16.0
 content_margin_left = 28.0
 content_margin_top = 18.0
 content_margin_right = 18.0
-content_margin_bottom = 14.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eco1u"]
 
 [node name="Settings" type="PanelContainer"]
 anchors_preset = 15
@@ -123,3 +125,21 @@ script = ExtResource("5_awtxh")
 suffix = " Settings"
 selector = NodePath("../../../CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer/VBoxContainer/Selector")
 metadata/_custom_type_script = "uid://dg4en6imq2d6f"
+
+[node name="ContentSwitcherContainer" type="PanelContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer" node_paths=PackedStringArray("selector")]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_eco1u")
+script = ExtResource("6_ie2up")
+unload_unselected = false
+selector = NodePath("../../../CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer/VBoxContainer/Selector")
+metadata/_custom_type_script = "uid://cpw8m3xj0lad0"
+
+[node name="General" type="VBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer"]
+layout_mode = 2
+
+[node name="Audio Buttons" type="VBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer"]
+layout_mode = 2
+
+[node name="Shortcut" type="VBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer"]
+layout_mode = 2
