@@ -1,0 +1,125 @@
+[gd_scene load_steps=9 format=3 uid="uid://cvbjwfy4vbpvw"]
+
+[ext_resource type="Script" uid="uid://dqdm5g0baxqp8" path="res://custom_node_scripts/Selector.gd" id="1_564gv"]
+[ext_resource type="Theme" uid="uid://re1e3s8kew18" path="res://res_files/Themes/DarkMode.tres" id="1_jc0qr"]
+[ext_resource type="Script" uid="uid://uwoe30shhkqp" path="res://custom_node_scripts/ScrollContainerVScroller.gd" id="2_3qlfd"]
+[ext_resource type="Script" uid="uid://coi3puogpj6af" path="res://custom_node_scripts/IdButton.gd" id="2_jc0qr"]
+[ext_resource type="Script" uid="uid://dg4en6imq2d6f" path="res://custom_node_scripts/SelectorTitleDisplayer.gd" id="5_awtxh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mk17s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jc0qr"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_awtxh"]
+content_margin_left = 28.0
+content_margin_top = 18.0
+content_margin_right = 18.0
+content_margin_bottom = 14.0
+
+[node name="Settings" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_jc0qr")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mk17s")
+
+[node name="SplitContainer" type="HSplitContainer" parent="."]
+layout_mode = 2
+
+[node name="CategoryContainer" type="HBoxContainer" parent="SplitContainer"]
+custom_minimum_size = Vector2(319, 0)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="CategoryBackground" type="PanelContainer" parent="SplitContainer/CategoryContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"PanelContainerSubRad24"
+
+[node name="Padding16px0px" type="PanelContainer" parent="SplitContainer/CategoryContainer/CategoryBackground"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jc0qr")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SplitContainer/CategoryContainer/CategoryBackground/Padding16px0px"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SplitContainer/CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="Padding16px1" type="Control" parent="SplitContainer/CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="Selector" type="BoxContainer" parent="SplitContainer/CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+vertical = true
+script = ExtResource("1_564gv")
+select_on_ready = 0
+metadata/_custom_type_script = "uid://dqdm5g0baxqp8"
+
+[node name="General" type="Button" parent="SplitContainer/CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer/VBoxContainer/Selector"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_type_variation = &"ButtonRad12"
+text = "General"
+script = ExtResource("2_jc0qr")
+button_id = "General"
+metadata/_custom_type_script = "uid://coi3puogpj6af"
+
+[node name="AudioButtons" type="Button" parent="SplitContainer/CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer/VBoxContainer/Selector"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_type_variation = &"ButtonRad12"
+text = "Audio Buttons"
+script = ExtResource("2_jc0qr")
+button_id = "Audio Buttons"
+metadata/_custom_type_script = "uid://coi3puogpj6af"
+
+[node name="Shortcut" type="Button" parent="SplitContainer/CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer/VBoxContainer/Selector"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_type_variation = &"ButtonRad12"
+text = "Shortcut"
+script = ExtResource("2_jc0qr")
+button_id = "Shortcut"
+metadata/_custom_type_script = "uid://coi3puogpj6af"
+
+[node name="Padding16px2" type="Control" parent="SplitContainer/CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="VScrollBar" type="VScrollBar" parent="SplitContainer/CategoryContainer" node_paths=PackedStringArray("scroll_container")]
+layout_mode = 2
+script = ExtResource("2_3qlfd")
+scroll_container = NodePath("../CategoryBackground/Padding16px0px/ScrollContainer")
+metadata/_custom_type_script = "uid://uwoe30shhkqp"
+
+[node name="Padding3px" type="Control" parent="SplitContainer/CategoryContainer"]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 2
+
+[node name="PaddingLeft10px" type="PanelContainer" parent="SplitContainer"]
+custom_minimum_size = Vector2(427, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_awtxh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SplitContainer/PaddingLeft10px"]
+layout_mode = 2
+
+[node name="SelectorTitleDisplayer" type="Label" parent="SplitContainer/PaddingLeft10px/VBoxContainer" node_paths=PackedStringArray("selector")]
+layout_mode = 2
+theme_type_variation = &"LabelCategoryTitle"
+script = ExtResource("5_awtxh")
+suffix = " Settings"
+selector = NodePath("../../../CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer/VBoxContainer/Selector")
+metadata/_custom_type_script = "uid://dg4en6imq2d6f"
