@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvbjwfy4vbpvw"]
+[gd_scene load_steps=18 format=3 uid="uid://cvbjwfy4vbpvw"]
 
 [ext_resource type="Script" uid="uid://dqdm5g0baxqp8" path="res://custom_node_scripts/Selector.gd" id="1_564gv"]
 [ext_resource type="Theme" uid="uid://re1e3s8kew18" path="res://res_files/Themes/DarkMode.tres" id="1_jc0qr"]
@@ -6,6 +6,13 @@
 [ext_resource type="Script" uid="uid://coi3puogpj6af" path="res://custom_node_scripts/IdButton.gd" id="2_jc0qr"]
 [ext_resource type="Script" uid="uid://dg4en6imq2d6f" path="res://custom_node_scripts/SelectorTitleDisplayer.gd" id="5_awtxh"]
 [ext_resource type="Script" uid="uid://cpw8m3xj0lad0" path="res://custom_node_scripts/ContentSwitcherContainer.gd" id="6_ie2up"]
+[ext_resource type="Script" uid="uid://d15d32ptqkpqv" path="res://components/SettingsGeneral.gd" id="7_4rnmv"]
+[ext_resource type="Script" uid="uid://cxcvg58r4ctxu" path="res://custom_node_scripts/TagContainer.gd" id="7_eco1u"]
+[ext_resource type="Script" uid="uid://c1u05j2sp03tj" path="res://custom_node_scripts/TagAddButton.gd" id="8_8kp2u"]
+[ext_resource type="Script" uid="uid://dsourrsvsm8u6" path="res://components/SettingsAudioButtons.gd" id="8_ufco8"]
+[ext_resource type="Script" uid="uid://cu6wcp704uocp" path="res://custom_node_scripts/app_memory_scripts/SettingsGeneralDataCollector.gd" id="8_y40sp"]
+[ext_resource type="Script" uid="uid://dujbahuvvpuhu" path="res://custom_node_scripts/loader_scripts/SettingsGeneralLoader.gd" id="9_y40sp"]
+[ext_resource type="Script" uid="uid://dwl4usv0mkf8e" path="res://components/SettingsShortcut.gd" id="11_y40sp"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mk17s"]
 
@@ -117,6 +124,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_awtxh")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SplitContainer/PaddingLeft10px"]
 layout_mode = 2
+theme_override_constants/separation = 0
 
 [node name="SelectorTitleDisplayer" type="Label" parent="SplitContainer/PaddingLeft10px/VBoxContainer" node_paths=PackedStringArray("selector")]
 layout_mode = 2
@@ -125,6 +133,10 @@ script = ExtResource("5_awtxh")
 suffix = " Settings"
 selector = NodePath("../../../CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer/VBoxContainer/Selector")
 metadata/_custom_type_script = "uid://dg4en6imq2d6f"
+
+[node name="Padding" type="Control" parent="SplitContainer/PaddingLeft10px/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
 
 [node name="ContentSwitcherContainer" type="PanelContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer" node_paths=PackedStringArray("selector")]
 layout_mode = 2
@@ -135,11 +147,132 @@ unload_unselected = false
 selector = NodePath("../../../CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer/VBoxContainer/Selector")
 metadata/_custom_type_script = "uid://cpw8m3xj0lad0"
 
-[node name="General" type="VBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer"]
+[node name="General" type="VBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer" node_paths=PackedStringArray("master_volume_slider", "audio_output_options")]
 layout_mode = 2
+theme_override_constants/separation = 8
+script = ExtResource("7_4rnmv")
+master_volume_slider = NodePath("MasterVolumeContainer/HSlider")
+audio_output_options = NodePath("AudioOputputContainer/OptionButton")
+
+[node name="MasterVolumeContainer" type="HBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/General"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/General/MasterVolumeContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Master volume"
+text_overrun_behavior = 3
+ellipsis_char = "‥"
+
+[node name="HSlider" type="HSlider" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/General/MasterVolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="AudioOputputContainer" type="HBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/General"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/General/AudioOputputContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Audio output"
+text_overrun_behavior = 3
+ellipsis_char = "‥"
+
+[node name="OptionButton" type="OptionButton" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/General/AudioOputputContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SettingsGeneralDataCollector" type="Node" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/General"]
+script = ExtResource("8_y40sp")
+metadata/_custom_type_script = "uid://cu6wcp704uocp"
+
+[node name="SettingsGeneralLoader" type="Node" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/General" node_paths=PackedStringArray("master_volume_slider", "audio_output_options")]
+script = ExtResource("9_y40sp")
+master_volume_slider = NodePath("../MasterVolumeContainer/HSlider")
+audio_output_options = NodePath("../AudioOputputContainer/OptionButton")
+metadata/_custom_type_script = "uid://dujbahuvvpuhu"
 
 [node name="Audio Buttons" type="VBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 8
+script = ExtResource("8_ufco8")
+
+[node name="DefaultVolumeContainer" type="HBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Audio Buttons"]
 layout_mode = 2
 
-[node name="Shortcut" type="VBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer"]
+[node name="Label" type="Label" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Audio Buttons/DefaultVolumeContainer"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_horizontal = 0
+text = "Default button volume"
+text_overrun_behavior = 3
+ellipsis_char = "‥"
+
+[node name="HSlider" type="HSlider" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Audio Buttons/DefaultVolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="DefaultNameContainer" type="HBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Audio Buttons"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Audio Buttons/DefaultNameContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Default button name"
+text_overrun_behavior = 3
+ellipsis_char = "‥"
+
+[node name="LineEdit" type="LineEdit" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Audio Buttons/DefaultNameContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"LineEditPlainRad20"
+placeholder_text = "Default audio name"
+
+[node name="DefaultNameContainer2" type="HBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Audio Buttons"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Audio Buttons/DefaultNameContainer2"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Default button tags"
+text_overrun_behavior = 3
+ellipsis_char = "‥"
+
+[node name="PanelContainer" type="PanelContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Audio Buttons/DefaultNameContainer2"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"PanelContainerPlain2Rad20"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Audio Buttons/DefaultNameContainer2/PanelContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="TagContainer" type="FlowContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Audio Buttons/DefaultNameContainer2/PanelContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+vertical = true
+script = ExtResource("7_eco1u")
+metadata/_custom_type_script = "uid://cxcvg58r4ctxu"
+
+[node name="TagAddButton" type="Button" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Audio Buttons/DefaultNameContainer2/PanelContainer/ScrollContainer/TagContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+script = ExtResource("8_8kp2u")
+metadata/_custom_type_script = "uid://c1u05j2sp03tj"
+
+[node name="Shortcut" type="VBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 8
+script = ExtResource("11_y40sp")
