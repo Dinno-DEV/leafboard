@@ -25,14 +25,14 @@ var default_data:Dictionary = {
 			"default_tag" : [],
 		},
 		"shortcuts" : {
-			"new_category" : "key",
-			"previous_category" : "key",
-			"next_category" : "key",
-			"search" : "key",
-			"search_tag" : "key",
-			"focus_sound_button" : "key",
-			"increase_sound_button_size" : "key",
-			"decrease_sound_button_size" : "key"
+			"new_category" : 0,
+			"previous_category" : 0,
+			"next_category" : 0,
+			"search" : 0,
+			"search_tag" : 0,
+			"focus_sound_button" : 0,
+			"increase_sound_button_size" : 0,
+			"decrease_sound_button_size" : 0
 		}
 	},
 	"client" : {
@@ -75,11 +75,14 @@ func get_audio_button_default_volume() -> float: return get_audio_button_setting
 func get_audio_button_default_name() -> String: return get_audio_button_settings().default_name
 func get_audio_button_default_tag() -> Array: return get_audio_button_settings().default_tag
 
-func get_shortcuts_new_category() -> String: return get_shortcuts_settings().new_category
-func get_shortcuts_previous_category() -> String: return get_shortcuts_settings().previous_category
-func get_shortcuts_next_category() -> String: return get_shortcuts_settings().next_category
-func get_shortcuts_search() -> String: return get_shortcuts_settings().search
-func get_shortcuts_search_tag() -> String: return get_shortcuts_settings().search_tag
+func get_shortcuts_new_category() -> int: return get_shortcuts_settings().new_category
+func get_shortcuts_previous_category() -> int: return get_shortcuts_settings().previous_category
+func get_shortcuts_next_category() -> int: return get_shortcuts_settings().next_category
+func get_shortcuts_search() -> int: return get_shortcuts_settings().search
+func get_shortcuts_search_tag() -> int: return get_shortcuts_settings().search_tag
+func get_shortcuts_focus_sound_button() -> int: return get_shortcuts_settings().focus_sound_button
+func get_shortcuts_increase_sound_button_size() -> int: return get_shortcuts_settings().increase_sound_button_size
+func get_shortcuts_decrease_sound_button_size() -> int: return get_shortcuts_settings().decrease_sound_button_size
 
 func set_soundboards(data:Dictionary) -> void: 
 	if data == {}: return
@@ -124,11 +127,14 @@ func set_audio_button_default_volume(default_volume:float) -> void: app_data.set
 func set_audio_button_default_name(default_name:String) -> void: app_data.settings.audio_button.default_name = default_name
 func set_audio_button_default_tag(default_tag:Array) -> void: app_data.settings.audio_button.default_tag = default_tag
 
-func set_shortcuts_new_category(new_key:String) -> void: app_data.settings.shortcuts.new_category = new_key
-func set_shortcuts_previous_category(new_key:String) -> void: app_data.settings.shortcuts.previous_category = new_key
-func set_shortcuts_next_category(new_key:String) -> void: app_data.settings.shortcuts.next_category = new_key
-func set_shortcuts_search(new_key:String) -> void: app_data.settings.shortcuts.search = new_key
-func set_shortcuts_search_tag(new_key:String) -> void: app_data.settings.shortcuts.search_tag = new_key
+func set_shortcuts_new_category(new_key:int) -> void: app_data.settings.shortcuts.new_category = new_key
+func set_shortcuts_previous_category(new_key:int) -> void: app_data.settings.shortcuts.previous_category = new_key
+func set_shortcuts_next_category(new_key:int) -> void: app_data.settings.shortcuts.next_category = new_key
+func set_shortcuts_search(new_key:int) -> void: app_data.settings.shortcuts.search = new_key
+func set_shortcuts_search_tag(new_key:int) -> void: app_data.settings.shortcuts.search_tag = new_key
+func set_shortcuts_focus_sound_button(new_key:int) -> void: app_data.settings.shortcuts.focus_sound_button = new_key
+func set_shortcuts_increase_sound_button(new_key:int) -> void: app_data.settings.shortcuts.increase_sound_button_size = new_key
+func set_shortcuts_decrease_sound_button(new_key:int) -> void: app_data.settings.shortcuts.decrease_sound_button_size = new_key
 
 func delete_soundboard(soundboard_name:String) -> void:
 	app_data["soundboards"].erase(soundboard_name)
