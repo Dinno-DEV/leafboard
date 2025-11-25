@@ -3,6 +3,8 @@ extends Button
 
 @export var button_id:String
 
+var selected:bool = false
+
 signal pressed_id(id:String)
 
 func _ready() -> void:
