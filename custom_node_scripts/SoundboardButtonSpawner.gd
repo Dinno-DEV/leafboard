@@ -15,4 +15,9 @@ func get_soundboard() -> Soundboard:
 func _on_audio_button_data_broadcasted(audio_name:String, audio_path:String):
 	var soundboard:Soundboard = get_soundboard()
 	if !soundboard: return
-	soundboard.add_new_button(audio_name, audio_path)
+	soundboard.add_new_button(
+		audio_name, 
+		audio_path, 
+		AppMemory.get_audio_button_default_volume(), 
+		AppMemory.get_audio_button_default_tag()
+	)
