@@ -130,6 +130,8 @@ theme_override_constants/separation = 0
 [node name="SelectorTitleDisplayer" type="Label" parent="SplitContainer/PaddingLeft10px/VBoxContainer" node_paths=PackedStringArray("selector")]
 layout_mode = 2
 theme_type_variation = &"LabelCategoryTitle"
+text_overrun_behavior = 3
+ellipsis_char = "‥"
 script = ExtResource("5_awtxh")
 suffix = " Settings"
 selector = NodePath("../../../CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer/VBoxContainer/Selector")
@@ -148,19 +150,20 @@ unload_unselected = false
 selector = NodePath("../../../CategoryContainer/CategoryBackground/Padding16px0px/ScrollContainer/VBoxContainer/Selector")
 metadata/_custom_type_script = "uid://cpw8m3xj0lad0"
 
-[node name="General" type="VBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer" node_paths=PackedStringArray("master_volume_slider", "audio_output_options")]
-visible = false
+[node name="General" type="VBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer" node_paths=PackedStringArray("master_volume_slider", "audio_output_options", "delete_data", "complete_wipe")]
 layout_mode = 2
 theme_override_constants/separation = 8
 script = ExtResource("7_4rnmv")
 master_volume_slider = NodePath("MasterVolumeContainer/HSlider")
 audio_output_options = NodePath("AudioOputputContainer/OptionButton")
+delete_data = NodePath("DeleteDataContainer/HBoxContainer/DeleteData")
+complete_wipe = NodePath("DeleteDataContainer/HBoxContainer/CompleteWipe")
 
 [node name="MasterVolumeContainer" type="HBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/General"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/General/MasterVolumeContainer"]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Master volume"
@@ -176,7 +179,7 @@ value = 100.0
 layout_mode = 2
 
 [node name="Label" type="Label" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/General/AudioOputputContainer"]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Audio output"
@@ -186,6 +189,33 @@ ellipsis_char = "‥"
 [node name="OptionButton" type="OptionButton" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/General/AudioOputputContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="DeleteDataContainer" type="HBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/General"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/General/DeleteDataContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Erase data"
+text_overrun_behavior = 3
+ellipsis_char = "‥"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/General/DeleteDataContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeleteData" type="Button" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/General/DeleteDataContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Delete data"
+
+[node name="CompleteWipe" type="Button" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/General/DeleteDataContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Complete wipe"
 
 [node name="SettingsGeneralDataCollector" type="Node" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/General"]
 script = ExtResource("8_y40sp")
@@ -198,18 +228,19 @@ audio_output_options = NodePath("../AudioOputputContainer/OptionButton")
 metadata/_custom_type_script = "uid://dujbahuvvpuhu"
 
 [node name="Audio Buttons" type="VBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer" node_paths=PackedStringArray("default_volume_slider", "default_name_line_edit", "default_tag_container")]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 8
 script = ExtResource("8_ufco8")
 default_volume_slider = NodePath("DefaultVolumeContainer/HSlider")
 default_name_line_edit = NodePath("DefaultNameContainer/LineEdit")
-default_tag_container = NodePath("DefaultNameContainer2/PanelContainer/ScrollContainer/TagContainer")
+default_tag_container = NodePath("DefaultButtonTagsContainer/PanelContainer/ScrollContainer/TagContainer")
 
 [node name="DefaultVolumeContainer" type="HBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Audio Buttons"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Audio Buttons/DefaultVolumeContainer"]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Default button volume"
@@ -225,7 +256,7 @@ value = 100.0
 layout_mode = 2
 
 [node name="Label" type="Label" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Audio Buttons/DefaultNameContainer"]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Default button name"
@@ -238,29 +269,29 @@ size_flags_horizontal = 3
 theme_type_variation = &"LineEditPlainRad20"
 placeholder_text = "Default audio name"
 
-[node name="DefaultNameContainer2" type="HBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Audio Buttons"]
+[node name="DefaultButtonTagsContainer" type="HBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Audio Buttons"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Audio Buttons/DefaultNameContainer2"]
-custom_minimum_size = Vector2(300, 0)
+[node name="Label" type="Label" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Audio Buttons/DefaultButtonTagsContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Default button tags"
 text_overrun_behavior = 3
 ellipsis_char = "‥"
 
-[node name="PanelContainer" type="PanelContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Audio Buttons/DefaultNameContainer2"]
+[node name="PanelContainer" type="PanelContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Audio Buttons/DefaultButtonTagsContainer"]
 custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"PanelContainerPlain2Rad20"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Audio Buttons/DefaultNameContainer2/PanelContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Audio Buttons/DefaultButtonTagsContainer/PanelContainer"]
 layout_mode = 2
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 0
 
-[node name="TagContainer" type="FlowContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Audio Buttons/DefaultNameContainer2/PanelContainer/ScrollContainer"]
+[node name="TagContainer" type="FlowContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Audio Buttons/DefaultButtonTagsContainer/PanelContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -268,7 +299,7 @@ vertical = true
 script = ExtResource("7_eco1u")
 metadata/_custom_type_script = "uid://cxcvg58r4ctxu"
 
-[node name="TagAddButton" type="Button" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Audio Buttons/DefaultNameContainer2/PanelContainer/ScrollContainer/TagContainer"]
+[node name="TagAddButton" type="Button" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Audio Buttons/DefaultButtonTagsContainer/PanelContainer/ScrollContainer/TagContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 4
@@ -279,7 +310,7 @@ metadata/_custom_type_script = "uid://c1u05j2sp03tj"
 script = ExtResource("13_0gkld")
 default_volume_slider = NodePath("../DefaultVolumeContainer/HSlider")
 default_name_line_edit = NodePath("../DefaultNameContainer/LineEdit")
-default_tag_container = NodePath("../DefaultNameContainer2/PanelContainer/ScrollContainer/TagContainer")
+default_tag_container = NodePath("../DefaultButtonTagsContainer/PanelContainer/ScrollContainer/TagContainer")
 metadata/_custom_type_script = "uid://b75cq77op5i84"
 
 [node name="Shortcut" type="VBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer"]
@@ -287,3 +318,139 @@ visible = false
 layout_mode = 2
 theme_override_constants/separation = 8
 script = ExtResource("11_y40sp")
+
+[node name="CreateNewCategoryContainer" type="HBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut/CreateNewCategoryContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Create new category"
+text_overrun_behavior = 3
+ellipsis_char = "‥"
+
+[node name="Button" type="Button" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut/CreateNewCategoryContainer"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Key"
+
+[node name="PreviousCategoryContainer" type="HBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut/PreviousCategoryContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Select previous category"
+text_overrun_behavior = 3
+ellipsis_char = "‥"
+
+[node name="Button" type="Button" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut/PreviousCategoryContainer"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Key"
+
+[node name="NextCategoryContainer" type="HBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut/NextCategoryContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Select next category"
+text_overrun_behavior = 3
+ellipsis_char = "‥"
+
+[node name="Button" type="Button" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut/NextCategoryContainer"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Key"
+
+[node name="SearchContainer" type="HBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut/SearchContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Focus search bar"
+text_overrun_behavior = 3
+ellipsis_char = "‥"
+
+[node name="Button" type="Button" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut/SearchContainer"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Key"
+
+[node name="NewTagContainer" type="HBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut/NewTagContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Add new search tag"
+text_overrun_behavior = 3
+ellipsis_char = "‥"
+
+[node name="Button" type="Button" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut/NewTagContainer"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Key"
+
+[node name="FocusSoundButtonContainer" type="HBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut/FocusSoundButtonContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Focus to sound button"
+text_overrun_behavior = 3
+ellipsis_char = "‥"
+
+[node name="Button" type="Button" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut/FocusSoundButtonContainer"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Key"
+
+[node name="IncreaseSizeContainer" type="HBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut/IncreaseSizeContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Increase sound button size"
+text_overrun_behavior = 3
+ellipsis_char = "‥"
+
+[node name="Button" type="Button" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut/IncreaseSizeContainer"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Key"
+
+[node name="DecreaseSizeContainer" type="HBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut/DecreaseSizeContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Decrease sound button size"
+text_overrun_behavior = 3
+ellipsis_char = "‥"
+
+[node name="Button" type="Button" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Shortcut/DecreaseSizeContainer"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Key"
