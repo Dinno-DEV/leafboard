@@ -43,16 +43,6 @@ script = ExtResource("1_exi6l")
 select_on_ready = 1
 metadata/_custom_type_script = "uid://dqdm5g0baxqp8"
 
-[node name="Settings" type="Button" parent="HBoxContainer/Selector"]
-custom_minimum_size = Vector2(25, 25)
-layout_mode = 2
-icon = ExtResource("2_ym4c7")
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("2_b1gva")
-button_id = "Settings"
-metadata/_custom_type_script = "uid://coi3puogpj6af"
-
 [node name="Soundboard" type="Button" parent="HBoxContainer/Selector"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
@@ -61,6 +51,16 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("2_b1gva")
 button_id = "Soundboard"
+metadata/_custom_type_script = "uid://coi3puogpj6af"
+
+[node name="Settings" type="Button" parent="HBoxContainer/Selector"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+icon = ExtResource("2_ym4c7")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_b1gva")
+button_id = "Settings"
 metadata/_custom_type_script = "uid://coi3puogpj6af"
 
 [node name="Padding28px" type="Control" parent="HBoxContainer"]
