@@ -80,7 +80,7 @@ func _on_mouse_exited() -> void:
 	edit_button.visible = false
 
 func _on_mouse_entered() -> void:
-	if button_pressed: return
+	if selected: return
 	delete_button.visible = true
 	edit_button.visible = true
 
@@ -88,6 +88,8 @@ func _on_button_down() -> void:
 	pressed_id.emit(button_id)
 	delete_button.visible = false
 	edit_button.visible = false
+	# await so it prevents moving before loading the soundboard
+	await get_tree().create_timer(0.1).timeout
 	start_moving()
 
 func _on_button_up() -> void:
