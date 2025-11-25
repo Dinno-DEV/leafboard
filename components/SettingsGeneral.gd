@@ -28,25 +28,27 @@ func _on_audio_options_item_selected(index:int) -> void:
 func _on_delete_data_pressed() -> void:
 	DialogConfirmation.reveal_dialogs()
 	var response = await DialogConfirmation.request_response("This will erase all category data. Proceed?")
-	DialogConfirmation.hide_dialogs()
 	if response:
 		DirAccess.remove_absolute(FileUtil.get_directory_path(FileUtil.SOUNDBOARD) + "soundboards.json")
 		DirAccess.remove_absolute(FileUtil.get_directory_path(FileUtil.SOUNDBOARD) + "soundboards_order.json")
 		DirAccess.remove_absolute(FileUtil.get_directory_path(FileUtil.SETTINGS) + "client.json")
-	DialogConfirmation.reveal_dialogs()
-	await DialogConfirmation.request_response("Data deleted. Please restart.")
+	await get_tree().create_timer(0.1).timeout
+	var _new_resp = await DialogConfirmation.request_response("Data deleted. Please restart.")
+	DialogConfirmation.hide_dialogs()
+	await get_tree().physics_frame
 	get_tree().quit()
 
 func _on_complete_wipe_pressed() -> void:
 	DialogConfirmation.reveal_dialogs()
 	var response = await DialogConfirmation.request_response("This will erase ALL DATA. Proceed?")
-	DialogConfirmation.hide_dialogs()
 	if response:
 		DirAccess.remove_absolute(FileUtil.get_directory_path(FileUtil.SOUNDBOARD) + "soundboards.json")
 		DirAccess.remove_absolute(FileUtil.get_directory_path(FileUtil.SOUNDBOARD) + "soundboards_order.json")
 		DirAccess.remove_absolute(FileUtil.get_directory_path(FileUtil.SETTINGS) + "client.json")
 		for file in DirAccess.open(FileUtil.get_directory_path(FileUtil.AUDIO)).get_files():
 			DirAccess.remove_absolute(FileUtil.get_directory_path(FileUtil.AUDIO) + file)
-	DialogConfirmation.reveal_dialogs()
-	await DialogConfirmation.request_response("Data deleted. Please restart.")
+	await get_tree().create_timer(0.1).timeout
+	var _new_resp = await DialogConfirmation.request_response("Data deleted. Please restart.")
+	DialogConfirmation.hide_dialogs()
+	await get_tree().physics_frame
 	get_tree().quit()
