@@ -102,6 +102,7 @@ layout_mode = 2
 theme_type_variation = &"LineEditRad12"
 placeholder_text = "Search category"
 alignment = 1
+context_menu_enabled = false
 caret_blink = true
 caret_blink_interval = 0.5
 script = ExtResource("2_12dae")
