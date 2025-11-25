@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cvbjwfy4vbpvw"]
+[gd_scene load_steps=19 format=3 uid="uid://cvbjwfy4vbpvw"]
 
 [ext_resource type="Script" uid="uid://dqdm5g0baxqp8" path="res://custom_node_scripts/Selector.gd" id="1_564gv"]
 [ext_resource type="Theme" uid="uid://re1e3s8kew18" path="res://res_files/Themes/DarkMode.tres" id="1_jc0qr"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://cu6wcp704uocp" path="res://custom_node_scripts/app_memory_scripts/SettingsGeneralDataCollector.gd" id="8_y40sp"]
 [ext_resource type="Script" uid="uid://dujbahuvvpuhu" path="res://custom_node_scripts/loader_scripts/SettingsGeneralLoader.gd" id="9_y40sp"]
 [ext_resource type="Script" uid="uid://dwl4usv0mkf8e" path="res://components/SettingsShortcut.gd" id="11_y40sp"]
+[ext_resource type="Script" uid="uid://b75cq77op5i84" path="res://custom_node_scripts/loader_scripts/SettingsAudioButtonsLoader.gd" id="13_0gkld"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mk17s"]
 
@@ -148,6 +149,7 @@ selector = NodePath("../../../CategoryContainer/CategoryBackground/Padding16px0p
 metadata/_custom_type_script = "uid://cpw8m3xj0lad0"
 
 [node name="General" type="VBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer" node_paths=PackedStringArray("master_volume_slider", "audio_output_options")]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 8
 script = ExtResource("7_4rnmv")
@@ -195,11 +197,13 @@ master_volume_slider = NodePath("../MasterVolumeContainer/HSlider")
 audio_output_options = NodePath("../AudioOputputContainer/OptionButton")
 metadata/_custom_type_script = "uid://dujbahuvvpuhu"
 
-[node name="Audio Buttons" type="VBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer"]
-visible = false
+[node name="Audio Buttons" type="VBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer" node_paths=PackedStringArray("default_volume_slider", "default_name_line_edit", "default_tag_container")]
 layout_mode = 2
 theme_override_constants/separation = 8
 script = ExtResource("8_ufco8")
+default_volume_slider = NodePath("DefaultVolumeContainer/HSlider")
+default_name_line_edit = NodePath("DefaultNameContainer/LineEdit")
+default_tag_container = NodePath("DefaultNameContainer2/PanelContainer/ScrollContainer/TagContainer")
 
 [node name="DefaultVolumeContainer" type="HBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Audio Buttons"]
 layout_mode = 2
@@ -270,6 +274,13 @@ size_flags_horizontal = 2
 size_flags_vertical = 4
 script = ExtResource("8_8kp2u")
 metadata/_custom_type_script = "uid://c1u05j2sp03tj"
+
+[node name="SettingsAudioButtonsLoader" type="Node" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer/Audio Buttons" node_paths=PackedStringArray("default_volume_slider", "default_name_line_edit", "default_tag_container")]
+script = ExtResource("13_0gkld")
+default_volume_slider = NodePath("../DefaultVolumeContainer/HSlider")
+default_name_line_edit = NodePath("../DefaultNameContainer/LineEdit")
+default_tag_container = NodePath("../DefaultNameContainer2/PanelContainer/ScrollContainer/TagContainer")
+metadata/_custom_type_script = "uid://b75cq77op5i84"
 
 [node name="Shortcut" type="VBoxContainer" parent="SplitContainer/PaddingLeft10px/VBoxContainer/ContentSwitcherContainer"]
 visible = false
