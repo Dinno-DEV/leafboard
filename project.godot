@@ -32,6 +32,7 @@ AppMemory="*res://singletons/AppMemory.gd"
 Saver="*res://singletons/Saver.gd"
 Loader="*res://singletons/Loader.gd"
 AudioPlayerServer="*res://singletons/AudioPlayerServer.gd"
+InputRecorder="*res://singletons/InputRecorder.tscn"
 
 [display]
 

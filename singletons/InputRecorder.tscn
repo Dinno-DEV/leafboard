@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cktpde1ymlacd"]
+
+[ext_resource type="Script" uid="uid://ba3pim8onqx8g" path="res://singletons/InputRecorder.gd" id="1_sq6vl"]
+
+[node name="InputRecorder" type="CanvasLayer"]
+script = ExtResource("1_sq6vl")
