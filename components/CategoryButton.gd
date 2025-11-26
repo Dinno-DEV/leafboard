@@ -16,6 +16,8 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if is_reordering:
+		if !Input.is_action_pressed("mouse_left"):
+			stop_moving(); return
 		if get_local_mouse_position().y < 0 - reordering_margin:
 			if get_index() - 1 >= 0:
 				if get_parent():
